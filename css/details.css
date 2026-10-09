@@ -912,6 +912,51 @@
   }
 }
 
+
+/* ==========================================
+   LEAFLET MAP FIXES
+   ========================================== */
+
+.details-page #wedding-map {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+  z-index: 0;
+  isolation: isolate;
+}
+
+/* Prevent global image styling from affecting map tiles */
+.details-page #wedding-map .leaflet-tile,
+.details-page #wedding-map .leaflet-marker-icon,
+.details-page #wedding-map .leaflet-marker-shadow {
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Ensure Leaflet controls and tiles stay in their layers */
+.details-page #wedding-map .leaflet-pane,
+.details-page #wedding-map .leaflet-tile-container {
+  position: absolute;
+}
+
+/* Keep map imagery within the map */
+.details-page #wedding-map .leaflet-tile {
+  position: absolute;
+  width: 256px;
+  height: 256px;
+}
+
+/* Mobile sizing */
+@media (max-width: 620px) {
+  .details-page #wedding-map {
+    height: 360px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .details-page *,
   .details-page *::before,
