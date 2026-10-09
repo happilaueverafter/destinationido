@@ -1,96 +1,115 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Page Information -->
+  <title>Davis & Kaylee | Wedding 2027</title>
   <meta name="theme-color" content="#F4EFE6">
-  <meta name="description"
-        content="Save the date! Join us November 19, 2027 in Austin, Texas.">
 
-  <title>Wander | Destination: I Do</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/global.js" defer></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
+  <!-- ==========================================
+       SHARED NAVIGATION HEADER
+       Loaded automatically by global.js
+  =========================================== -->
 
-    <a href="#home" class="site-logo" aria-label="Wander Home">
-      <span class="logo-title">WANDER</span>
-      <span class="logo-subtitle">THE WEDDING EDITION</span>
-    </a>
+  <div
+    id="header-container"
+    data-base="./"
+  ></div>
 
-    <button class="menu-toggle"
-            type="button"
-            aria-label="Open navigation"
-            aria-controls="site-navigation"
-            aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
 
-    <nav id="site-navigation" class="site-nav" aria-label="Main navigation">
-      <a href="#home" class="active">Home</a>
-      <a href="#announcement">Save the Date</a>
-      <a href="#travel">Travel</a>
-      <a href="#details">Details</a>
-    </nav>
-
-  </header>
+  <!-- ==========================================
+       HOMEPAGE CONTENT
+  =========================================== -->
 
   <main id="home">
 
-    <!-- HERO PHOTOGRAPH -->
-    <section class="hero" aria-label="Wedding announcement photograph">
+
+    <!-- ========================================
+         HERO PHOTOGRAPH
+    ========================================= -->
+
+    <section
+      class="hero"
+      aria-label="Wedding announcement photograph"
+    >
+
       <div class="hero-image"></div>
+
     </section>
 
-    <!-- ANNOUNCEMENT -->
-    <section id="announcement" class="announcement">
 
-      <p class="eyebrow">DESTINATION: I DO</p>
+    <!-- ========================================
+         SAVE THE DATE ANNOUNCEMENT
+    ========================================= -->
+
+    <section
+      id="announcement"
+      class="announcement"
+    >
+
+      <p class="eyebrow">
+        Destination: I Do
+      </p>
 
       <h1 class="couple-names">
-        Kaylee <span class="ampersand">&</span> [Name]
+        Kaylee
+        <span class="ampersand">&</span>
+        [Name]
       </h1>
 
       <div class="ornament" aria-hidden="true">
-        <span></span>
-        <span class="ornament-symbol">✦</span>
-        <span></span>
+        ✦
       </div>
 
-      <p class="announcement-label">SAVE THE DATE</p>
+      <p class="announcement-label">
+        SAVE THE DATE
+      </p>
 
-      <h2 class="wedding-date">November 19, 2027</h2>
+      <h2 class="wedding-date">
+        November 19, 2027
+      </h2>
 
-      <p class="wedding-location">Austin, Texas</p>
+      <p class="wedding-location">
+        Austin, Texas
+      </p>
 
       <p class="announcement-note">
-        Formal invitation to follow.
+        Formal invitation to follow
       </p>
 
     </section>
 
-    <!-- TRAVEL PREVIEW -->
-    <section id="travel" class="travel-section">
 
-      <div class="section-inner">
+    <!-- ========================================
+         TRAVEL PREVIEW
+    ========================================= -->
 
-        <p class="eyebrow">YOUR NEXT DESTINATION</p>
+    <section
+      id="travel-preview"
+      class="travel-section"
+    >
 
-        <h2>Meet Us in Austin</h2>
+      <div class="container-narrow">
+
+        <p class="eyebrow">
+          Your Next Destination
+        </p>
+
+        <h2>
+          Meet Us in Austin
+        </h2>
 
         <p>
           We're so excited to celebrate with you!
@@ -100,37 +119,83 @@
         </p>
 
         <p>
-          Check back for updates as our wedding approaches.
+          Check back for updates as our wedding
+          approaches.
         </p>
+
+        <a
+          href="travel.html"
+          class="btn btn-outline travel-button"
+        >
+          Explore Travel Details
+        </a>
 
       </div>
 
     </section>
 
-    <!-- DETAILS -->
-    <section id="details" class="details-section">
 
-      <p class="eyebrow">THE CELEBRATION</p>
+    <!-- ========================================
+         WEDDING DETAILS PREVIEW
+    ========================================= -->
 
-      <h2>November 19, 2027</h2>
+    <section
+      id="details-preview"
+      class="details-section"
+    >
 
-      <p>Canyonwood Ridge</p>
-      <p>Austin, Texas</p>
+      <div class="container-narrow">
 
-      <p class="details-note">
-        Ceremony timing and additional details coming soon.
-      </p>
+        <p class="eyebrow">
+          The Celebration
+        </p>
+
+        <h2>
+          November 19, 2027
+        </h2>
+
+        <p>
+          Canyonwood Ridge
+        </p>
+
+        <p>
+          Austin, Texas
+        </p>
+
+        <p class="details-note">
+          Ceremony timing and additional
+          details coming soon.
+        </p>
+
+        <a
+          href="details.html"
+          class="btn btn-primary details-button"
+        >
+          Wedding Details
+        </a>
+
+      </div>
 
     </section>
 
   </main>
 
-  <!-- FOOTER -->
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+
   <footer class="site-footer">
-    <p class="footer-title">WANDER</p>
-    <p>Kaylee & [Name] · 11.19.27</p>
+
+    <p class="footer-title">
+      WANDER
+    </p>
+
+    <p>
+      Kaylee & [Name] · 11.19.27
+    </p>
+
   </footer>
 
 </body>
 </html>
-
