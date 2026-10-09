@@ -592,6 +592,146 @@
 
 
 /* ==========================================
+   OUR FAVORITE PEOPLE — PHOTO GALLERY
+========================================== */
+
+.people-gallery {
+  width: min(1150px, calc(100vw - 40px));
+  max-width: none;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin: 85px 0 65px;
+  text-align: center;
+}
+
+.people-gallery-eyebrow {
+  margin-bottom: 12px;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--color-terracotta);
+}
+
+.people-gallery-title {
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  color: var(--color-terracotta);
+  margin-bottom: 35px;
+}
+
+/* Carousel layout */
+
+.people-gallery-frame {
+  position: relative;
+}
+
+.people-gallery-track {
+  display: flex;
+  gap: 18px;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding: 25px 12px 35px;
+
+  scrollbar-width: none;
+}
+
+.people-gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual photo cards */
+
+.people-gallery-photo {
+  flex: 0 0 clamp(210px, 28vw, 320px);
+  margin: 0;
+
+  padding: 6px;
+  background: #fffaf3;
+
+  box-shadow:
+    0 7px 20px rgba(52, 53, 47, 0.11);
+
+  scroll-snap-align: center;
+}
+
+.people-gallery-photo img {
+  width: 100%;
+  height: clamp(240px, 30vw, 350px);
+  object-fit: cover;
+}
+
+/* Gentle variation in photo height */
+
+.people-gallery-photo:nth-child(3n + 2) {
+  transform: translateY(12px);
+}
+
+.people-gallery-photo:nth-child(3n + 3) {
+  transform: translateY(-6px);
+}
+
+/* Navigation arrows */
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+
+  transform: translateY(-50%);
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--color-champagne);
+  border-radius: 50%;
+
+  background: var(--color-ivory);
+  color: var(--color-terracotta);
+
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  box-shadow: 0 3px 12px rgba(52, 53, 47, 0.1);
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+
+.gallery-arrow:hover {
+  background: var(--color-terracotta);
+  color: var(--color-ivory);
+}
+
+.gallery-prev {
+  left: -15px;
+}
+
+.gallery-next {
+  right: -15px;
+}
+
+/* Caption */
+
+.people-gallery-caption {
+  margin: 25px 0 0;
+
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--color-matcha-dark);
+}
+
+/* ==========================================
    TABLET
 ========================================== */
 
@@ -720,6 +860,34 @@
 
 }
 
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .people-gallery {
+    width: calc(100vw - 20px);
+    margin: 65px 0 45px;
+  }
+
+  .people-gallery-track {
+    gap: 12px;
+    padding: 20px 12px 30px;
+  }
+
+  .people-gallery-photo {
+    flex-basis: 72vw;
+  }
+
+  .people-gallery-photo img {
+    height: 290px;
+  }
+
+  .gallery-arrow {
+    display: none;
+  }
+
+}
+
 
 /* ==========================================
    SMALL MOBILE
@@ -746,5 +914,7 @@
   .travel-collage .collage-photo {
     transition: none;
   }
-
+  .people-gallery-track {
+    scroll-behavior: auto;
+  } 
 }
