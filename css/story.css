@@ -53,56 +53,53 @@
 
 /* Animated text */
 
-.story-title-writing {
-  display: inline-block;
+
+/* ==========================================
+   OUR STORY — SVG HANDWRITING
+========================================== */
+
+.story-title-handwritten {
   position: relative;
-
-  white-space: nowrap;
-
-  /* Start with all lettering hidden */
-  clip-path: inset(0 100% 0 0);
-
-  animation: storyHandwriting 3.5s
-    cubic-bezier(0.45, 0, 0.25, 1)
-    0.4s forwards;
+  width: min(100%, 560px);
+  margin: 12px auto 28px;
+  line-height: 1.2;
+  color: var(--color-terracotta);
 }
 
-/* Reveal the letters in stages */
+/* Regular Brittany text as a fallback */
 
-@keyframes storyHandwriting {
+.story-title-fallback {
+  display: block;
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
+  white-space: nowrap;
+}
 
-  0% {
-    clip-path: inset(0 100% 0 0);
-  }
+/* SVG animation container */
 
-  15% {
-    clip-path: inset(0 84% 0 0);
-  }
+#story-handwriting {
+  display: none;
+  width: 100%;
+}
 
-  28% {
-    clip-path: inset(0 70% 0 0);
-  }
+#story-handwriting svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
 
-  42% {
-    clip-path: inset(0 56% 0 0);
-  }
+/* Show the SVG once Vivus is initialized */
 
-  53% {
-    clip-path: inset(0 49% 0 0);
-  }
+.story-title-handwritten.handwriting-active
+  .story-title-fallback {
+  display: none;
+}
 
-  66% {
-    clip-path: inset(0 34% 0 0);
-  }
-
-  80% {
-    clip-path: inset(0 17% 0 0);
-  }
-
-  100% {
-    clip-path: inset(0 0 0 0);
-  }
-
+.story-title-handwritten.handwriting-active
+  #story-handwriting {
+  display: block;
 }
 
 .story-subtitle {
@@ -1061,7 +1058,14 @@
   .memory-polaroid img {
     aspect-ratio: 4 / 3;
   }
+   
+  .story-title-handwritten {
+    width: min(100%, 350px);
+  }
 
+  .story-title-fallback {
+    font-size: clamp(2.8rem, 10vw, 4rem);
+  }
 }
 
 
