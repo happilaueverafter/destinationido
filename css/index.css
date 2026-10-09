@@ -293,17 +293,18 @@
   left: -5%;
   bottom: 0;
 
-  overflow: visible;
+  overflow: hidden;
   pointer-events: none;
+  color: var(--color-ivory);
 }
 
 .flight-route {
   fill: none;
-  stroke: var(--color-champagne);
+  stroke: var(--color-ivory);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-dasharray: 2 10;
-  opacity: 0.65;
+  opacity: 0.25;
 }
 
 /* Decorative airplane */
@@ -318,10 +319,10 @@
   right: 5%;
   bottom: 44%;
 
-  color: var(--color-champagne);
+  color: var(--color-ivory);
   transform: rotate(48deg);
 
-  opacity: 0.85;
+  opacity: 0.25;
   pointer-events: none;
 }
 
