@@ -1,28 +1,50 @@
 
-const menuButton = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".site-nav");
-const navigationLinks = document.querySelectorAll(".site-nav a");
+/* ==========================================
+   WANDER — HOMEPAGE JAVASCRIPT
+========================================== */
 
-function closeMenu() {
-  navigation.classList.remove("open");
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Open navigation");
+const weddingDate = new Date("2027-11-19T17:00:00-06:00");
+
+function updateCountdown() {
+  const countdown =
+    document.getElementById("wedding-countdown");
+
+  if (!countdown) return;
+
+  const difference = Math.max(
+    0,
+    weddingDate.getTime() - Date.now()
+  );
+
+  const days = Math.floor(
+    difference / (1000 * 60 * 60 * 24)
+  );
+
+  const hours = Math.floor(
+    (difference / (1000 * 60 * 60)) % 24
+  );
+
+  const minutes = Math.floor(
+    (difference / (1000 * 60)) % 60
+  );
+
+  const seconds = Math.floor(
+    (difference / 1000) % 60
+  );
+
+  const setText = (id, value) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.textContent = String(value).padStart(2, "0");
+    }
+  };
+
+  setText("countdown-days", days);
+  setText("countdown-hours", hours);
+  setText("countdown-minutes", minutes);
+  setText("countdown-seconds", seconds);
 }
 
-menuButton.addEventListener("click", () => {
-  const isOpen = navigation.classList.toggle("open");
-
-  menuButton.setAttribute("aria-expanded", String(isOpen));
-  menuButton.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation" : "Open navigation"
-  );
-});
-
-navigationLinks.forEach(link => {
-  link.addEventListener("click", closeMenu);
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeMenu();
-});
+updateCountdown();
+setInterval(updateCountdown, 1000);
