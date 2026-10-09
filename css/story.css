@@ -1,0 +1,548 @@
+
+/* ==========================================
+   WANDER — OUR STORY
+========================================== */
+
+
+/* ==========================================
+   PAGE COLORS
+========================================== */
+
+.theme-ivory .story-intro,
+.theme-ivory .story-chapter {
+  --story-terracotta: var(--color-terracotta);
+  --story-green: var(--color-matcha-dark);
+  --story-paper: var(--color-ivory);
+  --story-champagne: var(--color-champagne);
+  --story-ink: var(--color-charcoal);
+}
+
+
+/* ==========================================
+   STORY INTRO
+========================================== */
+
+.story-intro {
+  background: var(--color-ivory);
+  text-align: center;
+
+  padding: clamp(80px, 10vw, 135px)
+           24px
+           clamp(90px, 10vw, 130px);
+}
+
+.story-eyebrow {
+  color: var(--color-terracotta);
+  margin-bottom: 20px;
+}
+
+.story-title {
+  font-size: clamp(4rem, 9vw, 7rem);
+  line-height: 1;
+
+  color: var(--color-terracotta);
+  margin-bottom: 18px;
+}
+
+.story-subtitle {
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-style: italic;
+
+  color: var(--color-matcha-dark);
+  margin-bottom: 25px;
+}
+
+.story-ornament {
+  font-size: 1.5rem;
+  color: var(--color-champagne);
+  margin-bottom: 55px;
+}
+
+
+/* ==========================================
+   STATISTICS PLAQUE
+========================================== */
+
+.story-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  width: min(100%, 900px);
+  margin: 0 auto;
+
+  border: 1px solid var(--color-champagne);
+  padding: 28px 15px;
+
+  background: rgba(216, 195, 165, 0.07);
+}
+
+.story-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+  padding: 10px;
+
+  border-right: 1px solid var(--color-champagne);
+}
+
+.story-stat:last-child {
+  border-right: none;
+}
+
+.story-stat-number {
+  font-family: var(--font-editorial);
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  line-height: 1;
+
+  color: var(--color-terracotta);
+  font-variant-numeric: lining-nums;
+}
+
+.story-stat-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: var(--color-matcha-dark);
+}
+
+.story-stats-caption {
+  margin: 18px 0 0;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--color-matcha);
+}
+
+
+/* ==========================================
+   CHAPTER SHARED STYLES
+========================================== */
+
+.story-chapter {
+  padding: clamp(90px, 10vw, 145px) 24px;
+}
+
+.story-chapter-inner {
+  width: min(100%, 1150px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(45px, 6vw, 95px);
+
+  align-items: center;
+}
+
+.chapter-copy {
+  max-width: 540px;
+}
+
+.chapter-number {
+  margin-bottom: 18px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+
+  color: var(--color-terracotta);
+}
+
+.chapter-title {
+  font-size: clamp(2.9rem, 5vw, 4.7rem);
+  line-height: 1.05;
+
+  color: var(--color-terracotta);
+  margin-bottom: 18px;
+}
+
+.chapter-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.4;
+
+  color: var(--color-matcha-dark);
+  margin-bottom: 35px;
+}
+
+.chapter-copy > p:not(.chapter-number):not(.chapter-subtitle),
+.proposal-story p,
+.chapter-four-copy p {
+  font-size: clamp(1.12rem, 1.5vw, 1.3rem);
+  line-height: 1.75;
+
+  color: var(--color-charcoal);
+  margin-bottom: 22px;
+}
+
+.chapter-copy .chapter-punchline,
+.proposal-story .chapter-punchline {
+  color: var(--color-terracotta) !important;
+  font-style: italic;
+  font-size: 1.45rem !important;
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   PHOTOGRAPHY
+========================================== */
+
+.chapter-photos {
+  position: relative;
+  min-width: 0;
+}
+
+.story-photo {
+  margin: 0;
+  position: relative;
+}
+
+.story-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+
+  background: var(--color-champagne);
+}
+
+.story-photo figcaption,
+.proposal-feature-photo figcaption {
+  margin-top: 12px;
+
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+
+  color: var(--color-matcha-dark);
+}
+
+.photo-annotation {
+  position: absolute;
+  z-index: 2;
+
+  font-family: var(--font-script);
+  font-size: clamp(1.4rem, 2.5vw, 2.3rem);
+
+  color: var(--color-terracotta);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+
+/* ==========================================
+   CHAPTER ONE
+========================================== */
+
+.chapter-one {
+  background: #F7F1E8;
+  border-top: 1px solid rgba(148, 74, 50, 0.12);
+}
+
+.annotation-boba {
+  right: -12px;
+  bottom: 50px;
+
+  transform: rotate(-8deg);
+}
+
+
+/* ==========================================
+   CHAPTER TWO
+========================================== */
+
+.chapter-two {
+  background: var(--color-ivory);
+}
+
+.story-chapter-reverse .chapter-copy {
+  order: 2;
+}
+
+.story-chapter-reverse .chapter-photos {
+  order: 1;
+}
+
+.chapter-photo-collage {
+  padding-right: 65px;
+  padding-bottom: 65px;
+}
+
+.chapter-photo-collage .story-photo-primary img {
+  aspect-ratio: 4 / 5;
+}
+
+.chapter-photo-collage .story-photo-secondary {
+  position: absolute;
+
+  width: 47%;
+  right: 0;
+  bottom: 0;
+
+  padding: 7px;
+  background: var(--color-ivory);
+
+  box-shadow: 0 12px 35px rgba(52, 53, 47, 0.12);
+}
+
+.chapter-photo-collage .story-photo-secondary img {
+  aspect-ratio: 3 / 4;
+}
+
+.annotation-travel {
+  left: 3%;
+  bottom: 10px;
+
+  transform: rotate(-6deg);
+}
+
+
+/* ==========================================
+   CHAPTER THREE — PROPOSAL
+========================================== */
+
+.chapter-three {
+  background: #F7F1E8;
+}
+
+.proposal-intro {
+  width: min(100%, 850px);
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.proposal-intro .chapter-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.proposal-intro .chapter-subtitle {
+  margin-bottom: 0;
+}
+
+.proposal-feature-photo {
+  width: min(100%, 1100px);
+  margin: 0 auto 65px;
+}
+
+.proposal-feature-photo img {
+  width: 100%;
+  max-height: 620px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  background: var(--color-champagne);
+}
+
+.proposal-feature-photo figcaption {
+  text-align: right;
+}
+
+.proposal-story {
+  width: min(100%, 740px);
+  margin: 0 auto;
+}
+
+.proposal-story p {
+  margin-bottom: 26px;
+}
+
+.proposal-story .chapter-punchline {
+  text-align: center;
+  margin-top: 42px;
+}
+
+
+/* ==========================================
+   CHAPTER FOUR — CLOSING
+========================================== */
+
+.chapter-four {
+  background: var(--color-ivory);
+  text-align: center;
+}
+
+.chapter-four-inner {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.chapter-four .chapter-title {
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+}
+
+.chapter-four-copy {
+  margin-top: 45px;
+}
+
+.chapter-four-copy p {
+  margin-bottom: 25px;
+}
+
+.story-ending {
+  margin: 55px auto 20px;
+
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.4;
+
+  color: var(--color-terracotta);
+}
+
+.story-ending-ornament {
+  font-size: 1.5rem;
+  color: var(--color-champagne);
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .story-chapter-inner {
+    gap: 35px;
+  }
+
+  .chapter-title {
+    font-size: clamp(2.7rem, 5vw, 3.8rem);
+  }
+
+  .chapter-photo-collage {
+    padding-right: 35px;
+    padding-bottom: 45px;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .story-intro {
+    padding: 75px 20px 90px;
+  }
+
+  .story-title {
+    font-size: clamp(3.8rem, 14vw, 5.5rem);
+  }
+
+  .story-ornament {
+    margin-bottom: 35px;
+  }
+
+  .story-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+  }
+
+  .story-stat {
+    padding: 22px 10px;
+  }
+
+  .story-stat:nth-child(2) {
+    border-right: none;
+  }
+
+  .story-stat:nth-child(-n+2) {
+    border-bottom: 1px solid var(--color-champagne);
+  }
+
+  .story-stat-number {
+    font-size: 3.5rem;
+  }
+
+  .story-stats-caption {
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+  }
+
+  .story-chapter {
+    padding: 85px 22px;
+  }
+
+  .story-chapter-inner {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .story-chapter-reverse .chapter-copy,
+  .story-chapter-reverse .chapter-photos {
+    order: initial;
+  }
+
+  .chapter-copy {
+    max-width: none;
+  }
+
+  .chapter-title {
+    font-size: clamp(3rem, 10vw, 4.2rem);
+  }
+
+  .chapter-subtitle {
+    margin-bottom: 25px;
+  }
+
+  .chapter-photos {
+    width: min(100%, 470px);
+    margin: 0 auto;
+  }
+
+  .annotation-boba {
+    right: 0;
+    bottom: 45px;
+  }
+
+  .chapter-photo-collage {
+    padding-right: 45px;
+    padding-bottom: 60px;
+  }
+
+  .proposal-intro {
+    margin-bottom: 35px;
+  }
+
+  .proposal-feature-photo {
+    margin-bottom: 45px;
+  }
+
+  .proposal-feature-photo img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .chapter-four-copy {
+    margin-top: 30px;
+  }
+
+  .story-ending {
+    margin-top: 40px;
+  }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+  .story-stat-number {
+    font-size: 3rem;
+  }
+
+  .story-stat-label {
+    font-size: 0.65rem;
+  }
+
+  .photo-annotation {
+    font-size: 1.35rem;
+  }
+
+}
