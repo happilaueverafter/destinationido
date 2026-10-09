@@ -1,446 +1,64 @@
 
-/* ==========================================================
-   WANDER — HOMEPAGE
-   index.css
-
-   Requires:
-   - global.css
-   - shared header module
-
-   Sections:
-   01. Hero Photograph
-   02. Save the Date Announcement
-   03. Travel Preview
-   04. Wedding Details Preview
-   05. Responsive Design
-========================================================== */
-
-
-/* ==========================================================
-   01. HERO PHOTOGRAPH
-========================================================== */
+/* ==========================================
+   MATCHA CINEMATIC HERO
+========================================== */
 
 .hero {
-  position: relative;
-
-  width: 100%;
-  height: clamp(400px, 55vw, 720px);
-
-  overflow: hidden;
-
-  background: var(--color-champagne);
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-
-  background-image: url("../assets/Hero2.jpg");
-  background-position: center 45%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-
-/* ==========================================================
-   02. SAVE THE DATE ANNOUNCEMENT
-========================================================== */
-
-.announcement {
-  position: relative;
-
-  width: 100%;
-  padding: clamp(75px, 9vw, 130px) var(--page-padding);
-
-  background: var(--color-ivory);
-  text-align: center;
-}
-
-
-/* ---------------------------------
-   Editorial Eyebrow
---------------------------------- */
-
-.announcement .eyebrow {
-  margin-bottom: 12px;
-}
-
-
-/* ---------------------------------
-   Couple Names
---------------------------------- */
-
-.couple-names {
-  font-family: var(--font-script);
-  font-size: clamp(42px, 5.5vw, 78px);
-  font-weight: 400;
-  line-height: 1.7;
-
-  color: var(--color-matcha);
-
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.couple-names .ampersand {
-  color: var(--color-burnt-orange);
-}
-
-
-/* ---------------------------------
-   Decorative Divider
---------------------------------- */
-
-.announcement .ornament {
-  margin: 18px auto 28px;
-}
-
-
-/* ---------------------------------
-   Save the Date Label
---------------------------------- */
-
-.announcement-label {
-  font-family: var(--font-editorial);
-  font-size: 14px;
-  font-weight: 600;
-
-  letter-spacing: 0.3em;
-
-  color: var(--color-matcha);
-}
-
-
-/* ---------------------------------
-   Wedding Date
---------------------------------- */
-
-.wedding-date {
-  font-family: var(--font-editorial);
-  font-size: clamp(36px, 4.5vw, 54px);
-  font-weight: 500;
-  line-height: 1.2;
-
-  color: var(--color-charcoal);
-
-  margin-top: 16px;
-}
-
-
-/* ---------------------------------
-   Wedding Location
---------------------------------- */
-
-.wedding-location {
-  font-family: var(--font-editorial);
-  font-size: clamp(21px, 2.3vw, 27px);
-
-  color: var(--color-burnt-orange);
-
-  margin-top: 8px;
-}
-
-
-/* ---------------------------------
-   Formal Invitation Note
---------------------------------- */
-
-.announcement-note {
-  font-family: var(--font-editorial);
-  font-size: 19px;
-  font-style: italic;
-
-  color: var(--color-text-muted);
-
-  margin-top: 35px;
-}
-
-
-/* ==========================================================
-   03. TRAVEL PREVIEW
-========================================================== */
-
-.travel-section {
-  position: relative;
-
-  width: 100%;
-
-  padding: var(--section-padding) var(--page-padding);
-
   background: var(--color-matcha);
-  color: var(--color-white);
-
-  text-align: center;
 }
 
+/* Keep the photo atmospheric without
+   introducing a forest-green tint */
 
-/* ---------------------------------
-   Editorial Label
---------------------------------- */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(25, 27, 22, 0.12) 0%,
+    rgba(25, 27, 22, 0.30) 45%,
+    rgba(25, 27, 22, 0.55) 100%
+  );
+}
 
-.travel-section .eyebrow {
+/* Champagne accents */
+
+.hero-ampersand,
+.flourish-symbol,
+.countdown-label {
+  color: var(--color-champagne);
+}
+
+/* Countdown */
+
+.countdown-unit {
+  background: rgba(52, 53, 47, 0.25);
+  border: 1px solid rgba(216, 195, 165, 0.65);
+}
+
+/* ==========================================
+   MATCHA SECTION
+========================================== */
+
+.travel-preview {
+  background: var(--color-matcha);
   color: var(--color-ivory);
-  margin-bottom: 14px;
 }
 
-
-/* ---------------------------------
-   Section Heading
---------------------------------- */
-
-.travel-section h2 {
-  font-family: var(--font-editorial);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 500;
-  line-height: 1.15;
-
-  color: var(--color-white);
-
-  margin-bottom: 28px;
+.travel-preview h2 {
+  color: var(--color-ivory);
 }
 
-
-/* ---------------------------------
-   Section Body
---------------------------------- */
-
-.travel-section p:not(.eyebrow) {
-  font-size: clamp(19px, 2vw, 22px);
-  line-height: 1.7;
-
-  max-width: 650px;
-  margin: 0 auto 16px;
+.travel-preview .eyebrow {
+  color: var(--color-ivory);
 }
 
+/* Button for matcha background */
 
-/* ---------------------------------
-   Travel Button
---------------------------------- */
-
-.travel-button {
-  margin-top: 32px;
-}
-
-.travel-section .btn-outline {
-  color: var(--color-white);
-  border-color: var(--color-ivory);
-}
-
-.travel-section .btn-outline:hover {
+.travel-preview .btn-primary {
   background: var(--color-ivory);
-  color: var(--color-matcha);
+  color: var(--color-charcoal);
 }
 
-
-/* ==========================================================
-   04. WEDDING DETAILS PREVIEW
-========================================================== */
-
-.details-section {
-  position: relative;
-
-  width: 100%;
-
-  padding: var(--section-padding) var(--page-padding);
-
-  background: var(--color-ivory);
-
-  text-align: center;
-}
-
-
-/* ---------------------------------
-   Editorial Label
---------------------------------- */
-
-.details-section .eyebrow {
-  margin-bottom: 16px;
-}
-
-
-/* ---------------------------------
-   Section Heading
---------------------------------- */
-
-.details-section h2 {
-  font-family: var(--font-editorial);
-  font-size: clamp(36px, 4.5vw, 54px);
-  font-weight: 500;
-
-  color: var(--color-matcha);
-
-  margin-bottom: 20px;
-}
-
-
-/* ---------------------------------
-   Venue / Location
---------------------------------- */
-
-.details-section p:not(.eyebrow) {
-  font-size: clamp(20px, 2vw, 24px);
-  line-height: 1.6;
-}
-
-
-/* ---------------------------------
-   Details Note
---------------------------------- */
-
-.details-section .details-note {
-  font-size: 19px;
-  font-style: italic;
-
-  color: var(--color-text-muted);
-
-  margin-top: 25px;
-}
-
-
-/* ---------------------------------
-   Details Button
---------------------------------- */
-
-.details-button {
-  margin-top: 35px;
-}
-
-
-/* ==========================================================
-   05. RESPONSIVE DESIGN
-========================================================== */
-
-
-/* ---------------------------------
-   Tablet
---------------------------------- */
-
-@media (max-width: 1024px) {
-
-  .hero {
-    height: clamp(380px, 55vw, 600px);
-  }
-
-  .announcement {
-    padding-top: 85px;
-    padding-bottom: 90px;
-  }
-
-}
-
-
-/* ---------------------------------
-   Mobile
---------------------------------- */
-
-@media (max-width: 700px) {
-
-  /* Hero */
-
-  .hero {
-    height: 55vh;
-    min-height: 350px;
-    max-height: 600px;
-  }
-
-  .hero-image {
-    background-position: center;
-  }
-
-
-  /* Announcement */
-
-  .announcement {
-    padding: 70px var(--page-padding) 80px;
-  }
-
-  .announcement .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-  }
-
-  .couple-names {
-    font-size: clamp(36px, 8vw, 52px);
-    line-height: 1.6;
-  }
-
-  .announcement .ornament {
-    margin: 15px auto 25px;
-  }
-
-  .announcement-label {
-    font-size: 12px;
-    letter-spacing: 0.25em;
-  }
-
-  .wedding-date {
-    font-size: clamp(32px, 8vw, 42px);
-  }
-
-  .wedding-location {
-    font-size: 22px;
-  }
-
-  .announcement-note {
-    font-size: 17px;
-    margin-top: 28px;
-  }
-
-
-  /* Travel */
-
-  .travel-section {
-    padding-top: 75px;
-    padding-bottom: 75px;
-  }
-
-  .travel-section h2 {
-    font-size: clamp(38px, 9vw, 50px);
-  }
-
-  .travel-section p:not(.eyebrow) {
-    font-size: 19px;
-  }
-
-  .travel-button {
-    margin-top: 25px;
-  }
-
-
-  /* Details */
-
-  .details-section {
-    padding-top: 75px;
-    padding-bottom: 75px;
-  }
-
-  .details-section h2 {
-    font-size: clamp(34px, 8vw, 44px);
-  }
-
-  .details-section p:not(.eyebrow) {
-    font-size: 21px;
-  }
-
-  .details-button {
-    margin-top: 28px;
-  }
-
-}
-
-
-/* ---------------------------------
-   Small Mobile
---------------------------------- */
-
-@media (max-width: 380px) {
-
-  .couple-names {
-    font-size: 34px;
-  }
-
-  .hero {
-    min-height: 300px;
-  }
-
+.travel-preview .btn-primary:hover {
+  background: var(--color-champagne);
+  color: var(--color-charcoal);
 }
