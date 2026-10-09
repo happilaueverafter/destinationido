@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dashArray: "7 6",
         fill: true,
         fillColor: location.color || "#87927A",
-        fillOpacity: 0.28,
+        fillOpacity: 0.4,
         interactive: true
       }).addTo(map);
 
