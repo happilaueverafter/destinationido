@@ -384,5 +384,3 @@ console.log(
   `Wedding map initialized with ${mapObjects.length} locations.`
 );
 
-});
-
