@@ -265,30 +265,224 @@
   order: 1;
 }
 
-.chapter-photo-collage {
-  padding-right: 65px;
-  padding-bottom: 65px;
+.travel-collage {
+  position: relative;
+
+  width: 100%;
+  max-width: 610px;
+  height: 650px;
+
+  margin: 0 auto;
+  isolation: isolate;
 }
 
-.chapter-photo-collage .story-photo-primary img {
-  aspect-ratio: 4 / 5;
-}
+/* Shared photograph styling */
 
-.chapter-photo-collage .story-photo-secondary {
+.travel-collage .collage-photo {
   position: absolute;
+  margin: 0;
 
-  width: 47%;
-  right: 0;
-  bottom: 0;
-
-  padding: 7px;
+  padding: 5px;
   background: var(--color-ivory);
 
-  box-shadow: 0 12px 35px rgba(52, 53, 47, 0.12);
+  box-shadow:
+    0 8px 25px rgba(52, 53, 47, 0.13),
+    0 2px 6px rgba(52, 53, 47, 0.07);
+
+  transition:
+    transform 350ms ease,
+    box-shadow 350ms ease;
 }
 
-.chapter-photo-collage .story-photo-secondary img {
-  aspect-ratio: 3 / 4;
+.travel-collage .collage-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* ==========================================
+   BACK LAYER
+========================================== */
+
+/* Korea — upper left */
+
+.collage-korea {
+  width: 34%;
+  height: 35%;
+
+  top: 5%;
+  left: 0;
+
+  z-index: 1;
+  transform: rotate(-9deg);
+}
+
+/* Thailand — upper right */
+
+.collage-thailand {
+  width: 38%;
+  height: 27%;
+
+  top: 1%;
+  right: 0;
+
+  z-index: 2;
+  transform: rotate(7deg);
+}
+
+/* Europe — lower left */
+
+.collage-europe {
+  width: 34%;
+  height: 29%;
+
+  bottom: 8%;
+  left: 0;
+
+  z-index: 1;
+  transform: rotate(8deg);
+}
+
+/* ==========================================
+   MAIN FEATURE — JAPAN
+========================================== */
+
+.collage-japan {
+  width: 62%;
+  height: 70%;
+
+  top: 14%;
+  left: 19%;
+
+  z-index: 4;
+  transform: rotate(-2deg);
+}
+
+.collage-japan img {
+  object-position: center;
+}
+
+/* ==========================================
+   FRONT LAYER
+========================================== */
+
+/* Hawaii — right side */
+
+.collage-hawaii {
+  width: 35%;
+  height: 28%;
+
+  top: 43%;
+  right: -2%;
+
+  z-index: 5;
+  transform: rotate(9deg);
+}
+
+/* Vietnam — lower right */
+
+.collage-vietnam {
+  width: 30%;
+  height: 25%;
+
+  bottom: 0;
+  right: 8%;
+
+  z-index: 6;
+  transform: rotate(-7deg);
+}
+
+/* ==========================================
+   HANDWRITTEN ANNOTATION
+========================================== */
+
+.collage-note {
+  position: absolute;
+
+  bottom: 3%;
+  left: 4%;
+
+  z-index: 7;
+
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+
+  color: var(--color-terracotta);
+  transform: rotate(-8deg);
+
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ==========================================
+   OPTIONAL HOVER EFFECT
+========================================== */
+
+@media (hover: hover) {
+
+  .travel-collage .collage-photo:hover {
+    z-index: 10;
+    transform: rotate(0deg) scale(1.06);
+
+    box-shadow:
+      0 15px 35px rgba(52, 53, 47, 0.2);
+  }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .travel-collage {
+    width: min(100%, 480px);
+    height: clamp(380px, 115vw, 530px);
+    margin: 15px auto;
+  }
+
+  .collage-japan {
+    width: 65%;
+    height: 68%;
+
+    left: 17%;
+    top: 16%;
+  }
+
+  .collage-korea {
+    width: 35%;
+    height: 30%;
+  }
+
+  .collage-thailand {
+    width: 36%;
+    height: 25%;
+  }
+
+  .collage-europe {
+    width: 35%;
+    height: 25%;
+  }
+
+  .collage-hawaii {
+    width: 34%;
+    height: 25%;
+  }
+
+  .collage-vietnam {
+    width: 30%;
+    height: 23%;
+  }
+
+  .collage-note {
+    font-size: 1.5rem;
+    bottom: 1%;
+    left: 2%;
+  }
+
 }
 
 .annotation-travel {
@@ -543,6 +737,14 @@
 
   .photo-annotation {
     font-size: 1.35rem;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .travel-collage .collage-photo {
+    transition: none;
   }
 
 }
