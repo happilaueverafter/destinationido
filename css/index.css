@@ -36,7 +36,7 @@
   height: 100%;
 
   background-image: url("../assets/Hero1.jpg");
-  background-position: center 65%;
+  background-position: center 100%;
   background-size: cover;
   background-repeat: no-repeat;
 }
