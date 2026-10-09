@@ -137,6 +137,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
    }
 
+   function refreshLucideIcons() {
+      if (window.lucide) {
+      lucide.createIcons({
+        attrs: {
+           "stroke-width": 1.8
+        }
+      });
+  }
+
 
   /* --------------------------------------------------------
      7. HELPER: CREATE LOCATION POPUP
@@ -254,8 +263,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         html: `
           <div class="hotel-circle-label">
-            ${escapeHTML(location.symbol || "🏨")}
-            ${escapeHTML(location.shortName || location.name)}
+            <i data-lucide="${escapeHTML(location.icon || "hotel")}"></i>
+            <span>${escapeHTML(location.shortName || location.name)}</span>
           </div>
         `,
 
@@ -368,14 +377,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showStatus("");
 
-  if (window.lucide) {
-     lucide.createIcons({
-        attrs: {
-           "stroke-width": 1.8
-        }
-     });
-  }
-
+  refreshLucideIcons();
+  map.on("layeradd", () => {
+     refreshLucideIcons();
+  });
+      
   console.log(
     `Wedding map initialized with ${mapObjects.length} locations.`
   );
