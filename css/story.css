@@ -68,7 +68,7 @@
   width: 100%;
   height: auto;
 
-  animation: story-handwriting-reveal 7s ease-in-out both;
+  animation: story-handwriting-reveal 5s ease-in-out both;
 }
 
 @keyframes story-handwriting-reveal {
