@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `,
 
         iconSize: [160, 30],
-        iconAnchor: [80, 15]
+        iconAnchor: [80, 65]
       });
 
       const labelMarker = L.marker(coordinates, {
