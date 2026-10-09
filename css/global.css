@@ -1,50 +1,141 @@
 
 /* ==========================================
    WANDER — GLOBAL STYLES
+   Davis & Kaylee | November 19, 2027
 ========================================== */
 
-/* FONTS */
+
+/* ==========================================
+   1. FONTS
+========================================== */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap");
 
 @font-face {
   font-family: "Brittany";
-  src: url("../assets/BRITTANYSIGNATURE.TTF") format("woff2");
+  src: url("../assets/BRITTANYSIGNATURE.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
-/* DESIGN TOKENS */
+
+/* ==========================================
+   2. DESIGN TOKENS
+========================================== */
 
 :root {
+
+  /* Wedding palette */
+
   --color-matcha: #87927A;
   --color-matcha-dark: #53614D;
+
   --color-terracotta: #944A32;
   --color-champagne: #D8C3A5;
   --color-rose: #B97D7D;
   --color-burgundy: #713F48;
+
   --color-ivory: #F4EFE6;
   --color-charcoal: #34352F;
   --color-white: #FFFFFF;
 
-  background: var(--page-bg);
-  color: var(--page-text); 
-
-  --shadow-text-small:
-    0 1px 3px rgba(0, 0, 0, 0.75),
-    0 2px 10px rgba(0, 0, 0, 0.35);
-  --shadow-text-script:
-    0 2px 8px rgba(0, 0, 0, 0.30); 
+  /* Fonts */
 
   --font-editorial: "Cormorant Garamond", Georgia, serif;
   --font-script: "Brittany", "Brush Script MT", cursive;
 
+  /* Text shadows */
+
+  --shadow-text-small:
+    0 1px 3px rgba(0, 0, 0, 0.75),
+    0 2px 10px rgba(0, 0, 0, 0.35);
+
+  --shadow-text-script:
+    0 2px 8px rgba(0, 0, 0, 0.30);
+
+  /* Layout */
+
   --page-width: 1200px;
   --page-gutter: clamp(20px, 5vw, 72px);
 
+  /* Transitions */
+
   --transition: 250ms ease;
+
 }
 
-/* RESET */
+
+/* ==========================================
+   3. PAGE THEMES
+========================================== */
+
+/*
+  Each page sets its theme on <body>.
+
+  Homepage:
+    <body class="theme-matcha">
+
+  Details / Travel / FAQ:
+    <body class="theme-ivory">
+
+  Header, footer, navigation and theme-aware
+  buttons inherit these variables.
+*/
+
+
+/* Default — matcha */
+
+body,
+body.theme-matcha {
+
+  --page-bg: var(--color-matcha);
+  --page-text: var(--color-ivory);
+  --page-accent: var(--color-champagne);
+
+  --page-border: rgba(244, 239, 230, 0.22);
+
+  --page-button-bg: var(--color-ivory);
+  --page-button-text: var(--color-matcha-dark);
+
+}
+
+
+/* Ivory — informational pages */
+
+body.theme-ivory {
+
+  --page-bg: var(--color-ivory);
+  --page-text: var(--color-matcha-dark);
+  --page-accent: var(--color-terracotta);
+
+  --page-border: rgba(83, 97, 77, 0.22);
+
+  --page-button-bg: var(--color-matcha-dark);
+  --page-button-text: var(--color-ivory);
+
+}
+
+
+/* Optional — terracotta theme */
+
+body.theme-terracotta {
+
+  --page-bg: var(--color-terracotta);
+  --page-text: var(--color-ivory);
+  --page-accent: var(--color-champagne);
+
+  --page-border: rgba(244, 239, 230, 0.22);
+
+  --page-button-bg: var(--color-ivory);
+  --page-button-text: var(--color-terracotta);
+
+}
+
+
+/* ==========================================
+   4. RESET & BASE
+========================================== */
 
 *,
 *::before,
@@ -58,8 +149,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-ivory);
-  color: var(--color-charcoal);
+
+  background: var(--page-bg);
+  color: var(--page-text);
+
   font-family: var(--font-editorial);
   font-size: 18px;
   line-height: 1.5;
@@ -85,11 +178,14 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-terracotta);
+  outline: 2px solid var(--page-accent);
   outline-offset: 4px;
 }
 
-/* TYPOGRAPHY */
+
+/* ==========================================
+   5. GLOBAL TYPOGRAPHY
+========================================== */
 
 h1,
 h2,
@@ -122,29 +218,43 @@ h3 {
   font-size: clamp(2.8rem, 6vw, 5rem);
 }
 
+
+/* ==========================================
+   6. SHARED LAYOUT
+========================================== */
+
 .container {
   width: min(
     calc(100% - var(--page-gutter) * 2),
     var(--page-width)
   );
+
   margin-inline: auto;
 }
 
+
 /* ==========================================
-   SHARED HEADER
+   7. SHARED HEADER
 ========================================== */
 
 .site-header {
   position: relative;
   z-index: 100;
 
+  background: var(--page-bg);
+  color: var(--page-text);
+
   text-align: center;
-  border-bottom: 1px solid rgba(244,239,230,0.22);
+
+  border-bottom: 1px solid var(--page-border);
 }
 
 .header-inner {
   padding: 20px var(--page-gutter) 0;
 }
+
+
+/* Brand */
 
 .site-brand {
   display: inline-flex;
@@ -155,8 +265,10 @@ h3 {
 
 .site-brand-name {
   font-family: var(--font-editorial);
+
   font-size: clamp(2.2rem, 4vw, 3.1rem);
   font-weight: 400;
+
   letter-spacing: 0.12em;
   line-height: 1.1;
 }
@@ -164,43 +276,61 @@ h3 {
 .site-brand-tagline {
   font-size: 0.65rem;
   letter-spacing: 0.3em;
-  color: var(--color-champagne);
+
+  color: var(--page-accent);
   text-transform: uppercase;
 }
 
-/* NAVIGATION */
+
+/* ==========================================
+   8. SHARED NAVIGATION
+========================================== */
 
 .site-nav {
   display: flex;
   justify-content: center;
+
   gap: clamp(35px, 7vw, 100px);
   padding: 23px 0 17px;
 }
 
 .site-nav a {
   position: relative;
+
   padding: 5px 0;
   font-size: 1.05rem;
+
   transition: color var(--transition);
 }
 
+
+/* Navigation underline */
+
 .site-nav a::after {
   content: "";
+
   position: absolute;
   bottom: 0;
   left: 0;
+
   width: 100%;
   height: 1px;
-  background: var(--color-champagne);
+
+  background: var(--page-accent);
+
   transform: scaleX(0);
   transform-origin: center;
+
   transition: transform var(--transition);
 }
+
+
+/* Hover and active page */
 
 .site-nav a:hover,
 .site-nav a.active,
 .site-nav a[aria-current="page"] {
-  color: var(--color-champagne);
+  color: var(--page-accent);
 }
 
 .site-nav a:hover::after,
@@ -209,19 +339,26 @@ h3 {
   transform: scaleX(1);
 }
 
-/* MOBILE MENU */
+
+/* ==========================================
+   9. MOBILE MENU
+========================================== */
 
 .menu-toggle {
   display: none;
+
   border: 0;
   background: none;
-  color: var(--color-ivory);
+
+  color: var(--page-text);
+
   cursor: pointer;
   font-size: 1.7rem;
 }
 
+
 /* ==========================================
-   SHARED BUTTONS
+   10. SHARED BUTTONS
 ========================================== */
 
 .btn {
@@ -239,8 +376,43 @@ h3 {
   letter-spacing: 0.09em;
 
   cursor: pointer;
-  transition: all var(--transition);
+
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
 }
+
+
+/* Theme-aware filled button */
+
+.btn-primary {
+  background: var(--page-button-bg);
+  color: var(--page-button-text);
+}
+
+.btn-primary:hover {
+  background: var(--page-accent);
+  color: var(--page-bg);
+}
+
+
+/* Theme-aware outline button */
+
+.btn-outline {
+  background: transparent;
+
+  border-color: var(--page-accent);
+  color: var(--page-text);
+}
+
+.btn-outline:hover {
+  background: var(--page-accent);
+  color: var(--page-bg);
+}
+
+
+/* Original light button */
 
 .btn-light {
   background: var(--color-ivory);
@@ -250,6 +422,9 @@ h3 {
 .btn-light:hover {
   background: var(--color-champagne);
 }
+
+
+/* Original light outline */
 
 .btn-outline-light {
   border-color: var(--color-champagne);
@@ -262,31 +437,41 @@ h3 {
   color: var(--color-charcoal);
 }
 
+
 /* ==========================================
-   SHARED FOOTER
+   11. SHARED FOOTER
 ========================================== */
 
 .site-footer {
+  background: var(--page-bg);
+  color: var(--page-text);
+
   text-align: center;
   padding: 18px 20px;
+
+  border-top: 1px solid var(--page-border);
 }
 
 .site-footer .footer-names {
   font-family: var(--font-script);
+
   font-size: 1.6rem;
-  line-height: 1.3; 
+  line-height: 1.3;
+
   margin: 0 0 4px;
 }
 
 .site-footer .footer-date {
   font-size: 0.65rem;
   letter-spacing: 0.18em;
+
   font-variant-numeric: lining-nums;
-  margin: 0; 
+  margin: 0;
 }
 
+
 /* ==========================================
-   RESPONSIVE
+   12. RESPONSIVE
 ========================================== */
 
 @media (max-width: 700px) {
@@ -295,12 +480,17 @@ h3 {
     padding: 16px 20px;
   }
 
+  .site-brand {
+    max-width: calc(100% - 55px);
+  }
+
   .site-brand-name {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
   .menu-toggle {
     display: block;
+
     position: absolute;
     right: 20px;
     top: 24px;
@@ -309,6 +499,7 @@ h3 {
   .site-nav {
     display: none;
     flex-direction: column;
+
     gap: 8px;
     padding: 18px 20px 25px;
   }
@@ -320,9 +511,16 @@ h3 {
   .site-nav a {
     padding: 9px 0;
   }
+
 }
 
+
+/* ==========================================
+   13. ACCESSIBILITY
+========================================== */
+
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
@@ -333,4 +531,5 @@ h3 {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+
 }
