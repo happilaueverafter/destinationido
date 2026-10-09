@@ -26,6 +26,12 @@
   --color-charcoal: #34352F;
   --color-white: #FFFFFF;
 
+  --shadow-text-small:
+    0 1px 3px rgba(0, 0, 0, 0.75),
+    0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-text-script:
+    0 2px 8px rgba(0, 0, 0, 0.30); 
+
   --font-editorial: "Cormorant Garamond", Georgia, serif;
   --font-script: "Brittany", "Brush Script MT", cursive;
 
