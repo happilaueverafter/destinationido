@@ -1,0 +1,976 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Wedding Party | Davis & Kaylee</title>
+  <meta name="description"
+        content="Wedding party details for Davis and Kaylee's November 19, 2027 wedding.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Existing global stylesheet -->
+  <link rel="stylesheet" href="css/global.css">
+
+  <!-- Wedding party stylesheet -->
+  <link rel="stylesheet" href="css/party.css">
+</head>
+
+<body class="party-page">
+
+  <!-- ==========================================
+       PAGE HEADER
+  =========================================== -->
+
+  <header class="party-header">
+    <div class="party-header-inner">
+      <a class="party-brand" href="index.html">
+        Davis <span>&</span> Kaylee
+      </a>
+
+      <nav class="party-header-nav" aria-label="Page navigation">
+        <a href="#attire-guide">Attire</a>
+        <a href="#full-itinerary">Itinerary</a>
+        <a href="#party-information">Information</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main-content">
+
+    <!-- ==========================================
+         INTRODUCTION
+    =========================================== -->
+
+    <section class="party-hero">
+      <div class="party-container party-hero-inner">
+
+        <p class="party-eyebrow">
+          NOVEMBER 19, 2027 · CANYONWOOD RIDGE
+        </p>
+
+        <h1>The Wedding Party</h1>
+
+        <p class="party-script">
+          A little something just for you.
+        </p>
+
+        <p class="party-hero-description">
+          We couldn't imagine celebrating without you!
+          We've put together this little corner of our
+          website to help keep everyone organized as
+          the big day gets closer.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         PROFILE SELECTOR
+
+         JavaScript will hide this after a selection.
+    =========================================== -->
+
+    <section class="party-profile-section" id="profile-section">
+      <div class="party-container">
+
+        <div class="party-profile-card" id="profile-prompt">
+
+          <div class="party-profile-copy">
+            <p class="party-eyebrow">LET'S GET PERSONAL</p>
+
+            <h2>First things first, who are you?</h2>
+
+            <p>
+              Find your name to see your attire,
+              responsibilities, and schedule.
+              You can still explore the full page
+              without selecting anyone!
+            </p>
+          </div>
+
+          <div class="party-profile-form">
+
+            <label for="party-person-select">
+              Find your name
+            </label>
+
+            <select id="party-person-select">
+              <option value="">Select your name...</option>
+            </select>
+
+            <button
+              class="party-button party-button-primary"
+              id="party-profile-submit"
+              type="button"
+              disabled
+            >
+              View My Dashboard
+              <span aria-hidden="true">↗</span>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Shown after a person is selected -->
+
+        <div
+          class="party-active-profile"
+          id="party-active-profile"
+          hidden
+        >
+          <div>
+            <p class="party-eyebrow">YOUR PERSONAL DASHBOARD</p>
+
+            <h2>
+              Welcome, <span id="party-profile-name">Friend</span>!
+            </h2>
+
+            <p id="party-profile-role"></p>
+          </div>
+
+          <div class="party-profile-actions">
+
+            <button
+              class="party-icon-button"
+              id="party-edit-profile"
+              type="button"
+              aria-label="Change primary profile"
+              title="Change primary profile"
+            >
+              ✎
+            </button>
+
+            <button
+              class="party-button party-button-outline"
+              id="party-add-person"
+              type="button"
+            >
+              + Add Someone
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Followed people appear here -->
+
+        <div
+          class="party-following"
+          id="party-following"
+          hidden
+        >
+          <span class="party-following-label">
+            Also following:
+          </span>
+
+          <div
+            class="party-following-list"
+            id="party-following-list"
+          ></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         PERSONAL DASHBOARD
+    =========================================== -->
+
+    <section class="party-dashboard-section" id="dashboard">
+      <div class="party-container">
+
+        <div class="party-section-heading">
+
+          <div>
+            <p class="party-eyebrow">THE ESSENTIALS</p>
+            <h2>Your Dashboard</h2>
+          </div>
+
+          <div
+            class="party-view-toggle"
+            id="dashboard-view-toggle"
+            role="group"
+            aria-label="Dashboard view"
+          >
+            <button
+              type="button"
+              class="is-active"
+              data-dashboard-view="me"
+              aria-pressed="true"
+            >
+              Just Me
+            </button>
+
+            <button
+              type="button"
+              data-dashboard-view="combined"
+              aria-pressed="false"
+            >
+              Combined
+            </button>
+          </div>
+
+        </div>
+
+
+        <!-- Upcoming tasks and responsibilities -->
+
+        <article class="party-card party-upcoming-card">
+
+          <div class="party-card-heading">
+
+            <div>
+              <p class="party-card-kicker">YOUR NEXT STEPS</p>
+              <h3>Upcoming & Responsibilities</h3>
+            </div>
+
+            <span class="party-card-symbol" aria-hidden="true">
+              ✳
+            </span>
+
+          </div>
+
+          <div
+            class="party-upcoming-list"
+            id="party-upcoming-list"
+          >
+            <div class="party-empty-state">
+              <p>
+                Select your name above to see your
+                upcoming tasks, deadlines, and
+                responsibilities.
+              </p>
+            </div>
+          </div>
+
+        </article>
+
+
+        <!-- Important information shortcut -->
+
+        <button
+          class="party-info-shortcut"
+          id="party-info-open"
+          type="button"
+          aria-haspopup="dialog"
+        >
+          <span class="party-info-shortcut-icon" aria-hidden="true">
+            i
+          </span>
+
+          <span class="party-info-shortcut-copy">
+            <strong>Looking for something important?</strong>
+            <span>
+              Rehearsal details, addresses, transportation,
+              contacts, and more.
+            </span>
+          </span>
+
+          <span class="party-info-shortcut-arrow" aria-hidden="true">
+            ↗
+          </span>
+        </button>
+
+
+        <!-- Side-by-side dashboard cards -->
+
+        <div class="party-dashboard-grid">
+
+          <!-- Attire preview -->
+
+          <article class="party-card party-preview-card">
+
+            <div class="party-card-heading">
+              <div>
+                <p class="party-card-kicker">WHAT TO WEAR</p>
+                <h3>Your Attire</h3>
+              </div>
+            </div>
+
+            <div
+              class="party-attire-preview"
+              id="party-attire-preview"
+            >
+
+              <div class="party-color-preview">
+                <span style="--swatch:#74777A"></span>
+                <span style="--swatch:#87927A"></span>
+                <span style="--swatch:#D8C3A5"></span>
+                <span style="--swatch:#B9694F"></span>
+                <span style="--swatch:#B97D7D"></span>
+              </div>
+
+              <p class="party-preview-placeholder">
+                Your assigned attire details will
+                appear here once you've selected
+                your name.
+              </p>
+
+            </div>
+
+            <a class="party-text-link" href="#attire-guide">
+              Explore the Full Attire Guide
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </article>
+
+
+          <!-- Schedule preview -->
+
+          <article class="party-card party-preview-card">
+
+            <div class="party-card-heading">
+              <div>
+                <p class="party-card-kicker">WHERE TO BE</p>
+                <h3>Your Schedule</h3>
+              </div>
+            </div>
+
+            <div
+              class="party-schedule-preview"
+              id="party-schedule-preview"
+            >
+
+              <p class="party-preview-placeholder">
+                Your upcoming events and appointments
+                will appear here once you've selected
+                your name.
+              </p>
+
+              <div class="party-schedule-placeholder">
+                <span class="party-schedule-placeholder-dot"></span>
+                <div>
+                  <strong>Wedding Rehearsal</strong>
+                  <span>November 18 · Details TBD</span>
+                </div>
+              </div>
+
+              <div class="party-schedule-placeholder">
+                <span class="party-schedule-placeholder-dot"></span>
+                <div>
+                  <strong>Wedding Day</strong>
+                  <span>November 19 · Timeline in progress</span>
+                </div>
+              </div>
+
+            </div>
+
+            <a class="party-text-link" href="#full-itinerary">
+              See Full Itinerary
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         FULL ATTIRE GUIDE
+    =========================================== -->
+
+    <section class="party-detail-section party-attire-section"
+             id="attire-guide">
+
+      <div class="party-container">
+
+        <div class="party-section-intro">
+          <p class="party-eyebrow">THE STYLE GUIDE</p>
+          <h2>Dressed for the Occasion</h2>
+
+          <p>
+            Everything you need to know about what
+            to wear, from colors and accessories
+            to ordering details.
+          </p>
+        </div>
+
+
+        <!-- Personalized attire summary -->
+
+        <div
+          class="party-personal-attire"
+          id="party-personal-attire"
+        >
+
+          <div>
+            <p class="party-card-kicker">YOUR ASSIGNMENT</p>
+            <h3>Your Look</h3>
+
+            <p id="party-personal-attire-description">
+              Select your name above to see
+              your assigned attire.
+            </p>
+          </div>
+
+          <div
+            class="party-personal-attire-colors"
+            id="party-personal-attire-colors"
+          ></div>
+
+        </div>
+
+
+        <!-- Full style guide -->
+
+        <div class="party-subsection-heading">
+          <h3>The Full Style Guide</h3>
+          <p>
+            Browse everyone's attire, colors,
+            and styling details.
+          </p>
+        </div>
+
+        <div
+          class="party-attire-groups"
+          id="party-attire-groups"
+        >
+
+          <!-- These are layout placeholders.
+               JavaScript will eventually populate
+               these cards from the data file. -->
+
+          <article class="party-style-card">
+
+            <div class="party-style-card-art">
+              <div class="party-style-swatch-row">
+                <span style="--swatch:#74777A"></span>
+                <span style="--swatch:#B9694F"></span>
+                <span style="--swatch:#D8C3A5"></span>
+              </div>
+            </div>
+
+            <div class="party-style-card-content">
+              <p class="party-card-kicker">STYLE REFERENCE</p>
+              <h4>Groomsmen</h4>
+
+              <p>
+                Grey suits, burnt orange accents,
+                and champagne details.
+              </p>
+
+              <span class="party-style-status">
+                Full details coming soon
+              </span>
+            </div>
+
+          </article>
+
+
+          <article class="party-style-card">
+
+            <div class="party-style-card-art">
+              <div class="party-style-swatch-row">
+                <span style="--swatch:#87927A"></span>
+                <span style="--swatch:#D8C3A5"></span>
+                <span style="--swatch:#B97D7D"></span>
+              </div>
+            </div>
+
+            <div class="party-style-card-content">
+              <p class="party-card-kicker">STYLE REFERENCE</p>
+              <h4>Bridesmaids</h4>
+
+              <p>
+                Coordinated wedding colors and
+                champagne accessories.
+              </p>
+
+              <span class="party-style-status">
+                Full details coming soon
+              </span>
+            </div>
+
+          </article>
+
+
+          <article class="party-style-card">
+
+            <div class="party-style-card-art">
+              <div class="party-style-swatch-row">
+                <span style="--swatch:#D8C3A5"></span>
+                <span style="--swatch:#87927A"></span>
+                <span style="--swatch:#B9694F"></span>
+              </div>
+            </div>
+
+            <div class="party-style-card-content">
+              <p class="party-card-kicker">STYLE REFERENCE</p>
+              <h4>Other Wedding Party Roles</h4>
+
+              <p>
+                Details for the officiant,
+                flower girl, ring bearer,
+                and additional roles.
+              </p>
+
+              <span class="party-style-status">
+                Full details coming soon
+              </span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         FULL ITINERARY
+    =========================================== -->
+
+    <section class="party-detail-section party-itinerary-section"
+             id="full-itinerary">
+
+      <div class="party-container">
+
+        <div class="party-section-intro">
+          <p class="party-eyebrow">THE GAME PLAN</p>
+
+          <h2>The Full Itinerary</h2>
+
+          <p>
+            A closer look at everything happening
+            throughout the wedding weekend.
+            Choose whose schedule you'd like
+            to see, or browse the entire itinerary.
+          </p>
+        </div>
+
+
+        <!-- Itinerary filters -->
+
+        <div class="party-itinerary-controls">
+
+          <div class="party-filter-group">
+            <span class="party-filter-label">
+              Whose schedule?
+            </span>
+
+            <div
+              class="party-view-toggle"
+              id="itinerary-view-toggle"
+              role="group"
+              aria-label="Itinerary view"
+            >
+
+              <button
+                type="button"
+                data-itinerary-view="me"
+                aria-pressed="false"
+              >
+                Just Me
+              </button>
+
+              <button
+                type="button"
+                data-itinerary-view="combined"
+                aria-pressed="false"
+              >
+                Combined
+              </button>
+
+              <button
+                type="button"
+                class="is-active"
+                data-itinerary-view="all"
+                aria-pressed="true"
+              >
+                Everything
+              </button>
+
+            </div>
+          </div>
+
+
+          <div class="party-filter-group">
+            <span class="party-filter-label">
+              Choose a day
+            </span>
+
+            <div
+              class="party-view-toggle party-day-toggle"
+              id="itinerary-day-toggle"
+              role="group"
+              aria-label="Itinerary day"
+            >
+
+              <button
+                type="button"
+                data-itinerary-day="2027-11-18"
+                aria-pressed="false"
+              >
+                Thu 18
+              </button>
+
+              <button
+                type="button"
+                class="is-active"
+                data-itinerary-day="2027-11-19"
+                aria-pressed="true"
+              >
+                Fri 19
+              </button>
+
+              <button
+                type="button"
+                data-itinerary-day="2027-11-20"
+                aria-pressed="false"
+              >
+                Sat 20
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Timeline -->
+
+        <div
+          class="party-full-timeline"
+          id="party-full-timeline"
+        >
+
+          <div class="party-timeline-item">
+
+            <div class="party-timeline-time">
+              9:00 AM
+            </div>
+
+            <div class="party-timeline-marker"></div>
+
+            <div class="party-timeline-content">
+
+              <div class="party-timeline-meta">
+                <span class="party-status party-status-confirmed">
+                  Venue Information
+                </span>
+              </div>
+
+              <h3>Venue Access Begins</h3>
+
+              <p>
+                Canyonwood Ridge opens for setup
+                and vendor access. This is not
+                a wedding party arrival time.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="party-timeline-item">
+
+            <div class="party-timeline-time">
+              TBD
+            </div>
+
+            <div class="party-timeline-marker"></div>
+
+            <div class="party-timeline-content">
+
+              <div class="party-timeline-meta">
+                <span class="party-status party-status-planning">
+                  In Planning
+                </span>
+              </div>
+
+              <h3>Getting Ready</h3>
+
+              <p>
+                Hair, makeup, dressing, and
+                wedding party preparation.
+                Individual times will be added
+                once finalized.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="party-timeline-item">
+
+            <div class="party-timeline-time">
+              TBD
+            </div>
+
+            <div class="party-timeline-marker"></div>
+
+            <div class="party-timeline-content">
+
+              <div class="party-timeline-meta">
+                <span class="party-status party-status-planning">
+                  In Planning
+                </span>
+              </div>
+
+              <h3>Wedding Ceremony</h3>
+
+              <p>
+                Ceremony timing and arrival
+                instructions will be shared
+                once confirmed.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <p class="party-itinerary-note">
+          Please note: Some events are still being planned.
+          Tentative details are not final arrival instructions.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         ADDITIONAL INFORMATION
+    =========================================== -->
+
+    <section class="party-detail-section party-information-section"
+             id="party-information">
+
+      <div class="party-container">
+
+        <div class="party-section-intro">
+          <p class="party-eyebrow">GOOD TO KNOW</p>
+          <h2>Important Information</h2>
+
+          <p>
+            All the practical details in one place.
+            We'll continue updating these as
+            plans are finalized.
+          </p>
+        </div>
+
+
+        <div class="party-information-grid">
+
+          <article class="party-information-card"
+                   id="rehearsal">
+
+            <p class="party-card-kicker">NOVEMBER 18</p>
+            <h3>Rehearsal Details</h3>
+
+            <p>
+              Rehearsal timing, location,
+              and attendance details
+              are being finalized.
+            </p>
+
+            <span class="party-info-status">
+              Details coming soon
+            </span>
+
+          </article>
+
+
+          <article class="party-information-card"
+                   id="locations">
+
+            <p class="party-card-kicker">WHERE TO GO</p>
+            <h3>Venue & Addresses</h3>
+
+            <p>
+              <strong>Canyonwood Ridge</strong><br>
+              250 S Canyonwood Dr<br>
+              Dripping Springs, TX 78620
+            </p>
+
+            <a
+              class="party-text-link"
+              href="https://www.google.com/maps/search/?api=1&amp;query=250+S+Canyonwood+Dr+Dripping+Springs+TX+78620"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions ↗
+            </a>
+
+          </article>
+
+
+          <article class="party-information-card"
+                   id="transportation">
+
+            <p class="party-card-kicker">GETTING AROUND</p>
+            <h3>Transportation</h3>
+
+            <p>
+              We're working on transportation
+              arrangements between downtown
+              Austin and the wedding venue.
+              Pickup and return details will
+              be shared once confirmed.
+            </p>
+
+            <span class="party-info-status">
+              Details coming soon
+            </span>
+
+          </article>
+
+
+          <article class="party-information-card"
+                   id="vendor-contacts">
+
+            <p class="party-card-kicker">WHO TO CONTACT</p>
+            <h3>Vendor & Day-Of Contacts</h3>
+
+            <p>
+              Important day-of contact information
+              will be provided closer to the wedding.
+            </p>
+
+            <span class="party-info-status">
+              Details coming soon
+            </span>
+
+          </article>
+
+
+          <article class="party-information-card"
+                   id="getting-ready">
+
+            <p class="party-card-kicker">WEDDING MORNING</p>
+            <h3>Getting Ready</h3>
+
+            <p>
+              Getting-ready locations,
+              preparation instructions,
+              and individual appointments
+              will be added here.
+            </p>
+
+            <span class="party-info-status">
+              Details coming soon
+            </span>
+
+          </article>
+
+
+          <article class="party-information-card"
+                   id="party-faq">
+
+            <p class="party-card-kicker">A FEW EXTRA DETAILS</p>
+            <h3>Questions & Reminders</h3>
+
+            <p>
+              Frequently asked questions,
+              helpful reminders, and
+              last-minute information
+              will appear here.
+            </p>
+
+            <span class="party-info-status">
+              More to come
+            </span>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==========================================
+       IMPORTANT INFORMATION DIALOG
+
+       JavaScript will open this and connect
+       the navigation links.
+  =========================================== -->
+
+  <dialog class="party-info-dialog" id="party-info-dialog">
+
+    <div class="party-dialog-inner">
+
+      <div class="party-dialog-header">
+
+        <div>
+          <p class="party-eyebrow">QUICK REFERENCE</p>
+          <h2>What are you looking for?</h2>
+        </div>
+
+        <button
+          type="button"
+          class="party-dialog-close"
+          id="party-info-close"
+          aria-label="Close information menu"
+        >
+          &times;
+        </button>
+
+      </div>
+
+      <nav class="party-dialog-links"
+           aria-label="Important information shortcuts">
+
+        <a href="#rehearsal">Rehearsal Details <span>↗</span></a>
+        <a href="#locations">Venue & Addresses <span>↗</span></a>
+        <a href="#transportation">Transportation <span>↗</span></a>
+        <a href="#vendor-contacts">Vendor Contacts <span>↗</span></a>
+        <a href="#getting-ready">Getting Ready <span>↗</span></a>
+        <a href="#attire-guide">Attire Guide <span>↗</span></a>
+        <a href="#full-itinerary">Full Itinerary <span>↗</span></a>
+        <a href="#party-faq">Questions & Reminders <span>↗</span></a>
+
+      </nav>
+
+    </div>
+
+  </dialog>
+
+
+  <!-- ==========================================
+       FOOTER
+  =========================================== -->
+
+  <footer class="party-footer">
+    <div class="party-container">
+
+      <p class="party-footer-script">
+        With love, Davis & Kaylee
+      </p>
+
+      <p>
+        NOVEMBER 19, 2027 · DRIPPING SPRINGS, TEXAS
+      </p>
+
+      <a href="index.html">Return to Our Website ↗</a>
+
+    </div>
+  </footer>
+
+  <!-- We'll add js/party-data.js and js/party.js next. -->
+
+</body>
+</html>
