@@ -386,4 +386,4 @@ document.addEventListener("DOMContentLoaded", () => {
     `Wedding map initialized with ${mapObjects.length} locations.`
   );
 
-});
+}
