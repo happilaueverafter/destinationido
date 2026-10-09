@@ -4,28 +4,51 @@ document.addEventListener("DOMContentLoaded", () => {
     ".story-title-handwritten"
   );
 
-  if (!heading) return;
+  const container = document.getElementById(
+    "story-handwriting"
+  );
 
-  // Respect reduced-motion settings
+  if (!heading || !container) return;
+
+  // Keep static text for reduced-motion visitors
   if (window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches) {
     return;
   }
 
-  // Check that Vivus loaded
   if (typeof Vivus === "undefined") {
+    console.warn("Vivus.js did not load.");
     return;
   }
 
-  new Vivus("story-handwriting", {
-    type: "oneByOne",
-    duration: 180,
-    start: "autostart",
-    file: "assets/our-story.svg"
-  }, () => {
-    heading.classList.add("handwriting-complete");
-  });
+  const animation = new Vivus(
+    "story-handwriting",
+    {
+      type: "oneByOne",
+      duration: 180,
+      start: "manual",
+      file: "assets/ourStory.svg",
+      onReady: () => {
+        const svg = container.querySelector("svg");
 
-  heading.classList.add("handwriting-active");
+        if (!svg) return;
+
+        // Ensure the SVG has drawable paths
+        const paths = svg.querySelectorAll(
+          "path, line, polyline, polygon, circle, ellipse, rect"
+        );
+
+        if (!paths.length) {
+          console.warn("No SVG drawing paths found.");
+          return;
+        }
+
+        // Show the SVG only once it's ready
+        heading.classList.add("handwriting-active");
+
+        animation.play();
+      }
+    }
+  );
 });
