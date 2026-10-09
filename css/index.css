@@ -227,57 +227,239 @@
    WELCOME SECTION
 ========================================== */
 
-   .welcome-section {
-      min-height: 650px;
-      padding: 95px 25px 120px;
-      background: var(--color-matcha);
-   }
+/* ==========================================
+   WELCOME SECTION
+========================================== */
 
-   .welcome-section .section-heading {
-      font-size: clamp(3rem, 10vw, 4.2rem);
-   }
+.welcome-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
-   .compass-watermark {
-      --compass-color: var(--color-matcha);
-      --compass-opacity: 0.10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      position: absolute;
-      z-index: 0;
-      width: 390px;
-      top: 42%;
-      left: 68%;
-      transform: rotate(-15deg);
+  min-height: 700px;
+  padding: clamp(110px, 12vw, 155px) 24px;
 
-      background-color: var(--color-matcha);
-      opacity: var(--compass-opacity);
-      pointer-events: none;
+  background: var(--color-matcha);
+  color: var(--color-ivory);
+  text-align: center;
+}
 
-      -webkit-mask: 
-         url("../assets/weddingLogoRose.png")
-         center / contain no-repeat;
-      mask: 
-         url("../assets/weddingLogoRose.png")
-         center / contain no-repeat;
-      
-   }
+/* ==========================================
+   FLORAL COMPASS WATERMARK
+========================================== */
 
-   .welcome-flight-path {
-      width: 150%;
-      left: -25%;
-      height: 42%;
-   }
+.compass-watermark {
+  --compass-color: var(--color-ivory);
+  --compass-opacity: 0.14;
 
-   .welcome-plane {
-      right: 8%;
-      bottom: 31%;
-      width: 24px;
-   }
+  position: absolute;
+  z-index: 0;
 
-   .welcome-copy p {
-      font-size: 1.2rem;
-   }
+  width: clamp(340px, 45vw, 620px);
+  aspect-ratio: 1;
 
-   .welcome-signature {
-      margin-top: 35px;
-   }
+  top: 44%;
+  left: 66%;
 
+  transform:
+    translate(-50%, -50%)
+    rotate(-15deg);
+
+  background-color: var(--compass-color);
+
+  -webkit-mask:
+    url("../assets/weddingLogoRose.png")
+    center / contain no-repeat;
+
+  mask:
+    url("../assets/weddingLogoRose.png")
+    center / contain no-repeat;
+
+  opacity: var(--compass-opacity);
+  pointer-events: none;
+}
+
+/* ==========================================
+   DOTTED FLIGHT PATH
+========================================== */
+
+.welcome-flight-path {
+  position: absolute;
+  z-index: 0;
+
+  width: 110%;
+  height: 55%;
+
+  left: -5%;
+  bottom: 0;
+
+  overflow: visible;
+  pointer-events: none;
+}
+
+.flight-route {
+  fill: none;
+  stroke: var(--color-champagne);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 2 10;
+  opacity: 0.65;
+}
+
+/* Decorative airplane */
+
+.welcome-plane {
+  position: absolute;
+  z-index: 0;
+
+  width: 29px;
+  height: 29px;
+
+  right: 5%;
+  bottom: 44%;
+
+  color: var(--color-champagne);
+  transform: rotate(48deg);
+
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* ==========================================
+   WELCOME TYPOGRAPHY
+========================================== */
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 720px);
+  margin-inline: auto;
+}
+
+/* Destination: I Do */
+
+.welcome-section .eyebrow {
+  margin-bottom: 28px;
+
+  color: var(--color-champagne);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+}
+
+/* Our Greatest Adventure */
+
+.welcome-section .section-heading {
+  max-width: 620px;
+  margin: 0 auto 25px;
+
+  font-family: var(--font-editorial);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+
+  color: var(--color-ivory);
+}
+
+/* Decorative star */
+
+.welcome-section .section-ornament {
+  margin-bottom: 30px;
+  color: var(--color-champagne);
+  font-size: 1.3rem;
+}
+
+/* Welcome paragraphs */
+
+.welcome-copy {
+  max-width: 610px;
+  margin-inline: auto;
+}
+
+.welcome-copy p {
+  margin: 0 auto 24px;
+
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.7;
+
+  color: var(--color-ivory);
+}
+
+/* Brittany signature */
+
+.welcome-signature {
+  margin: 40px 0 25px;
+
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  color: var(--color-champagne);
+}
+
+/* Closing date */
+
+.welcome-closing {
+  margin: 0;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  color: var(--color-ivory);
+
+  font-variant-numeric: lining-nums;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 700px) {
+
+  .welcome-section {
+    min-height: 650px;
+    padding: 95px 25px 120px;
+  }
+
+  .welcome-section .section-heading {
+    font-size: clamp(3rem, 10vw, 4.2rem);
+  }
+
+  .compass-watermark {
+    width: 390px;
+    top: 42%;
+    left: 68%;
+    --compass-opacity: 0.10;
+  }
+
+  .welcome-flight-path {
+    width: 150%;
+    left: -25%;
+    height: 42%;
+  }
+
+  .welcome-plane {
+    right: 8%;
+    bottom: 31%;
+    width: 24px;
+    height: 24px;
+  }
+
+  .welcome-copy p {
+    font-size: 1.2rem;
+  }
+
+  .welcome-signature {
+    margin-top: 35px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-flight-path,
+  .welcome-plane {
+    animation: none;
+  }
+}
