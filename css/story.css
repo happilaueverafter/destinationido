@@ -344,13 +344,67 @@
   background: var(--story-warm-paper);
 }
 
-.annotation-boba {
-  right: -12px;
-  bottom: 50px;
+.boba-speech-bubble {
+   position: absolute;
+   z-index: 5;
+   top: 4%;
+   right: -12%;
+   width: 210px; 
+   min-height: 120px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 18px 22px;
 
-  transform: rotate(-8deg);
+   background: var(--story-warm-paper);
+   border: 2.5px solid var(--story-terracotta);
+   border-radius: 56% 44% 53% 47% /
+                  48% 55% 45% 52%;
+   transform: rotate(-9deg);
+   box-shadow: 2px 3px 0 rgba(148, 75, 50, 0.08);
 }
 
+.boba-speech-bubble span{
+   font-family: var(--font-script);
+   font-size: 2rem;
+   font-weight: 400;
+   line-height: 1.05;
+   text-align: center;
+
+   color: var(--story-terracotta);
+}
+
+.boba-speech-bubble::before {
+  content: "";
+  position: absolute;
+
+  bottom: -17px;
+  left: 30%;
+
+  width: 25px;
+  height: 25px;
+
+  background: var(--story-warm-paper);
+
+  border-left: 2.5px solid var(--story-terracotta);
+  border-bottom: 2.5px solid var(--story-terracotta);
+
+  transform: rotate(-28deg) skew(-12deg);
+}
+
+.boba-speech-bubble::after {
+  content: "";
+  position: absolute;
+
+  bottom: 0;
+  left: 28%;
+
+  width: 40px;
+  height: 15px;
+
+  background: var(--story-warm-paper);
+  border-radius: 50%;
+}
 
 /* ==========================================
    07. CHAPTER TWO — TRAVEL
@@ -976,9 +1030,17 @@
 
   /* Chapter One */
 
-  .annotation-boba {
-    right: 0;
-    bottom: 45px;
+  .boba-speech-bubble {
+    top: -25px;
+    right: -5px;
+
+    width: 155px;
+    min-height: 90px;
+    padding: 12px;
+  }
+
+  .boba-speech-bubble span {
+    font-size: 1.5rem;
   }
 
   /* Chapter Two collage */
