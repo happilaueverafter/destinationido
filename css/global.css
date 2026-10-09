@@ -1,200 +1,41 @@
 
-/* ==========================================================
-   WANDER — WEDDING WEBSITE
-   GLOBAL DESIGN SYSTEM
+/* ==========================================
+   WANDER — GLOBAL STYLES
+========================================== */
 
-   Fonts:
-   - Cormorant Garamond: Primary / Editorial
-   - Brittany: Decorative / Script
+/* FONTS */
 
-   Primary:
-   - Matcha
-   - Burnt Orange
-
-   Accents:
-   - English Rose
-   - Champagne
-
-   Limited-use:
-   - Burgundy
-========================================================== */
-
-
-/* ==========================================================
-   01. FONT IMPORTS
-========================================================== */
-
-/* Cormorant Garamond — Google Fonts */
-
-@import url(
-  'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap'
-);
-
-/* Brittany — Local font file */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap");
 
 @font-face {
   font-family: "Brittany";
-  src: url("../assets/BRITTANYSIGNATURE.TTF") format("woff2");
-  font-weight: 400;
-  font-style: normal;
+  src: url("../assets/BRITTANYSIGNATURE.TTF") format("ttf");
   font-display: swap;
 }
 
-
-/* ==========================================================
-   02. DESIGN TOKENS
-========================================================== */
+/* DESIGN TOKENS */
 
 :root {
-
-  /* ---------------------------------
-     Wedding Palette
-  --------------------------------- */
-
   --color-matcha: #87927A;
-  --color-burnt-orange: #B9694F;
-
-  --color-english-rose: #B97D7D;
+  --color-matcha-dark: #53614D;
+  --color-terracotta: #B9694F;
   --color-champagne: #D8C3A5;
-
+  --color-rose: #B97D7D;
   --color-burgundy: #713F48;
-
-
-  /* ---------------------------------
-     Neutral Colors
-  --------------------------------- */
-
   --color-ivory: #F4EFE6;
+  --color-charcoal: #34352F;
   --color-white: #FFFFFF;
 
-  --color-charcoal: #34352F;
-  --color-grey: #74777A;
+  --font-editorial: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Brittany", "Brush Script MT", cursive;
 
-  --color-light-grey: #E8E7E2;
+  --page-width: 1200px;
+  --page-gutter: clamp(20px, 5vw, 72px);
 
-
-  /* ---------------------------------
-     Semantic Colors
-  --------------------------------- */
-
-  --color-background: var(--color-ivory);
-  --color-surface: var(--color-white);
-
-  --color-text: var(--color-charcoal);
-  --color-text-muted: var(--color-grey);
-
-  --color-heading: var(--color-matcha);
-
-  --color-primary: var(--color-matcha);
-  --color-secondary: var(--color-burnt-orange);
-
-  --color-border: var(--color-champagne);
-
-  --color-link: var(--color-matcha);
-  --color-link-hover: var(--color-burnt-orange);
-
-
-  /* ---------------------------------
-     Typography
-  --------------------------------- */
-
-  --font-editorial:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
-
-  --font-script:
-    "Brittany",
-    "Brush Script MT",
-    cursive;
-
-  --font-body:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
-
-
-  /* ---------------------------------
-     Font Sizes
-  --------------------------------- */
-
-  --text-xs: 0.875rem;
-  --text-sm: 1rem;
-  --text-base: 1.125rem;
-  --text-lg: 1.375rem;
-  --text-xl: 1.75rem;
-
-  --heading-sm: 2rem;
-  --heading-md: 2.75rem;
-  --heading-lg: 3.75rem;
-  --heading-xl: 5rem;
-
-
-  /* ---------------------------------
-     Spacing Scale
-  --------------------------------- */
-
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4rem;
-  --space-9: 6rem;
-  --space-10: 8rem;
-
-
-  /* ---------------------------------
-     Layout
-  --------------------------------- */
-
-  --container-width: 1200px;
-  --container-narrow: 750px;
-
-  --page-padding: clamp(20px, 5vw, 80px);
-
-  --section-padding:
-    clamp(70px, 9vw, 130px);
-
-
-  /* ---------------------------------
-     Borders / Radius
-  --------------------------------- */
-
-  --border-thin: 1px solid var(--color-border);
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-
-
-  /* ---------------------------------
-     Shadows
-  --------------------------------- */
-
-  --shadow-soft:
-    0 6px 25px rgba(52, 53, 47, 0.08);
-
-  --shadow-medium:
-    0 12px 35px rgba(52, 53, 47, 0.12);
-
-
-  /* ---------------------------------
-     Transitions
-  --------------------------------- */
-
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.35s ease;
-  --transition-slow: 0.6s ease;
-
+  --transition: 250ms ease;
 }
 
-
-/* ==========================================================
-   03. CSS RESET
-========================================================== */
+/* RESET */
 
 *,
 *::before,
@@ -202,50 +43,22 @@
   box-sizing: border-box;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-
-  background: var(--color-background);
-  color: var(--color-text);
-
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-
-  line-height: 1.6;
-
-  -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-svg {
-  display: block;
-  max-width: 100%;
+  margin: 0;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-editorial);
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 img {
-  height: auto;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -253,312 +66,254 @@ a {
   text-decoration: none;
 }
 
-ul,
-ol {
-  list-style: none;
+button {
+  font: inherit;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 
-/* ==========================================================
-   04. GLOBAL TYPOGRAPHY
-========================================================== */
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 4px;
+}
+
+/* TYPOGRAPHY */
 
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-editorial);
-  font-weight: 500;
-  line-height: 1.15;
-  color: var(--color-heading);
-}
-
-h1 {
-  font-size: clamp(3rem, 6vw, var(--heading-xl));
-}
-
-h2 {
-  font-size: clamp(2.5rem, 5vw, var(--heading-lg));
-}
-
-h3 {
-  font-size: clamp(2rem, 4vw, var(--heading-md));
-}
-
-h4 {
-  font-size: var(--heading-sm);
-}
-
 p {
-  line-height: 1.65;
+  margin-top: 0;
 }
 
-small {
-  font-size: var(--text-xs);
+h1,
+h2,
+h3 {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  line-height: 1.1;
 }
 
-
-/* ---------------------------------
-   Decorative Script
---------------------------------- */
-
-.script {
+.font-script {
   font-family: var(--font-script);
   font-weight: 400;
-  line-height: 1.7;
 }
-
-
-/* ---------------------------------
-   Editorial Labels
---------------------------------- */
 
 .eyebrow {
-  font-family: var(--font-editorial);
-  font-size: 0.85rem;
-  font-weight: 600;
-
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
-
-  color: var(--color-burnt-orange);
+  font-weight: 600;
 }
 
-
-/* ---------------------------------
-   Muted Text
---------------------------------- */
-
-.text-muted {
-  color: var(--color-text-muted);
+.section-heading {
+  font-size: clamp(2.8rem, 6vw, 5rem);
 }
-
-
-/* ---------------------------------
-   Accent Text
---------------------------------- */
-
-.text-matcha {
-  color: var(--color-matcha);
-}
-
-.text-orange {
-  color: var(--color-burnt-orange);
-}
-
-.text-rose {
-  color: var(--color-english-rose);
-}
-
-.text-burgundy {
-  color: var(--color-burgundy);
-}
-
-
-/* ==========================================================
-   05. GLOBAL LAYOUT
-========================================================== */
 
 .container {
   width: min(
-    calc(100% - 2 * var(--page-padding)),
-    var(--container-width)
+    calc(100% - var(--page-gutter) * 2),
+    var(--page-width)
   );
-
   margin-inline: auto;
 }
 
-.container-narrow {
-  width: min(
-    calc(100% - 2 * var(--page-padding)),
-    var(--container-narrow)
-  );
+/* ==========================================
+   SHARED HEADER
+========================================== */
 
-  margin-inline: auto;
-}
-
-.section {
-  padding-block: var(--section-padding);
-}
-
-.section-center {
-  text-align: center;
-}
-
-
-/* ---------------------------------
-   Background Helpers
---------------------------------- */
-
-.bg-ivory {
-  background: var(--color-ivory);
-}
-
-.bg-white {
-  background: var(--color-white);
-}
-
-.bg-matcha {
+.site-header {
+  position: relative;
+  z-index: 100;
   background: var(--color-matcha);
-  color: var(--color-white);
+  color: var(--color-ivory);
+  text-align: center;
+  border-bottom: 1px solid rgba(244,239,230,0.22);
 }
 
-.bg-orange {
-  background: var(--color-burnt-orange);
-  color: var(--color-white);
+.header-inner {
+  padding: 20px var(--page-gutter) 0;
 }
 
-.bg-champagne {
+.site-brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.site-brand-name {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+}
+
+.site-brand-tagline {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--color-champagne);
+  text-transform: uppercase;
+}
+
+/* NAVIGATION */
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(35px, 7vw, 100px);
+  padding: 23px 0 17px;
+}
+
+.site-nav a {
+  position: relative;
+  padding: 5px 0;
+  font-size: 1.05rem;
+  transition: color var(--transition);
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
   background: var(--color-champagne);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
 }
 
-
-/* ==========================================================
-   06. LINKS
-========================================================== */
-
-.text-link {
-  color: var(--color-link);
-
-  border-bottom: 1px solid currentColor;
-
-  transition:
-    color var(--transition-fast);
+.site-nav a:hover,
+.site-nav a.active,
+.site-nav a[aria-current="page"] {
+  color: var(--color-champagne);
 }
 
-.text-link:hover {
-  color: var(--color-link-hover);
+.site-nav a:hover::after,
+.site-nav a.active::after,
+.site-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 
+/* MOBILE MENU */
 
-/* ==========================================================
-   07. BUTTONS
-========================================================== */
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  color: var(--color-ivory);
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+/* ==========================================
+   SHARED BUTTONS
+========================================== */
 
 .btn {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
-  gap: var(--space-2);
-
-  min-height: 46px;
-
-  padding: 12px 30px;
-
-  font-family: var(--font-editorial);
-  font-size: 1.1rem;
-  font-weight: 600;
-
-  letter-spacing: 0.1em;
+  min-height: 48px;
+  padding: 12px 32px;
 
   border: 1px solid transparent;
-  border-radius: var(--radius-sm);
 
-  text-align: center;
+  font-family: var(--font-editorial);
+  font-size: 1.05rem;
+  letter-spacing: 0.09em;
 
-  transition:
-    background var(--transition-normal),
-    color var(--transition-normal),
-    border-color var(--transition-normal),
-    transform var(--transition-normal);
+  cursor: pointer;
+  transition: all var(--transition);
 }
 
-.btn:hover {
-  transform: translateY(-2px);
+.btn-light {
+  background: var(--color-ivory);
+  color: var(--color-matcha-dark);
 }
 
-
-/* Primary — Matcha */
-
-.btn-primary {
-  background: var(--color-matcha);
-  color: var(--color-white);
+.btn-light:hover {
+  background: var(--color-champagne);
 }
 
-.btn-primary:hover {
-  background: var(--color-charcoal);
-}
-
-
-/* Secondary — Burnt Orange */
-
-.btn-secondary {
-  background: var(--color-burnt-orange);
-  color: var(--color-white);
-}
-
-.btn-secondary:hover {
-  background: var(--color-burgundy);
-}
-
-
-/* Outline */
-
-.btn-outline {
+.btn-outline-light {
+  border-color: var(--color-champagne);
+  color: var(--color-ivory);
   background: transparent;
-
-  color: var(--color-matcha);
-  border-color: var(--color-matcha);
 }
 
-.btn-outline:hover {
-  background: var(--color-matcha);
-  color: var(--color-white);
-}
-
-
-/* ==========================================================
-   08. DECORATIVE ELEMENTS
-========================================================== */
-
-/* Thin editorial divider */
-
-.divider {
-  width: 100%;
-  height: 1px;
-
+.btn-outline-light:hover {
   background: var(--color-champagne);
+  color: var(--color-charcoal);
 }
 
+/* ==========================================
+   SHARED FOOTER
+========================================== */
 
-/* Decorative star ornament */
-
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 15px;
-
-  color: var(--color-burnt-orange);
+.site-footer {
+  background: var(--color-matcha-dark);
+  color: var(--color-ivory);
+  text-align: center;
+  padding: 60px 20px;
 }
 
-.ornament::before,
-.ornament::after {
-  content: "";
-
-  width: 65px;
-  height: 1px;
-
-  background: var(--color-champagne);
+.site-footer .footer-names {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  margin-bottom: 15px;
 }
 
+.site-footer .footer-date {
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+}
 
-/* ==========================================================
-   09. FOCUS / ACCESSIBILITY
-========================================================== */
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
-:focus-visible {
-  outline: 2px solid var(--color-burnt-orange);
-  outline-offset: 4px;
+@media (max-width: 700px) {
+
+  .header-inner {
+    padding: 16px 20px;
+  }
+
+  .site-brand-name {
+    font-size: 2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 24px;
+  }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px 25px;
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 9px 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
@@ -566,268 +321,7 @@ small {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
-
-}
-
-
-/* ==========================================================
-   10. RESPONSIVE ADJUSTMENTS
-========================================================== */
-
-@media (max-width: 768px) {
-
-  :root {
-    --page-padding: 20px;
-    --section-padding: 65px;
-  }
-
-  body {
-    font-size: 1.05rem;
-  }
-
-  .btn {
-    padding: 12px 24px;
-  }
-
-}
-
-
-/* ==========================================================
-   11. HEADER & FOOTER
-========================================================== */
-
-
-/* ==========================================================
-   WANDER — SHARED COMPONENTS
-   components.css
-
-   Requires global.css
-========================================================== */
-
-
-/* ==========================================================
-   01. SITE HEADER
-========================================================== */
-
-.site-header {
-  width: 100%;
-  background: var(--color-ivory);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 20px var(--page-padding) 16px;
-
-  position: relative;
-  z-index: 100;
-}
-
-
-/* ---------------------------------
-   Wander Logo / Masthead
---------------------------------- */
-
-.site-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-
-  margin-bottom: 15px;
-}
-
-.logo-title {
-  font-family: var(--font-editorial);
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 1.2;
-
-  letter-spacing: 0.15em;
-  color: var(--color-matcha);
-}
-
-.logo-subtitle {
-  font-size: 10px;
-  font-weight: 600;
-
-  letter-spacing: 0.28em;
-  color: var(--color-burnt-orange);
-}
-
-
-/* ==========================================================
-   02. DESKTOP NAVIGATION
-========================================================== */
-
-.site-nav {
-  width: min(100%, 850px);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  gap: 25px;
-}
-
-.site-nav a {
-  font-family: var(--font-editorial);
-  font-size: 17px;
-  font-weight: 600;
-
-  color: var(--color-text);
-
-  padding: 5px 0;
-  position: relative;
-
-  transition: color var(--transition-fast);
-}
-
-
-/* Animated underline */
-
-.site-nav a::after {
-  content: "";
-
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-  height: 1px;
-
-  background: var(--color-burnt-orange);
-
-  transform: scaleX(0);
-  transform-origin: center;
-
-  transition: transform var(--transition-fast);
-}
-
-.site-nav a:hover,
-.site-nav a.active {
-  color: var(--color-burnt-orange);
-}
-
-.site-nav a:hover::after,
-.site-nav a.active::after {
-  transform: scaleX(1);
-}
-
-
-/* ==========================================================
-   03. MOBILE MENU BUTTON
-========================================================== */
-
-.menu-toggle {
-  display: none;
-}
-
-
-/* ==========================================================
-   04. FOOTER
-========================================================== */
-
-.site-footer {
-  padding: 45px var(--page-padding);
-  text-align: center;
-
-  background: var(--color-champagne);
-}
-
-.footer-title {
-  font-family: var(--font-editorial);
-  font-size: 28px;
-  letter-spacing: 0.2em;
-
-  color: var(--color-matcha);
-
-  margin-bottom: 10px;
-}
-
-.site-footer p:last-child {
-  font-size: 17px;
-}
-
-
-/* ==========================================================
-   05. MOBILE HEADER / NAVIGATION
-========================================================== */
-
-@media (max-width: 700px) {
-
-  .site-header {
-    min-height: 80px;
-    padding: 12px 20px;
-    justify-content: center;
-  }
-
-  .site-logo {
-    margin-bottom: 0;
-  }
-
-  .logo-title {
-    font-size: 30px;
-  }
-
-  .logo-subtitle {
-    font-size: 8px;
-  }
-
-  .menu-toggle {
-    display: flex;
-
-    position: absolute;
-    right: 20px;
-    top: 25px;
-
-    flex-direction: column;
-    gap: 5px;
-
-    background: none;
-    border: none;
-
-    cursor: pointer;
-    padding: 10px;
-  }
-
-  .menu-toggle span {
-    width: 23px;
-    height: 1.5px;
-
-    background: var(--color-matcha);
-  }
-
-  .site-nav {
-    display: none;
-
-    position: absolute;
-    top: 100%;
-    left: 0;
-
-    width: 100%;
-
-    background: var(--color-ivory);
-
-    flex-direction: column;
-    gap: 18px;
-
-    padding: 25px 20px 35px;
-
-    border-top: var(--border-thin);
-    box-shadow: var(--shadow-soft);
-  }
-
-  .site-nav.open {
-    display: flex;
-  }
-
-  .site-nav a {
-    font-size: 22px;
-  }
-
 }
