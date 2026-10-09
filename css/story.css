@@ -83,6 +83,11 @@
 }
 
 #story-handwriting svg {
+  stroke: #944A32;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease-in-out forwards; 
+   
   display: block;
   width: 100%;
   height: auto;
