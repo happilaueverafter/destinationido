@@ -227,11 +227,10 @@
    WELCOME SECTION
 ========================================== */
 
-@media (max-width: 700px) {
-   background: var(--color-matcha);
    .welcome-section {
       min-height: 650px;
       padding: 95px 25px 120px;
+      background: var(--color-matcha);
    }
 
    .welcome-section .section-heading {
@@ -281,4 +280,4 @@
    .welcome-signature {
       margin-top: 35px;
    }
-}
+
