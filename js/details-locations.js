@@ -23,7 +23,7 @@ window.weddingLocations = {
     shortName: "Downtown Austin",
     type: "area",
     coordinates: [30.2650, -97.7450],
-    radius: 800,
+    radius: 1500,
     description:
       "We're currently exploring hotels in downtown Austin. Our final hotel block and shuttle pickup location will be announced once confirmed.",
     color: "#87927A",
