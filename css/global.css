@@ -26,6 +26,9 @@
   --color-charcoal: #34352F;
   --color-white: #FFFFFF;
 
+  background: var(--page-bg);
+  color: var(--page-text); 
+
   --shadow-text-small:
     0 1px 3px rgba(0, 0, 0, 0.75),
     0 2px 10px rgba(0, 0, 0, 0.35);
@@ -134,8 +137,7 @@ h3 {
 .site-header {
   position: relative;
   z-index: 100;
-  background: var(--color-matcha);
-  color: var(--color-ivory);
+
   text-align: center;
   border-bottom: 1px solid rgba(244,239,230,0.22);
 }
@@ -265,8 +267,6 @@ h3 {
 ========================================== */
 
 .site-footer {
-  background: var(--color-matcha);
-  color: var(--color-ivory);
   text-align: center;
   padding: 18px 20px;
 }
