@@ -344,66 +344,55 @@
   background: var(--story-warm-paper);
 }
 
+
 .boba-speech-bubble {
-   position: absolute;
-   z-index: 5;
-   top: 4%;
-   right: -12%;
-   width: 210px; 
-   min-height: 120px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding: 18px 22px;
-
-   background: var(--story-warm-paper);
-   border: 2.5px solid var(--story-terracotta);
-   border-radius: 56% 44% 53% 47% /
-                  48% 55% 45% 52%;
-   transform: rotate(-9deg);
-   box-shadow: 2px 3px 0 rgba(148, 75, 50, 0.08);
-}
-
-.boba-speech-bubble span{
-   font-family: var(--font-script);
-   font-size: 2rem;
-   font-weight: 400;
-   line-height: 1.05;
-   text-align: center;
-
-   color: var(--story-terracotta);
-}
-
-.boba-speech-bubble::before {
-  content: "";
   position: absolute;
+  top: 4%;
+  right: -12%;
+  z-index: 5;
 
-  bottom: -17px;
-  left: 30%;
+  width: 230px;
+  height: 150px;
 
-  width: 25px;
-  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background: var(--story-warm-paper);
-
-  border-left: 2.5px solid var(--story-terracotta);
-  border-bottom: 2.5px solid var(--story-terracotta);
-
-  transform: rotate(-28deg) skew(-12deg);
+  transform: rotate(-9deg);
 }
 
-.boba-speech-bubble::after {
-  content: "";
+.bubble-outline {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
 
-  bottom: 0;
-  left: 28%;
+.boba-speech-bubble span {
+  position: relative;
+  z-index: 1;
 
-  width: 40px;
-  height: 15px;
+  margin-top: -12px;
 
-  background: var(--story-warm-paper);
-  border-radius: 50%;
+  font-family: var(--font-script);
+  font-size: 2rem;
+  line-height: 1.05;
+  text-align: center;
+  color: #944B32;
+}
+
+@media (max-width: 700px) {
+  .boba-speech-bubble {
+    width: 170px;
+    height: 115px;
+    top: -30px;
+    right: 0;
+  }
+
+  .boba-speech-bubble span {
+    font-size: 1.5rem;
+  }
 }
 
 /* ==========================================
