@@ -117,27 +117,25 @@ document.addEventListener("DOMContentLoaded", () => {
   /* --------------------------------------------------------
      6. HELPER: CREATE CUSTOM MAP PIN
      -------------------------------------------------------- */
+   function createPin(location) {
+      const iconName = location.icon || "map-pin";
+      return L.divIcon({
+         className: "wedding-location-icon",
 
-  function createPin(location) {
+         html: `
+            <div 
+               class="wedding-map-pin"
+               style="background-color: ${location.color || "#87927A"};"
+            >
+               <i data-lucide="${iconName}"></i>
+            </div>
+         `,
 
-    return L.divIcon({
-      className: "wedding-location-icon",
-
-      html: `
-        <div
-          class="wedding-map-pin"
-          style="background-color: ${location.color || "#87927A"};"
-        >
-          <span>${escapeHTML(location.symbol || "✦")}</span>
-        </div>
-      `,
-
-      iconSize: [38, 38],
-      iconAnchor: [19, 38],
-      popupAnchor: [0, -35]
-    });
-
-  }
+         iconSize: [38, 38],
+         iconAnchor: [19, 38],
+         popupAnchor: [0, -35]
+      });
+   }
 
 
   /* --------------------------------------------------------
@@ -234,16 +232,16 @@ document.addEventListener("DOMContentLoaded", () => {
         color: location.color || "#87927A",
 
         weight: 2,
-
+        opacity: 1,
         dashArray: "7 6",
 
+        fill: true,
         fillColor: location.color || "#87927A",
-
-        fillOpacity: 0.18,
-
+        fillOpacity: 0.28,
         interactive: true
       }).addTo(map);
 
+      circle.bringToFront();
       circle.bindPopup(createPopup(location));
 
       mapObjects.push(circle);
@@ -369,6 +367,14 @@ document.addEventListener("DOMContentLoaded", () => {
      -------------------------------------------------------- */
 
   showStatus("");
+
+  if (window.lucide) {
+     lucide.createIcons({
+        attrs: {
+           "stroke-width": 1.8
+        }
+     });
+  }
 
   console.log(
     `Wedding map initialized with ${mapObjects.length} locations.`
