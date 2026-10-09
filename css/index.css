@@ -133,6 +133,7 @@
 
 .hero-date {
   font-family: var(--font-editorial);
+  color: var(--color-rose);
   font-size: 1.15rem;
   font-weight: 500;
   letter-spacing: 0.18em;
