@@ -4,174 +4,199 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Page Information -->
-  <title>Davis & Kaylee | Wedding 2027</title>
-  <meta name="theme-color" content="#F4EFE6">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Join Davis and Kaylee for their wedding celebration on November 19, 2027, in Austin, Texas."
+  >
+
+  <title>Davis & Kaylee | Adventure of a Lifetime</title>
 
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/index.css">
   <script src="js/global.js" defer></script>
+  <script src="js/index.js" defer></script>
 
 </head>
 
 <body>
 
-  <!-- ==========================================
-       SHARED NAVIGATION HEADER
-       Loaded automatically by global.js
-  =========================================== -->
+  <div id="header-placeholder"></div>
+  <main>
 
-  <div
-    id="header-container"
-    data-base="./"
-  ></div>
+    <!-- =====================================
+         CINEMATIC HERO
+    ====================================== -->
 
+    <section class="hero" aria-labelledby="hero-title">
 
-  <!-- ==========================================
-       HOMEPAGE CONTENT
-  =========================================== -->
+      <img
+        class="hero-image"
+        src="assets/Hero1.jpg"
+        alt="Davis and Kaylee together during their travels"
+        fetchpriority="high"
+      >
 
-  <main id="home">
+      <div class="hero-overlay"></div>
 
+      <div class="hero-content">
 
-    <!-- ========================================
-         HERO PHOTOGRAPH
-    ========================================= -->
+        <p class="hero-eyebrow">
+          TOGETHER WITH OUR FAVORITE PEOPLE
+        </p>
 
-    <section
-      class="hero"
-      aria-label="Wedding announcement photograph"
-    >
+        <h1 id="hero-title" class="hero-names">
+          <span>Davis</span>
+          <span class="hero-ampersand">&amp;</span>
+          <span>Kaylee</span>
+        </h1>
 
-      <div class="hero-image"></div>
+        <p class="hero-announcement">
+          ARE GETTING MARRIED
+        </p>
 
-    </section>
+        <div class="hero-divider">
+          <span></span>
+          <span>✦</span>
+          <span></span>
+        </div>
 
+        <p class="hero-date">
+          NOVEMBER 19, 2027
+        </p>
 
-    <!-- ========================================
-         SAVE THE DATE ANNOUNCEMENT
-    ========================================= -->
+        <p class="hero-location">
+          AUSTIN, TEXAS
+        </p>
 
-    <section
-      id="announcement"
-      class="announcement"
-    >
+        <!-- COUNTDOWN -->
 
-      <p class="eyebrow">
-        Destination: I Do
-      </p>
+        <div
+          class="countdown"
+          id="wedding-countdown"
+          aria-label="Countdown to our wedding"
+        >
 
-      <h1 class="couple-names">
-        Kaylee
-        <span class="ampersand">&</span>
-        Davis
-      </h1>
+          <div class="countdown-unit">
+            <span id="countdown-days">000</span>
+            <small>DAYS</small>
+          </div>
 
-      <div class="ornament" aria-hidden="true">
-        ✦
+          <div class="countdown-unit">
+            <span id="countdown-hours">00</span>
+            <small>HOURS</small>
+          </div>
+
+          <div class="countdown-unit">
+            <span id="countdown-minutes">00</span>
+            <small>MIN</small>
+          </div>
+
+          <div class="countdown-unit">
+            <span id="countdown-seconds">00</span>
+            <small>SEC</small>
+          </div>
+
+        </div>
+
       </div>
 
-      <p class="announcement-label">
-        SAVE THE DATE
-      </p>
-
-      <h2 class="wedding-date">
-        November 19, 2027
-      </h2>
-
-      <p class="wedding-location">
-        Austin, Texas
-      </p>
-
-      <p class="announcement-note">
-        Formal invitation to follow
-      </p>
+      <a
+        class="hero-scroll"
+        href="#welcome"
+        aria-label="Scroll to welcome section"
+      >
+        <span>SCROLL TO EXPLORE</span>
+        <span aria-hidden="true">↓</span>
+      </a>
 
     </section>
 
 
-    <!-- ========================================
+    <!-- =====================================
+         WELCOME
+    ====================================== -->
+
+    <section
+      id="welcome"
+      class="welcome-section"
+      aria-labelledby="welcome-title"
+    >
+
+      <div class="compass-watermark" aria-hidden="true"></div>
+
+      <div class="welcome-content">
+
+        <p class="eyebrow">
+          DESTINATION: I DO
+        </p>
+
+        <h2 id="welcome-title" class="section-heading">
+          Our Greatest Adventure
+        </h2>
+
+        <div class="section-ornament" aria-hidden="true">
+          ✦
+        </div>
+
+        <p class="welcome-description">
+          From the places we've explored to the
+          memories we've made, our favorite adventure
+          has always been the one we've shared together.
+        </p>
+
+        <p class="welcome-description">
+          Now, we're beginning our next chapter,
+          and we couldn't imagine celebrating
+          without you.
+        </p>
+
+        <p class="welcome-signature">
+          Davis &amp; Kaylee
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
          TRAVEL PREVIEW
-    ========================================= -->
+    ====================================== -->
 
     <section
-      id="travel-preview"
-      class="travel-section"
+      class="travel-preview"
+      aria-labelledby="travel-title"
     >
 
-      <div class="container-narrow">
+      <div class="container travel-preview-inner">
 
         <p class="eyebrow">
-          Your Next Destination
+          YOUR INVITATION TO EXPLORE
         </p>
 
-        <h2>
-          Meet Us in Austin
+        <h2 id="travel-title" class="section-heading">
+          The Journey Begins Here
         </h2>
 
         <p>
-          We're so excited to celebrate with you!
-          For those traveling from out of town,
-          we're working on hotel accommodations
-          and additional travel information.
+          Whether you're traveling from across
+          the country or just down the road,
+          we're so excited to celebrate with you.
         </p>
 
         <p>
-          Check back for updates as our wedding
-          approaches.
+          Find helpful information about accommodations,
+          travel, and planning your visit to Austin.
         </p>
 
-        <a
-          href="travel.html"
-          class="btn btn-outline travel-button"
-        >
-          Explore Travel Details
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ========================================
-         WEDDING DETAILS PREVIEW
-    ========================================= -->
-
-    <section
-      id="details-preview"
-      class="details-section"
-    >
-
-      <div class="container-narrow">
-
-        <p class="eyebrow">
-          The Celebration
-        </p>
-
-        <h2>
-          November 19, 2027
-        </h2>
-
-        <p>
-          Canyonwood Ridge
-        </p>
-
-        <p>
-          Austin, Texas
-        </p>
-
-        <p class="details-note">
-          Ceremony timing and additional
-          details coming soon.
-        </p>
-
-        <a
-          href="details.html"
-          class="btn btn-primary details-button"
-        >
-          Wedding Details
+        <a href="travel.html" class="btn btn-light">
+          EXPLORE TRAVEL DETAILS
         </a>
 
       </div>
@@ -181,18 +206,18 @@
   </main>
 
 
-  <!-- ==========================================
+  <!-- =====================================
        FOOTER
-  =========================================== -->
+  ====================================== -->
 
   <footer class="site-footer">
 
-    <p class="footer-title">
-      WANDER
+    <p class="footer-names">
+      Davis &amp; Kaylee
     </p>
 
-    <p>
-      Kaylee & [Name] · 11.19.27
+    <p class="footer-date">
+      NOVEMBER 19, 2027 · AUSTIN, TEXAS
     </p>
 
   </footer>
