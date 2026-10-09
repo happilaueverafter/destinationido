@@ -21,6 +21,11 @@
 
   <!-- Shared header/footer -->
   <script src="js/global.js" defer></script>
+  <script 
+    src="https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js"
+    defer>
+  </script>
+  <script src="js/story.js" defer></script>
 </head>
 
 <body class="theme-ivory">
@@ -41,7 +46,8 @@
       </p>
 
       <h1 class="story-title story-title-handwritten">
-        <span class="story-title-writing">Our Story</span>
+        <span class="story-title-fallback">Our Story</span>
+        <span id="story-handwriting" aria-hidden="true"></span>
       </h1>
 
       <p class="story-subtitle">
