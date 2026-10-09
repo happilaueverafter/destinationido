@@ -69,8 +69,9 @@
 .hero-eyebrow {
   font-size: 0.7rem;
   letter-spacing: 0.35em;
-  color: var(--color-ivory);
+  color: var(--color-white);
   margin-bottom: 40px;
+  text-shadow: var(--shadow-text-small); 
 }
 
 .hero-names {
@@ -82,6 +83,7 @@
   font-size: clamp(3.8rem, 7.5vw, 7rem);
   line-height: 1.1;
   font-weight: 400;
+  text-shadow: var(--shadow-text-script); 
 
   margin: 0 0 55px;
   color: var(--color-white);
@@ -92,7 +94,7 @@
   font-size: 0.42em;
   font-style: italic;
   line-height: 0.9;
-  color: var(--color-champagne);
+  color: var(--color-white);
 }
 
 .hero-announcement {
@@ -133,21 +135,23 @@
 
 .hero-date {
   font-family: var(--font-editorial);
-  color: var(--color-rose);
+  color: var(--color-ivory);
   font-size: 1.15rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
   margin-bottom: 5px;
+  text-shadow: var(--shadow-text-small); 
 }
 
 .hero-venue {
   font-family: var(--font-editorial);
   font-size: 0.95rem;
   letter-spacing: 0.22em;
-  color: var(--color-champagne);
+  color: var(--color-rose);
   margin-bottom: 3px;
+  text-shadow: var(--shadow-text-small); 
 }
 
 .hero-location {
@@ -156,6 +160,7 @@
   letter-spacing: 0.22em;
   color: var(--color-ivory);
   opacity: 0.9;
+  text-shadow: var(--shadow-text-small); 
 }
 
 /* ==========================================
@@ -193,6 +198,7 @@
   letter-spacing: 0.2em;
   margin-top: 8px;
   color: var(--color-champagne);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35); 
 }
 
 /* Scroll prompt */
