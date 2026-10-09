@@ -1,11 +1,12 @@
 
 /* ==========================================
    WANDER — OUR STORY
+   Davis & Kaylee
 ========================================== */
 
 
 /* ==========================================
-   PAGE COLORS
+   01. PAGE COLORS
 ========================================== */
 
 .theme-ivory .story-intro,
@@ -15,24 +16,26 @@
   --story-paper: var(--color-ivory);
   --story-champagne: var(--color-champagne);
   --story-ink: var(--color-charcoal);
+  --story-warm-paper: #F7F1E8;
 }
 
 
 /* ==========================================
-   STORY INTRO
+   02. STORY INTRO
 ========================================== */
 
 .story-intro {
-  background: var(--color-ivory);
+  background: var(--story-paper);
   text-align: center;
 
-  padding: clamp(80px, 10vw, 135px)
-           24px
-           clamp(90px, 10vw, 130px);
+  padding:
+    clamp(80px, 10vw, 135px)
+    24px
+    clamp(90px, 10vw, 130px);
 }
 
 .story-eyebrow {
-  color: var(--color-terracotta);
+  color: var(--story-terracotta);
   margin-bottom: 20px;
 }
 
@@ -40,7 +43,7 @@
   font-size: clamp(4rem, 9vw, 7rem);
   line-height: 1;
 
-  color: var(--color-terracotta);
+  color: var(--story-terracotta);
   margin-bottom: 18px;
 }
 
@@ -48,29 +51,29 @@
   font-size: clamp(1.25rem, 2.5vw, 1.65rem);
   font-style: italic;
 
-  color: var(--color-matcha-dark);
+  color: var(--story-green);
   margin-bottom: 25px;
 }
 
 .story-ornament {
   font-size: 1.5rem;
-  color: var(--color-champagne);
+  color: var(--story-champagne);
   margin-bottom: 55px;
 }
 
 
 /* ==========================================
-   STATISTICS PLAQUE
+   03. STATISTICS PLAQUE
 ========================================== */
 
 .story-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   width: min(100%, 900px);
   margin: 0 auto;
 
-  border: 1px solid var(--color-champagne);
+  border: 1px solid var(--story-champagne);
   padding: 28px 15px;
 
   background: rgba(216, 195, 165, 0.07);
@@ -85,7 +88,7 @@
   gap: 3px;
   padding: 10px;
 
-  border-right: 1px solid var(--color-champagne);
+  border-right: 1px solid var(--story-champagne);
 }
 
 .story-stat:last-child {
@@ -97,7 +100,7 @@
   font-size: clamp(3rem, 5vw, 4.8rem);
   line-height: 1;
 
-  color: var(--color-terracotta);
+  color: var(--story-terracotta);
   font-variant-numeric: lining-nums;
 }
 
@@ -106,7 +109,7 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
 
-  color: var(--color-matcha-dark);
+  color: var(--story-green);
 }
 
 .story-stats-caption {
@@ -119,7 +122,7 @@
 
 
 /* ==========================================
-   CHAPTER SHARED STYLES
+   04. SHARED CHAPTER LAYOUT
 ========================================== */
 
 .story-chapter {
@@ -131,14 +134,15 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(45px, 6vw, 95px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
+  gap: clamp(45px, 6vw, 95px);
   align-items: center;
 }
 
 .chapter-copy {
   max-width: 540px;
+  min-width: 0;
 }
 
 .chapter-number {
@@ -148,14 +152,14 @@
   font-weight: 600;
   letter-spacing: 0.35em;
 
-  color: var(--color-terracotta);
+  color: var(--story-terracotta);
 }
 
 .chapter-title {
   font-size: clamp(2.9rem, 5vw, 4.7rem);
   line-height: 1.05;
 
-  color: var(--color-terracotta);
+  color: var(--story-terracotta);
   margin-bottom: 18px;
 }
 
@@ -164,7 +168,7 @@
   font-style: italic;
   line-height: 1.4;
 
-  color: var(--color-matcha-dark);
+  color: var(--story-green);
   margin-bottom: 35px;
 }
 
@@ -174,21 +178,21 @@
   font-size: clamp(1.12rem, 1.5vw, 1.3rem);
   line-height: 1.75;
 
-  color: var(--color-charcoal);
+  color: var(--story-ink);
   margin-bottom: 22px;
 }
 
 .chapter-copy .chapter-punchline,
 .proposal-story .chapter-punchline {
-  color: var(--color-terracotta) !important;
+  color: var(--story-terracotta);
   font-style: italic;
-  font-size: 1.45rem !important;
+  font-size: 1.45rem;
   line-height: 1.5;
 }
 
 
 /* ==========================================
-   PHOTOGRAPHY
+   05. SHARED PHOTOGRAPHY
 ========================================== */
 
 .chapter-photos {
@@ -197,16 +201,18 @@
 }
 
 .story-photo {
-  margin: 0;
   position: relative;
+  margin: 0;
 }
 
 .story-photo img {
+  display: block;
   width: 100%;
+
   aspect-ratio: 4 / 5;
   object-fit: cover;
 
-  background: var(--color-champagne);
+  background: var(--story-champagne);
 }
 
 .story-photo figcaption,
@@ -216,7 +222,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.22em;
 
-  color: var(--color-matcha-dark);
+  color: var(--story-green);
 }
 
 .photo-annotation {
@@ -226,19 +232,18 @@
   font-family: var(--font-script);
   font-size: clamp(1.4rem, 2.5vw, 2.3rem);
 
-  color: var(--color-terracotta);
+  color: var(--story-terracotta);
   white-space: nowrap;
   pointer-events: none;
 }
 
 
 /* ==========================================
-   CHAPTER ONE
+   06. CHAPTER ONE — BOBA
 ========================================== */
 
 .chapter-one {
-  background: #F7F1E8;
-  border-top: 1px solid rgba(148, 74, 50, 0.12);
+  background: var(--story-warm-paper);
 }
 
 .annotation-boba {
@@ -250,12 +255,14 @@
 
 
 /* ==========================================
-   CHAPTER TWO
+   07. CHAPTER TWO — TRAVEL
 ========================================== */
 
 .chapter-two {
-  background: var(--color-ivory);
+  background: var(--story-paper);
 }
+
+/* Reverse the text/photo order on desktop */
 
 .story-chapter-reverse .chapter-copy {
   order: 2;
@@ -264,6 +271,11 @@
 .story-chapter-reverse .chapter-photos {
   order: 1;
 }
+
+
+/* ==========================================
+   TRAVEL COLLAGE — CONTAINER
+========================================== */
 
 .travel-collage {
   position: relative;
@@ -276,14 +288,14 @@
   isolation: isolate;
 }
 
-/* Shared photograph styling */
+/* Shared photograph treatment */
 
 .travel-collage .collage-photo {
   position: absolute;
   margin: 0;
 
   padding: 5px;
-  background: var(--color-ivory);
+  background: var(--story-paper);
 
   box-shadow:
     0 8px 25px rgba(52, 53, 47, 0.13),
@@ -296,14 +308,16 @@
 
 .travel-collage .collage-photo img {
   display: block;
+
   width: 100%;
   height: 100%;
 
   object-fit: cover;
 }
 
+
 /* ==========================================
-   BACK LAYER
+   TRAVEL COLLAGE — BACK LAYER
 ========================================== */
 
 /* Korea — upper left */
@@ -345,8 +359,9 @@
   transform: rotate(8deg);
 }
 
+
 /* ==========================================
-   MAIN FEATURE — JAPAN
+   TRAVEL COLLAGE — MAIN JAPAN PHOTO
 ========================================== */
 
 .collage-japan {
@@ -364,8 +379,9 @@
   object-position: center;
 }
 
+
 /* ==========================================
-   FRONT LAYER
+   TRAVEL COLLAGE — FRONT LAYER
 ========================================== */
 
 /* Hawaii — right side */
@@ -394,8 +410,9 @@
   transform: rotate(-7deg);
 }
 
+
 /* ==========================================
-   HANDWRITTEN ANNOTATION
+   TRAVEL COLLAGE — ANNOTATION
 ========================================== */
 
 .collage-note {
@@ -409,15 +426,250 @@
   font-family: var(--font-script);
   font-size: clamp(1.5rem, 2.5vw, 2.2rem);
 
-  color: var(--color-terracotta);
+  color: var(--story-terracotta);
+
   transform: rotate(-8deg);
 
   white-space: nowrap;
   pointer-events: none;
 }
 
+
 /* ==========================================
-   OPTIONAL HOVER EFFECT
+   08. CHAPTER THREE — PROPOSAL
+========================================== */
+
+.chapter-three {
+  background: var(--story-warm-paper);
+}
+
+.proposal-intro {
+  width: min(100%, 850px);
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.proposal-intro .chapter-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.proposal-intro .chapter-subtitle {
+  margin-bottom: 0;
+}
+
+/* Large proposal photograph */
+
+.proposal-feature-photo {
+  width: min(100%, 1100px);
+  margin: 0 auto 65px;
+}
+
+.proposal-feature-photo img {
+  display: block;
+
+  width: 100%;
+  max-height: 620px;
+
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  background: var(--story-champagne);
+}
+
+.proposal-feature-photo figcaption {
+  text-align: right;
+}
+
+/* Proposal text */
+
+.proposal-story {
+  width: min(100%, 740px);
+  margin: 0 auto;
+}
+
+.proposal-story p {
+  margin-bottom: 26px;
+}
+
+.proposal-story .chapter-punchline {
+  text-align: center;
+  margin-top: 42px;
+}
+
+
+/* ==========================================
+   09. CHAPTER FOUR — FAVORITE PEOPLE
+========================================== */
+
+.chapter-four {
+  background: var(--story-paper);
+  text-align: center;
+
+  overflow: hidden;
+}
+
+/* Three-column layout:
+   Polaroids | Story | Polaroids */
+
+.chapter-four-inner {
+  position: relative;
+
+  width: min(100%, 1600px);
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(160px, 1fr)
+    minmax(0, 760px)
+    minmax(160px, 1fr);
+
+  gap: clamp(15px, 2vw, 40px);
+
+  align-items: center;
+}
+
+/* Center story */
+
+.chapter-four-content {
+  position: relative;
+  z-index: 2;
+
+  min-width: 0;
+}
+
+.chapter-four .chapter-title {
+  font-size: clamp(3.2rem, 5vw, 5.5rem);
+}
+
+.chapter-four-copy {
+  margin-top: 45px;
+}
+
+.chapter-four-copy p {
+  margin-bottom: 25px;
+}
+
+/* Closing signature */
+
+.story-ending {
+  margin: 55px auto 20px;
+
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.4;
+
+  color: var(--story-terracotta);
+}
+
+.story-ending-ornament {
+  font-size: 1.5rem;
+  color: var(--story-champagne);
+}
+
+
+/* ==========================================
+   10. POLAROID PHOTO COLUMNS
+========================================== */
+
+.memory-photos {
+  position: relative;
+
+  height: 780px;
+  min-width: 0;
+}
+
+/* Shared Polaroid appearance */
+
+.memory-polaroid {
+  position: absolute;
+  margin: 0;
+
+  width: clamp(140px, 14vw, 230px);
+
+  padding: 8px 8px 30px;
+  background: #FFFCF7;
+
+  box-shadow:
+    0 8px 25px rgba(52, 53, 47, 0.15),
+    0 2px 5px rgba(52, 53, 47, 0.08);
+
+  transition:
+    transform 350ms ease,
+    box-shadow 350ms ease;
+}
+
+.memory-polaroid img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+}
+
+
+/* ==========================================
+   LEFT POLAROIDS
+========================================== */
+
+.memory-left-1 {
+  top: 4%;
+  left: 5%;
+
+  z-index: 1;
+  transform: rotate(-9deg);
+}
+
+.memory-left-2 {
+  top: 35%;
+  right: 0;
+
+  z-index: 3;
+  transform: rotate(7deg);
+}
+
+.memory-left-3 {
+  bottom: 4%;
+  left: 0;
+
+  z-index: 2;
+  transform: rotate(-5deg);
+}
+
+
+/* ==========================================
+   RIGHT POLAROIDS
+========================================== */
+
+.memory-right-1 {
+  top: 9%;
+  right: 0;
+
+  z-index: 2;
+  transform: rotate(8deg);
+}
+
+.memory-right-2 {
+  top: 39%;
+  left: 0;
+
+  z-index: 3;
+  transform: rotate(-7deg);
+}
+
+.memory-right-3 {
+  bottom: 0;
+  right: 4%;
+
+  z-index: 1;
+  transform: rotate(5deg);
+}
+
+
+/* ==========================================
+   11. DESKTOP HOVER EFFECTS
 ========================================== */
 
 @media (hover: hover) {
@@ -427,20 +679,216 @@
     transform: rotate(0deg) scale(1.06);
 
     box-shadow:
-      0 15px 35px rgba(52, 53, 47, 0.2);
+      0 15px 35px rgba(52, 53, 47, 0.20);
+  }
+
+  .memory-polaroid:hover {
+    z-index: 10;
+    transform: rotate(0deg) scale(1.06);
+
+    box-shadow:
+      0 15px 35px rgba(52, 53, 47, 0.22);
   }
 
 }
 
+
 /* ==========================================
-   MOBILE
+   12. TABLET
+========================================== */
+
+@media (max-width: 1150px) {
+
+  /* Chapter Four:
+     Polaroids above and below the story */
+
+  .chapter-four-inner {
+    display: flex;
+    flex-direction: column;
+
+    gap: 35px;
+  }
+
+  .chapter-four-content {
+    order: 1;
+    width: min(100%, 760px);
+  }
+
+  .memory-photos {
+    position: relative;
+
+    width: min(100%, 760px);
+    height: 230px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 12px;
+  }
+
+  .memory-photos-left {
+    order: 0;
+  }
+
+  .memory-photos-right {
+    order: 2;
+  }
+
+  .memory-polaroid {
+    position: relative;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    flex: 0 1 190px;
+    width: auto;
+  }
+
+  .memory-left-1 {
+    transform: rotate(-7deg);
+  }
+
+  .memory-left-2 {
+    transform: rotate(5deg);
+  }
+
+  .memory-left-3 {
+    transform: rotate(-4deg);
+  }
+
+  .memory-right-1 {
+    transform: rotate(6deg);
+  }
+
+  .memory-right-2 {
+    transform: rotate(-6deg);
+  }
+
+  .memory-right-3 {
+    transform: rotate(4deg);
+  }
+
+}
+
+
+/* ==========================================
+   13. SMALL TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .story-chapter-inner {
+    gap: 35px;
+  }
+
+  .chapter-title {
+    font-size: clamp(2.7rem, 5vw, 3.8rem);
+  }
+
+  .travel-collage {
+    height: 550px;
+  }
+
+}
+
+
+/* ==========================================
+   14. MOBILE
 ========================================== */
 
 @media (max-width: 700px) {
 
+  /* Story introduction */
+
+  .story-intro {
+    padding: 75px 20px 90px;
+  }
+
+  .story-title {
+    font-size: clamp(3.8rem, 14vw, 5.5rem);
+  }
+
+  .story-ornament {
+    margin-bottom: 35px;
+  }
+
+  /* Statistics plaque */
+
+  .story-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px;
+  }
+
+  .story-stat {
+    padding: 22px 10px;
+  }
+
+  .story-stat:nth-child(2) {
+    border-right: none;
+  }
+
+  .story-stat:nth-child(-n+2) {
+    border-bottom: 1px solid var(--story-champagne);
+  }
+
+  .story-stat-number {
+    font-size: 3.5rem;
+  }
+
+  .story-stats-caption {
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+  }
+
+  /* Shared chapter layout */
+
+  .story-chapter {
+    padding: 85px 22px;
+  }
+
+  .story-chapter-inner {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .story-chapter-reverse .chapter-copy,
+  .story-chapter-reverse .chapter-photos {
+    order: initial;
+  }
+
+  .chapter-copy {
+    max-width: none;
+  }
+
+  .chapter-title {
+    font-size: clamp(3rem, 10vw, 4.2rem);
+  }
+
+  .chapter-subtitle {
+    margin-bottom: 25px;
+  }
+
+  .chapter-photos {
+    width: min(100%, 470px);
+    margin: 0 auto;
+  }
+
+  /* Chapter One */
+
+  .annotation-boba {
+    right: 0;
+    bottom: 45px;
+  }
+
+  /* Chapter Two collage */
+
   .travel-collage {
     width: min(100%, 480px);
     height: clamp(380px, 115vw, 530px);
+
     margin: 15px auto;
   }
 
@@ -483,360 +931,7 @@
     left: 2%;
   }
 
-}
-
-.annotation-travel {
-  left: 3%;
-  bottom: 10px;
-
-  transform: rotate(-6deg);
-}
-
-
-/* ==========================================
-   CHAPTER THREE — PROPOSAL
-========================================== */
-
-.chapter-three {
-  background: #F7F1E8;
-}
-
-.proposal-intro {
-  width: min(100%, 850px);
-  margin: 0 auto 55px;
-
-  text-align: center;
-}
-
-.proposal-intro .chapter-title {
-  font-size: clamp(3rem, 6vw, 5rem);
-}
-
-.proposal-intro .chapter-subtitle {
-  margin-bottom: 0;
-}
-
-.proposal-feature-photo {
-  width: min(100%, 1100px);
-  margin: 0 auto 65px;
-}
-
-.proposal-feature-photo img {
-  width: 100%;
-  max-height: 620px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-
-  background: var(--color-champagne);
-}
-
-.proposal-feature-photo figcaption {
-  text-align: right;
-}
-
-.proposal-story {
-  width: min(100%, 740px);
-  margin: 0 auto;
-}
-
-.proposal-story p {
-  margin-bottom: 26px;
-}
-
-.proposal-story .chapter-punchline {
-  text-align: center;
-  margin-top: 42px;
-}
-
-
-/* ==========================================
-   CHAPTER FOUR — CLOSING
-========================================== */
-
-.chapter-four {
-  background: var(--color-ivory);
-  text-align: center;
-}
-
-.chapter-four-inner {
-  width: min(100%, 760px);
-  margin: 0 auto;
-}
-
-.chapter-four .chapter-title {
-  font-size: clamp(3.2rem, 6vw, 5.5rem);
-}
-
-.chapter-four-copy {
-  margin-top: 45px;
-}
-
-.chapter-four-copy p {
-  margin-bottom: 25px;
-}
-
-.story-ending {
-  margin: 55px auto 20px;
-
-  font-family: var(--font-script);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.4;
-
-  color: var(--color-terracotta);
-}
-
-.story-ending-ornament {
-  font-size: 1.5rem;
-  color: var(--color-champagne);
-}
-
-
-/* ==========================================
-   OUR FAVORITE PEOPLE — PHOTO GALLERY
-========================================== */
-
-.people-gallery {
-  width: min(1150px, calc(100vw - 40px));
-  max-width: none;
-
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-
-  margin: 85px 0 65px;
-  text-align: center;
-}
-
-.people-gallery-eyebrow {
-  margin-bottom: 12px;
-
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  color: var(--color-terracotta);
-}
-
-.people-gallery-title {
-  font-size: clamp(2.6rem, 5vw, 4rem);
-  color: var(--color-terracotta);
-  margin-bottom: 35px;
-}
-
-/* Carousel layout */
-
-.people-gallery-frame {
-  position: relative;
-}
-
-.people-gallery-track {
-  display: flex;
-  gap: 18px;
-
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-
-  padding: 25px 12px 35px;
-
-  scrollbar-width: none;
-}
-
-.people-gallery-track::-webkit-scrollbar {
-  display: none;
-}
-
-/* Individual photo cards */
-
-.people-gallery-photo {
-  flex: 0 0 clamp(210px, 28vw, 320px);
-  margin: 0;
-
-  padding: 6px;
-  background: #fffaf3;
-
-  box-shadow:
-    0 7px 20px rgba(52, 53, 47, 0.11);
-
-  scroll-snap-align: center;
-}
-
-.people-gallery-photo img {
-  width: 100%;
-  height: clamp(240px, 30vw, 350px);
-  object-fit: cover;
-}
-
-/* Gentle variation in photo height */
-
-.people-gallery-photo:nth-child(3n + 2) {
-  transform: translateY(12px);
-}
-
-.people-gallery-photo:nth-child(3n + 3) {
-  transform: translateY(-6px);
-}
-
-/* Navigation arrows */
-
-.gallery-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 5;
-
-  transform: translateY(-50%);
-
-  width: 45px;
-  height: 45px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid var(--color-champagne);
-  border-radius: 50%;
-
-  background: var(--color-ivory);
-  color: var(--color-terracotta);
-
-  font-size: 1.5rem;
-  cursor: pointer;
-
-  box-shadow: 0 3px 12px rgba(52, 53, 47, 0.1);
-
-  transition:
-    background-color 250ms ease,
-    color 250ms ease;
-}
-
-.gallery-arrow:hover {
-  background: var(--color-terracotta);
-  color: var(--color-ivory);
-}
-
-.gallery-prev {
-  left: -15px;
-}
-
-.gallery-next {
-  right: -15px;
-}
-
-/* Caption */
-
-.people-gallery-caption {
-  margin: 25px 0 0;
-
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  color: var(--color-matcha-dark);
-}
-
-/* ==========================================
-   TABLET
-========================================== */
-
-@media (max-width: 900px) {
-
-  .story-chapter-inner {
-    gap: 35px;
-  }
-
-  .chapter-title {
-    font-size: clamp(2.7rem, 5vw, 3.8rem);
-  }
-
-  .chapter-photo-collage {
-    padding-right: 35px;
-    padding-bottom: 45px;
-  }
-
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 700px) {
-
-  .story-intro {
-    padding: 75px 20px 90px;
-  }
-
-  .story-title {
-    font-size: clamp(3.8rem, 14vw, 5.5rem);
-  }
-
-  .story-ornament {
-    margin-bottom: 35px;
-  }
-
-  .story-stats {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 10px;
-  }
-
-  .story-stat {
-    padding: 22px 10px;
-  }
-
-  .story-stat:nth-child(2) {
-    border-right: none;
-  }
-
-  .story-stat:nth-child(-n+2) {
-    border-bottom: 1px solid var(--color-champagne);
-  }
-
-  .story-stat-number {
-    font-size: 3.5rem;
-  }
-
-  .story-stats-caption {
-    font-size: 0.62rem;
-    letter-spacing: 0.13em;
-  }
-
-  .story-chapter {
-    padding: 85px 22px;
-  }
-
-  .story-chapter-inner {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .story-chapter-reverse .chapter-copy,
-  .story-chapter-reverse .chapter-photos {
-    order: initial;
-  }
-
-  .chapter-copy {
-    max-width: none;
-  }
-
-  .chapter-title {
-    font-size: clamp(3rem, 10vw, 4.2rem);
-  }
-
-  .chapter-subtitle {
-    margin-bottom: 25px;
-  }
-
-  .chapter-photos {
-    width: min(100%, 470px);
-    margin: 0 auto;
-  }
-
-  .annotation-boba {
-    right: 0;
-    bottom: 45px;
-  }
-
-  .chapter-photo-collage {
-    padding-right: 45px;
-    padding-bottom: 60px;
-  }
+  /* Chapter Three */
 
   .proposal-intro {
     margin-bottom: 35px;
@@ -850,6 +945,16 @@
     aspect-ratio: 4 / 3;
   }
 
+  /* Chapter Four */
+
+  .chapter-four-inner {
+    gap: 15px;
+  }
+
+  .chapter-four-content {
+    order: 0;
+  }
+
   .chapter-four-copy {
     margin-top: 30px;
   }
@@ -858,39 +963,52 @@
     margin-top: 40px;
   }
 
-}
+  /* Polaroids become swipeable photo strips */
 
-/* Mobile */
-
-@media (max-width: 700px) {
-
-  .people-gallery {
-    width: calc(100vw - 20px);
-    margin: 65px 0 45px;
+  .memory-photos-left {
+    order: 1;
   }
 
-  .people-gallery-track {
-    gap: 12px;
-    padding: 20px 12px 30px;
+  .memory-photos-right {
+    order: 2;
   }
 
-  .people-gallery-photo {
-    flex-basis: 72vw;
+  .memory-photos {
+    width: 100%;
+    height: auto;
+
+    justify-content: flex-start;
+    gap: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 20px 15px 35px;
+
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
 
-  .people-gallery-photo img {
-    height: 290px;
-  }
-
-  .gallery-arrow {
+  .memory-photos::-webkit-scrollbar {
     display: none;
+  }
+
+  .memory-polaroid {
+    flex: 0 0 190px;
+
+    padding: 7px 7px 25px;
+    scroll-snap-align: center;
+  }
+
+  .memory-polaroid img {
+    aspect-ratio: 4 / 3;
   }
 
 }
 
 
 /* ==========================================
-   SMALL MOBILE
+   15. SMALL MOBILE
 ========================================== */
 
 @media (max-width: 380px) {
@@ -907,14 +1025,26 @@
     font-size: 1.35rem;
   }
 
+  .collage-note {
+    font-size: 1.2rem;
+  }
+
+  .memory-polaroid {
+    flex-basis: 165px;
+  }
+
 }
+
+
+/* ==========================================
+   16. REDUCED MOTION
+========================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-  .travel-collage .collage-photo {
+  .travel-collage .collage-photo,
+  .memory-polaroid {
     transition: none;
   }
-  .people-gallery-track {
-    scroll-behavior: auto;
-  } 
+
 }
