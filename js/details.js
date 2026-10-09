@@ -375,15 +375,16 @@ document.addEventListener("DOMContentLoaded", () => {
      13. FINISHED
      -------------------------------------------------------- */
 
-  showStatus("");
+showStatus("");
 
+refreshLucideIcons();
+
+map.on("layeradd", () => {
   refreshLucideIcons();
-  map.on("layeradd", () => {
-     refreshLucideIcons();
-  });
-      
-  console.log(
-    `Wedding map initialized with ${mapObjects.length} locations.`
-  );
+});
 
-}
+console.log(
+  `Wedding map initialized with ${mapObjects.length} locations.`
+);
+
+});
