@@ -43,12 +43,12 @@
   font-family: var(--font-script);
   font-weight: 400;
 
-  font-size: clamp(4.5rem, 11vw, 8rem);
-  line-height: 1.5;
+  font-size: clamp(3.5rem, 7.5vw, 6rem);
+  line-height: 1.25;
 
   color: var(--color-terracotta);
 
-  margin-bottom: 18px;
+  margin: 12px 0 28px;
 }
 
 /* Animated text */
