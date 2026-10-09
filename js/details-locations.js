@@ -41,7 +41,7 @@ window.weddingLocations = {
     address:
       "250 S Canyonwood Dr, Dripping Springs, TX 78620",
     color: "#B97D7D",
-    icon: "church"
+    icon: "heart"
   }
 
 };
