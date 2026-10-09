@@ -1,0 +1,435 @@
+
+/* ==================================
+   FONTS
+================================== */
+
+@font-face {
+  font-family: "Brittany";
+  src: url("../assets/fonts/Brittany.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==================================
+   WEDDING DESIGN SYSTEM
+================================== */
+
+:root {
+  /* Main colors */
+  --matcha: #87927A;
+  --burnt-orange: #B9694F;
+
+  /* Accent colors */
+  --english-rose: #B97D7D;
+  --champagne: #D8C3A5;
+
+  /* Limited-use pop */
+  --burgundy: #713F48;
+
+  /* Neutrals */
+  --ivory: #F4EFE6;
+  --white: #FFFFFF;
+  --charcoal: #34352F;
+
+  /* Typography */
+  --font-editorial: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Brittany", "Brush Script MT", cursive;
+}
+
+/* ==================================
+   RESET
+================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-editorial);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* ==================================
+   HEADER
+================================== */
+
+.site-header {
+  width: 100%;
+  background: var(--ivory);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 20px 30px 16px;
+  position: relative;
+  z-index: 10;
+}
+
+.site-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+
+  margin-bottom: 15px;
+}
+
+.logo-title {
+  font-family: var(--font-editorial);
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--matcha);
+}
+
+.logo-subtitle {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--burnt-orange);
+}
+
+/* Navigation spread across the header */
+
+.site-nav {
+  width: min(100%, 850px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 25px;
+}
+
+.site-nav a {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--charcoal);
+  padding: 5px 0;
+
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+  background: var(--burnt-orange);
+
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--burnt-orange);
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  transform: scaleX(1);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ==================================
+   HERO IMAGE
+================================== */
+
+.hero {
+  width: 100%;
+  height: clamp(350px, 48vw, 650px);
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+
+  background-image: url("../assets/hero.jpg");
+  background-position: center 45%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ==================================
+   ANNOUNCEMENT
+================================== */
+
+.announcement {
+  background: var(--ivory);
+  text-align: center;
+
+  padding: 65px 20px 90px;
+}
+
+.eyebrow {
+  color: var(--burnt-orange);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+}
+
+.couple-names {
+  font-family: var(--font-script);
+  font-weight: normal;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1.7;
+
+  color: var(--matcha);
+  margin: 12px auto;
+}
+
+.ampersand {
+  color: var(--burnt-orange);
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px auto 25px;
+}
+
+.ornament span:not(.ornament-symbol) {
+  width: 65px;
+  height: 1px;
+  background: var(--champagne);
+}
+
+.ornament-symbol {
+  font-size: 17px;
+  color: var(--burnt-orange);
+}
+
+.announcement-label {
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--matcha);
+}
+
+.wedding-date {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.wedding-location {
+  font-size: 23px;
+  color: var(--burnt-orange);
+  margin-top: 5px;
+}
+
+.announcement-note {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--charcoal);
+  margin-top: 30px;
+}
+
+/* ==================================
+   TRAVEL SECTION
+================================== */
+
+.travel-section {
+  background: var(--matcha);
+  color: var(--white);
+
+  padding: 90px 25px;
+  text-align: center;
+}
+
+.section-inner {
+  max-width: 650px;
+  margin: auto;
+}
+
+.travel-section .eyebrow {
+  color: var(--ivory);
+}
+
+.travel-section h2 {
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 500;
+  margin: 15px 0 25px;
+}
+
+.travel-section p:not(.eyebrow) {
+  font-size: 21px;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+/* ==================================
+   DETAILS SECTION
+================================== */
+
+.details-section {
+  padding: 90px 25px;
+  text-align: center;
+}
+
+.details-section h2 {
+  font-size: 46px;
+  font-weight: 500;
+  margin: 18px 0;
+}
+
+.details-section p:not(.eyebrow) {
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.details-note {
+  margin-top: 20px;
+  font-style: italic;
+  color: var(--matcha);
+}
+
+/* ==================================
+   FOOTER
+================================== */
+
+.site-footer {
+  padding: 45px 20px;
+  text-align: center;
+  background: var(--champagne);
+}
+
+.footer-title {
+  font-size: 28px;
+  letter-spacing: 0.2em;
+  color: var(--matcha);
+  margin-bottom: 10px;
+}
+
+.site-footer p:last-child {
+  font-size: 17px;
+}
+
+/* ==================================
+   MOBILE
+================================== */
+
+@media (max-width: 700px) {
+
+  .site-header {
+    min-height: 80px;
+    padding: 12px 20px;
+    justify-content: center;
+  }
+
+  .site-logo {
+    margin-bottom: 0;
+  }
+
+  .logo-title {
+    font-size: 30px;
+  }
+
+  .logo-subtitle {
+    font-size: 8px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+
+    flex-direction: column;
+    gap: 5px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .menu-toggle span {
+    width: 23px;
+    height: 1.5px;
+    background: var(--matcha);
+  }
+
+  .site-nav {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    background: var(--ivory);
+
+    flex-direction: column;
+    gap: 18px;
+    padding: 25px 20px 35px;
+
+    border-top: 1px solid var(--champagne);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    font-size: 22px;
+  }
+
+  .hero {
+    height: 52vh;
+    min-height: 320px;
+    max-height: 600px;
+  }
+
+  .hero-image {
+    background-position: center;
+  }
+
+  .announcement {
+    padding: 55px 20px 70px;
+  }
+
+  .couple-names {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+
+  .travel-section,
+  .details-section {
+    padding: 70px 24px;
+  }
+
+  .travel-section p:not(.eyebrow) {
+    font-size: 19px;
+  }
+
+}
