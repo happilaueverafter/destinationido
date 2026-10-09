@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "story-handwriting",
     {
       type: "oneByOne",
-      duration: 180,
+      duration: 360,
       start: "manual",
       file: "assets/ourStory.svg",
       onReady: () => {
