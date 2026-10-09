@@ -808,7 +808,8 @@
   stroke: white;
   stroke-width: 1.8;
   fill: none;
-  transform: none !important;
+  transform: none;
+  rotate: none;
 }
 
 #wedding-map .hotel-circle-label {
