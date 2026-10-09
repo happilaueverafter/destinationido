@@ -343,9 +343,9 @@
 .welcome-section .eyebrow {
   margin-bottom: 28px;
 
-  color: var(--color-champagne);
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
+  color: var(--color-orange);
+  font-size: 1rem;
+  letter-spacing: 0.5em;
 }
 
 /* Our Greatest Adventure */
