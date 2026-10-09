@@ -227,197 +227,57 @@
    WELCOME SECTION
 ========================================== */
 
-.welcome-section {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
-  background: var(--color-matcha);
-  color: var(--color-champagne);
-
-  padding: clamp(100px, 12vw, 160px) 20px;
-  text-align: center;
-}
-
-.welcome-content {
-  position: relative;
-  z-index: 1;
-
-  width: min(100%, 760px);
-  margin: 0 auto;
-}
-
-.welcome-section .eyebrow {
-  color: var(--color-terracotta);
-  margin-bottom: 22px;
-}
-
-.welcome-section .section-heading {
-  color: var(--color-matcha-dark);
-  margin-bottom: 20px;
-}
-
-.section-ornament {
-  color: var(--color-champagne);
-  font-size: 1.5rem;
-  margin-bottom: 25px;
-}
-
-.welcome-description {
-  max-width: 610px;
-  margin: 0 auto 20px;
-
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
-  line-height: 1.7;
-}
-
-.welcome-signature {
-  margin: 40px 0 0;
-
-  font-family: var(--font-script);
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--color-matcha);
-}
-
-/* Floral compass watermark */
-
-.compass-watermark {
-  --compass-color: var(--color-matcha);
-  --compass-opacity: 0.10;
-
-  position: absolute;
-  z-index: 0;
-
-  width: clamp(320px, 48vw, 600px);
-  aspect-ratio: 1;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  background-color: var(--compass-color);
-
-  -webkit-mask:
-    url("../assets/FloralCompass.png")
-    center / contain no-repeat;
-
-  mask:
-    url("../assets/FloralCompass.png")
-    center / contain no-repeat;
-
-  opacity: var(--compass-opacity);
-  pointer-events: none;
-}
-
-/* ==========================================
-   TRAVEL PREVIEW
-========================================== */
-
-.travel-preview {
-  background: var(--color-matcha);
-  color: var(--color-ivory);
-  text-align: center;
-
-  padding: clamp(90px, 10vw, 145px) 20px;
-}
-
-.travel-preview-inner {
-  max-width: 760px;
-}
-
-.travel-preview .eyebrow {
-  color: var(--color-champagne);
-  margin-bottom: 25px;
-}
-
-.travel-preview .section-heading {
-  color: var(--color-ivory);
-  margin-bottom: 28px;
-}
-
-.travel-preview p:not(.eyebrow) {
-  max-width: 610px;
-  margin: 0 auto 20px;
-
-  font-size: 1.3rem;
-  line-height: 1.65;
-}
-
-.travel-preview .btn {
-  margin-top: 22px;
-}
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
 @media (max-width: 700px) {
+   .welcome-section {
+      min-height: 650px;
+      padding: 95px 25px 120px;
+   }
 
-  .hero {
-    min-height: 760px;
-  }
+   .welcome-section .section-heading {
+      font-size: clamp(3rem, 10vw, 4.2rem);
+   }
 
-  .hero-image {
-    object-position: 62% center;
-  }
+   .compass-watermark {
+      --compass-color: var(--color-matcha);
+      --compass-opacity: 0.10;
 
-  .hero-content {
-    padding: 75px 10px 105px;
-  }
+      position: absolute;
+      z-index: 0;
+      width: 390px;
+      top: 42%;
+      left: 68%;
+      transform: rotate(-15deg);
 
-  .hero-names {
-    font-size: clamp(3.2rem, 12vw, 5rem);
-  }
+      background-color: var(--color-matcha);
+      opacity: var(--compass-opacity);
+      pointer-events: none;
 
-  .hero-eyebrow {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-  }
+      -webkit-mask: 
+         url("../assets/weddingLogoRose.png")
+         center / contain no-repeat;
+      mask: 
+         url("../assets/weddingLogoRose.png")
+         center / contain no-repeat;
+      
+   }
 
-  .hero-date {
-    font-size: 0.95rem;
-  }
+   .welcome-flight-path {
+      width: 150%;
+      left: -25%;
+      height: 42%;
+   }
 
-  .countdown {
-    gap: 6px;
-  }
+   .welcome-plane {
+      right: 8%;
+      bottom: 31%;
+      width: 24px;
+   }
 
-  .countdown-unit {
-    width: 68px;
-    min-height: 72px;
-  }
+   .welcome-copy p {
+      font-size: 1.2rem;
+   }
 
-  .countdown-unit > span {
-    font-size: 1.65rem;
-  }
-
-  .countdown-unit small {
-    font-size: 0.5rem;
-  }
-
-  .welcome-section {
-    padding: 100px 24px;
-  }
-
-  .compass-watermark {
-    width: 350px;
-    --compass-opacity: 0.07;
-  }
-
-  .travel-preview {
-    padding: 95px 24px;
-  }
-
-}
-
-@media (max-width: 380px) {
-
-  .countdown-unit {
-    width: 60px;
-  }
-
-  .hero-names {
-    font-size: 3rem;
-  }
-
+   .welcome-signature {
+      margin-top: 35px;
+   }
 }
