@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plan your visit for Davis and Kaylee's wedding weekend in Dripping Springs, Texas, November 18–20, 2027.">
+  <title>Wedding Details | Davis &amp; Kaylee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzxw9alK95xJ5MbbMlUeB7b0=" crossorigin="">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/details.css">
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="js/details.js" defer></script>
+</head>
+
+<body class="details-page">
+
+  <!-- Replace with your existing navigation if desired -->
+  <header class="details-site-header">
+    <a class="details-brand" href="index.html" aria-label="Davis and Kaylee, home">
+      D <span>&amp;</span> K
+    </a>
+
+    <nav class="details-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="story.html">Our Story</a>
+      <a href="details.html" aria-current="page">Details</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="details-hero" aria-labelledby="details-title">
+      <span class="hero-stamp" aria-hidden="true">
+        DETAILS<br>TO FOLLOW
+      </span>
+
+      <div class="hero-inner">
+        <p class="eyebrow">
+          Davis &amp; Kaylee
+          <span class="eyebrow-dot">✦</span>
+          The Wedding Weekend
+        </p>
+
+        <h1 id="details-title">
+          The Best Is <em>Yet to Come</em>
+        </h1>
+
+        <p class="hero-subtitle">
+          And so are the details.
+        </p>
+
+        <div class="hero-rule" aria-hidden="true">
+          <span>✦</span>
+        </div>
+
+        <p class="hero-copy">
+          We're still working out the finer details of our celebration,
+          but we know some of you have a little traveling to do!
+          Here's what we know so far to help you start planning.
+          We'll keep adding information as the big day gets closer.
+        </p>
+
+        <p class="hero-location">
+          Dripping Springs, Texas
+          <span>•</span>
+          November 19, 2027
+        </p>
+
+        <a class="scroll-cue" href="#weekend">
+          What we know so far
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- WEEKEND ITINERARY -->
+    <section class="details-section weekend-section"
+             id="weekend"
+             aria-labelledby="weekend-title">
+
+      <div class="section-heading">
+        <p class="section-kicker">01 / The Weekend</p>
+
+        <h2 id="weekend-title">
+          A Weekend Worth <em>Celebrating</em>
+        </h2>
+
+        <p>
+          One big day, with a little extra time together on either side.
+          The Thursday and Saturday gatherings are optional—we'd just
+          love to see you if your travels allow!
+        </p>
+      </div>
+
+      <div class="itinerary-grid">
+
+        <!-- THURSDAY -->
+        <article class="day-card">
+          <div class="date-ticket">
+            <span>THURSDAY</span>
+            <strong>18</strong>
+            <span>NOV 2027</span>
+          </div>
+
+          <div class="day-content">
+            <p class="card-label">Before the Big Day</p>
+            <h3>Come Say Hello</h3>
+
+            <p>
+              We'll have our rehearsal dinner for invited guests,
+              followed by a casual opportunity to hang out with us
+              that evening. Stop by if you're in town!
+            </p>
+
+            <span class="status-tag">Details to come</span>
+          </div>
+        </article>
+
+        <!-- FRIDAY -->
+        <article class="day-card featured-card">
+          <div class="date-ticket">
+            <span>FRIDAY</span>
+            <strong>19</strong>
+            <span>NOV 2027</span>
+          </div>
+
+          <div class="day-content">
+            <p class="card-label">The Main Event</p>
+            <h3>We Say “I Do”</h3>
+
+            <p>
+              Join us for our wedding at Canyonwood Ridge in
+              Dripping Springs! We're also hoping to keep the
+              celebration going in downtown Austin afterward.
+            </p>
+
+            <span class="status-tag">Wedding day</span>
+          </div>
+        </article>
+
+        <!-- SATURDAY -->
+        <article class="day-card">
+          <div class="date-ticket">
+            <span>SATURDAY</span>
+            <strong>20</strong>
+            <span>NOV 2027</span>
+          </div>
+
+          <div class="day-content">
+            <p class="card-label">One More Adventure</p>
+            <h3>Let's Hang Out</h3>
+
+            <p>
+              We're planning an optional group activity for anyone
+              who wants to spend a little more time together
+              before heading home.
+            </p>
+
+            <span class="status-tag">Plans in progress</span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="section-footnote">
+        Specific times, meeting places, and additional details
+        will be shared closer to the wedding.
+      </p>
+    </section>
+
+    <!-- ACCOMMODATIONS -->
+    <section class="details-section stay-section"
+             id="stay"
+             aria-labelledby="stay-title">
+
+      <div class="stay-layout">
+
+        <div class="stay-illustration" aria-hidden="true">
+          <div class="luggage-tag">
+            <span>PLEASE HOLD</span>
+            <strong>Room for<br>One More?</strong>
+            <span>HOTEL DETAILS COMING SOON</span>
+          </div>
+
+          <span class="stay-sparkle sparkle-one">✳</span>
+          <span class="stay-sparkle sparkle-two">✦</span>
+        </div>
+
+        <div class="stay-copy">
+          <p class="section-kicker">02 / Accommodations</p>
+
+          <h2 id="stay-title">
+            Stay <em>Awhile</em>
+          </h2>
+
+          <p>
+            We're working on securing a hotel room block for
+            our guests, with special rates and convenient
+            transportation to and from the wedding.
+          </p>
+
+          <p>
+            Whether you're visiting from out of town or planning
+            a little staycation, we'd love for you to join us!
+            We'll share hotel details, booking instructions,
+            and reservation deadlines once everything is confirmed.
+          </p>
+
+          <div class="inline-note">
+            <span aria-hidden="true">✦</span>
+            We're currently exploring hotels in downtown Austin.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRAVEL AND LOCATION -->
+    <section class="details-section travel-section"
+             id="travel"
+             aria-labelledby="travel-title">
+
+      <div class="section-heading">
+        <p class="section-kicker">
+          03 / Getting Here &amp; Getting Around
+        </p>
+
+        <h2 id="travel-title">
+          Find Your <em>Way</em>
+        </h2>
+
+        <p>
+          Whether you're flying in or coming from down the road,
+          here's a quick look at where everything is—and how
+          we're hoping to make the trip a little easier.
+        </p>
+      </div>
+
+      <div class="travel-facts">
+
+        <article class="travel-fact">
+          <div class="fact-icon" aria-hidden="true">✈</div>
+          <h3>Flying In</h3>
+          <p>
+            Austin-Bergstrom International Airport (AUS)
+            is the main airport to look at when planning your trip.
+          </p>
+        </article>
+
+        <article class="travel-fact">
+          <div class="fact-icon" aria-hidden="true">♡</div>
+          <h3>The Wedding</h3>
+          <p>
+            Our ceremony and reception will take place at
+            Canyonwood Ridge in Dripping Springs, just outside Austin.
+          </p>
+        </article>
+
+        <article class="travel-fact">
+          <div class="fact-icon" aria-hidden="true">↝</div>
+          <h3>The Shuttle</h3>
+          <p>
+            We're arranging a wedding-day shuttle between our
+            selected hotel and the venue. Local guests will
+            be welcome to use it, too!
+          </p>
+        </article>
+
+      </div>
+
+      <!-- INTERACTIVE MAP -->
+      <div class="map-shell">
+
+        <div class="map-topline">
+          <div>
+            <span class="map-overline">
+              A LITTLE LOCAL KNOW-HOW
+            </span>
+            <h3>Our Wedding Map</h3>
+          </div>
+
+          <span class="map-decor" aria-hidden="true">
+            ✧ ─ ─ ✧
+          </span>
+        </div>
+
+        <div class="map-legend" aria-label="Map legend">
+          <span>
+            <i class="legend-dot airport-dot"></i>
+            Airport
+          </span>
+
+          <span>
+            <i class="legend-dot hotel-dot"></i>
+            Potential hotel area
+          </span>
+
+          <span>
+            <i class="legend-dot venue-dot"></i>
+            Wedding venue
+          </span>
+        </div>
+
+        <div id="wedding-map"
+             role="region"
+             aria-label="Interactive map of Austin airport, downtown Austin hotel search area, and Canyonwood Ridge">
+        </div>
+
+        <p class="map-status"
+           id="map-status"
+           aria-live="polite"></p>
+
+        <div class="map-footer">
+          <p>
+            <strong>A note about the shaded area:</strong>
+            We're considering several hotels in downtown Austin.
+            This is a general search area, not a confirmed hotel
+            or shuttle pickup location.
+          </p>
+
+          <button type="button"
+                  class="map-reset"
+                  id="map-reset">
+            View all locations ↗
+          </button>
+        </div>
+      </div>
+
+      <!-- LOCAL TRANSPORTATION -->
+      <div class="transport-note">
+        <span class="transport-symbol" aria-hidden="true">✳</span>
+
+        <div>
+          <h3>A note for our local guests</h3>
+
+          <p>
+            We hope to make the hotel shuttle an option for
+            locals who'd rather not drive to the venue.
+            We're also looking into overnight parking
+            arrangements at the selected hotel.
+            We'll share the details once confirmed.
+          </p>
+
+          <p class="transport-small">
+            Shuttle schedules, hotel parking, and any downtown
+            after-party transportation are not finalized yet.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CLOSING -->
+    <section class="details-outro"
+             aria-label="More information coming soon">
+
+      <span aria-hidden="true">✦</span>
+
+      <h2>More adventures ahead.</h2>
+
+      <p>
+        Check back as our plans take shape.
+        We can't wait to celebrate with you!
+      </p>
+
+      <a href="#details-title">Back to the top ↑</a>
+    </section>
+
+  </main>
+
+  <footer class="details-footer">
+    <p>
+      Davis &amp; Kaylee
+      <span>✦</span>
+      November 19, 2027
+    </p>
+  </footer>
+
+</body>
+</html>
