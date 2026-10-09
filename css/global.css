@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "Brittany";
-  src: url("../assets/BRITTANYSIGNATURE.TTF") format("woff2");
+  src: url("../assets/BRITTANYSIGNATURE.TTF") format("truetype");
   font-display: swap;
 }
 
@@ -265,7 +265,7 @@ h3 {
 ========================================== */
 
 .site-footer {
-  background: var(--color-orange);
+  background: var(--color-terracotta);
   color: var(--color-ivory);
   text-align: center;
   padding: 60px 20px;
