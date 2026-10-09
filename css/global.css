@@ -246,7 +246,7 @@ h3 {
 
   text-align: center;
 
-  border-bottom: 1px solid var(--page-border);
+  border-bottom: none;
 }
 
 .header-inner {
@@ -449,7 +449,7 @@ h3 {
   text-align: center;
   padding: 18px 20px;
 
-  border-top: 1px solid var(--page-border);
+  border-top: none;
 }
 
 .site-footer .footer-names {
