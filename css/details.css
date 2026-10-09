@@ -770,6 +770,63 @@
   padding: 0 9px;
 }
 
+
+/* ==========================================
+   LEAFLET SVG OVERLAY FIX
+   ========================================== */
+
+#wedding-map .leaflet-overlay-pane {
+  position: absolute !important;
+  z-index: 400;
+}
+
+#wedding-map .leaflet-overlay-pane svg {
+  position: absolute !important;
+  overflow: hidden !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+#wedding-map .leaflet-overlay-pane path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==========================================
+   LUCIDE MAP ICONS
+   ========================================== */
+
+#wedding-map .wedding-map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wedding-map .wedding-map-pin svg {
+  width: 19px;
+  height: 19px;
+  stroke: white;
+  stroke-width: 1.8;
+  fill: none;
+  transform: none !important;
+}
+
+#wedding-map .hotel-circle-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 160px;
+}
+
+#wedding-map .hotel-circle-label svg {
+  width: 15px;
+  height: 15px;
+  stroke: #63725E;
+  stroke-width: 1.8;
+  fill: none;
+}
+
 /* TABLET */
 
 @media (max-width: 850px) {
