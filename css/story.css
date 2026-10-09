@@ -58,54 +58,62 @@
 ========================================== */
 
 .story-title-handwritten {
-  position: relative;
   width: min(100%, 540px);
   margin: 12px auto 28px;
-  line-height: 1.2;
-  color: var(--color-terracotta);
+  line-height: 1;
 }
 
-/* Static Brittany title */
+/* Original Brittany Signature SVG */
 
-.story-title-fallback {
-  display: block;
-  font-family: var(--font-script);
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 400;
-  white-space: nowrap;
-}
-
-/* SVG container */
-
-#story-handwriting {
-  display: none;
-  width: 100%;
-}
-
-#story-handwriting svg {
-  stroke: #944A32;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: drawLine 3s ease-in-out forwards; 
-   
+.story-title-svg {
   display: block;
   width: 100%;
   height: auto;
-  overflow: visible;
+
+  /* Soft edge that moves across the lettering */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    #000 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    #000 85%,
+    transparent 100%
+  );
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  /* Begin with the lettering hidden */
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+
+  -webkit-mask-size: 0% 100%;
+  mask-size: 0% 100%;
+
+  animation: story-handwriting-reveal 7s ease-in-out both;
 }
 
-/* Switch to SVG once ready */
+/* Reveal from left to right */
 
-.story-title-handwritten.handwriting-active
-  .story-title-fallback {
-  display: none;
+@keyframes story-handwriting-reveal {
+  0% {
+    -webkit-mask-size: 0% 100%;
+    mask-size: 0% 100%;
+  }
+
+  100% {
+    -webkit-mask-size: 120% 100%;
+    mask-size: 120% 100%;
+  }
 }
-
-.story-title-handwritten.handwriting-active
-  #story-handwriting {
-  display: block;
-}
-
 .story-subtitle {
   font-size: clamp(1.25rem, 2.5vw, 1.65rem);
   font-style: italic;
