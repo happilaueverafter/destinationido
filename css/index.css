@@ -38,6 +38,21 @@
    MATCHA SECTION
 ========================================== */
 
+.compass-watermark {
+   --comapss-color: #87927A;
+   --compass-opacity: 0.12;
+
+   width: min(75vw, 500px);
+   aspect-ratio: 1;
+   background-color: var(--compass-color);
+
+   -webkit-mask: url("../assets/weddingLogoRose.png")
+      center / contain no-repeat;
+
+   opacity: var(--compass-opacity);
+   pointer-events: none;
+}
+
 .travel-preview {
   background: var(--color-matcha);
   color: var(--color-ivory);
