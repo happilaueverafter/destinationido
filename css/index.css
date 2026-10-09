@@ -343,7 +343,7 @@
 .welcome-section .eyebrow {
   margin-bottom: 28px;
 
-  color: var(--color-terracotta);
+  color: var(--color-ivory);
   font-size: 1rem;
   letter-spacing: 0.5em;
 }
@@ -359,7 +359,7 @@
   font-weight: 400;
   line-height: 1.05;
 
-  color: var(--color-ivory);
+  color: var(--color-terracotta);
 }
 
 /* Decorative star */
