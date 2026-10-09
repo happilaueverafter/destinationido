@@ -15,7 +15,7 @@ window.weddingLocations = {
     address:
       "3600 Presidential Blvd, Austin, TX 78719",
     color: "#B9694F",
-    symbol: "✈️"
+    icon: "plane"
   },
 
   hotelArea: {
@@ -27,16 +27,13 @@ window.weddingLocations = {
     description:
       "We're currently exploring hotels in downtown Austin. Our final hotel block and shuttle pickup location will be announced once confirmed.",
     color: "#87927A",
-    symbol: "🏨"
+    icon: "hotel"
   },
 
   venue: {
     name: "Canyonwood Ridge",
     shortName: "Wedding Venue",
     type: "venue",
-
-    // Approximate location; replace with verified coordinates
-    // before publishing the final venue marker.
     coordinates: [30.1939, -98.0840],
 
     description:
@@ -44,7 +41,7 @@ window.weddingLocations = {
     address:
       "250 S Canyonwood Dr, Dripping Springs, TX 78620",
     color: "#B97D7D",
-    symbol: "💍"
+    icon: "gem-ring"
   }
 
 };
