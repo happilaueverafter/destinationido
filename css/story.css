@@ -53,20 +53,19 @@
 
 /* Animated text */
 
-
 /* ==========================================
-   OUR STORY — SVG HANDWRITING
+   SVG HANDWRITING TITLE
 ========================================== */
 
 .story-title-handwritten {
   position: relative;
-  width: min(100%, 560px);
+  width: min(100%, 540px);
   margin: 12px auto 28px;
   line-height: 1.2;
   color: var(--color-terracotta);
 }
 
-/* Regular Brittany text as a fallback */
+/* Static Brittany title */
 
 .story-title-fallback {
   display: block;
@@ -76,7 +75,7 @@
   white-space: nowrap;
 }
 
-/* SVG animation container */
+/* SVG container */
 
 #story-handwriting {
   display: none;
@@ -90,7 +89,7 @@
   overflow: visible;
 }
 
-/* Show the SVG once Vivus is initialized */
+/* Switch to SVG once ready */
 
 .story-title-handwritten.handwriting-active
   .story-title-fallback {
@@ -1068,7 +1067,6 @@
   }
 }
 
-
 /* ==========================================
    15. SMALL MOBILE
 ========================================== */
@@ -1108,9 +1106,13 @@
   .memory-polaroid {
     transition: none;
   }
-  .story-title-writing {
-    animation: none;
-    clip-path: none;
-  }   
+  #story-handwriting {
+    display: none !important;
+  }
+
+  .story-title-fallback {
+    display: block !important;
+  }
+}
 
 }
