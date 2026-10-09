@@ -1,172 +1,377 @@
+
+/* ==========================================================
+   DAVIS & KAYLEE — WEDDING DETAILS MAP
+
+   Requires:
+   - Leaflet 1.9.4
+   - js/details-locations.js
+   - #wedding-map in details.html
+
+   Features:
+   - Custom wedding location markers
+   - Shaded hotel search area
+   - Clickable location popups
+   - Google Maps directions links
+   - Automatic zoom to show all locations
+   - Reset map button
+   - Responsive map sizing
+   ========================================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  /* --------------------------------------------------------
+     1. FIND HTML ELEMENTS
+     -------------------------------------------------------- */
 
   const mapContainer = document.getElementById("wedding-map");
   const resetButton = document.getElementById("map-reset");
   const statusElement = document.getElementById("map-status");
 
-  if (!mapContainer) return;
+  if (!mapContainer) {
+    console.error("Wedding map: #wedding-map was not found.");
+    return;
+  }
+
+  function showStatus(message) {
+    if (statusElement) {
+      statusElement.textContent = message;
+    }
+  }
+
+
+  /* --------------------------------------------------------
+     2. CHECK DEPENDENCIES
+     -------------------------------------------------------- */
 
   if (typeof L === "undefined") {
-    console.error("Leaflet did not load.");
-    if (statusElement) {
-      statusElement.textContent = "Map unavailable.";
-    }
+    console.error("Wedding map: Leaflet is not loaded.");
+
+    showStatus(
+      "The map couldn't load. Please refresh the page."
+    );
+
     return;
   }
 
-  const locations = window.weddingLocations;
+  if (!window.weddingLocations) {
+    console.error(
+      "Wedding map: details-locations.js is missing or did not load."
+    );
 
-  if (!locations) {
-    console.error("Wedding location data not found.");
-    if (statusElement) {
-      statusElement.textContent =
-        "Map locations could not be loaded.";
-    }
+    showStatus(
+      "Map locations couldn't be loaded."
+    );
+
     return;
   }
 
-  // CREATE MAP
+  const locations = Object.values(window.weddingLocations);
+
+  if (locations.length === 0) {
+    showStatus("No map locations have been added yet.");
+    return;
+  }
+
+
+  /* --------------------------------------------------------
+     3. CREATE MAP
+     -------------------------------------------------------- */
 
   const map = L.map(mapContainer, {
-    scrollWheelZoom: false,
-    zoomControl: true
-  }).setView([30.25, -97.85], 10);
+    center: [30.25, -97.85],
+    zoom: 10,
+    zoomControl: true,
+    scrollWheelZoom: false
+  });
 
-  // ADD MAP TILES
+
+  /* --------------------------------------------------------
+     4. ADD OPENSTREETMAP TILES
+     -------------------------------------------------------- */
 
   L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
+      maxZoom: 19,
+
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19
+        '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>'
     }
   ).addTo(map);
 
-  // STORE LOCATIONS FOR AUTO-ZOOM
 
-  const mapObjects = [];
+  /* --------------------------------------------------------
+     5. HELPER: ESCAPE TEXT FOR HTML
+     -------------------------------------------------------- */
 
-  // CREATE CUSTOM PIN
+  function escapeHTML(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+
+  /* --------------------------------------------------------
+     6. HELPER: CREATE CUSTOM MAP PIN
+     -------------------------------------------------------- */
 
   function createPin(location) {
+
     return L.divIcon({
       className: "wedding-location-icon",
+
       html: `
         <div
           class="wedding-map-pin"
-          style="background:${location.color}">
-          <span>${location.symbol}</span>
+          style="background-color: ${location.color || "#87927A"};"
+        >
+          <span>${escapeHTML(location.symbol || "✦")}</span>
         </div>
       `,
+
       iconSize: [38, 38],
       iconAnchor: [19, 38],
-      popupAnchor: [0, -34]
+      popupAnchor: [0, -35]
     });
+
   }
 
-  // CREATE POPUP
+
+  /* --------------------------------------------------------
+     7. HELPER: CREATE LOCATION POPUP
+     -------------------------------------------------------- */
 
   function createPopup(location) {
-    const directions = location.address
-      ? `
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}"
-          target="_blank"
-          rel="noopener noreferrer">
-          Get Directions ↗
-        </a>
-      `
+
+    const name = escapeHTML(location.name);
+    const description = escapeHTML(location.description);
+    const address = location.address
+      ? escapeHTML(location.address)
       : "";
 
+    let directionsLink = "";
+
+    // Only show directions for actual locations.
+    // The hotel search area is not a confirmed hotel.
+
+    if (location.address && location.type !== "area") {
+
+      const query = encodeURIComponent(location.address);
+
+      directionsLink = `
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=${query}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="map-directions-link"
+        >
+          Get Directions ↗
+        </a>
+      `;
+    }
+
     return `
-      <strong>${location.name}</strong>
-      <p>${location.description}</p>
-      ${directions}
+      <div class="wedding-map-popup">
+
+        <strong>${name}</strong>
+
+        ${address
+          ? `<p class="popup-address">${address}</p>`
+          : ""
+        }
+
+        <p>${description}</p>
+
+        ${directionsLink}
+
+      </div>
     `;
   }
 
-  // ADD LOCATIONS
 
-  Object.values(locations).forEach(location => {
+  /* --------------------------------------------------------
+     8. STORE MAP OBJECTS
+     -------------------------------------------------------- */
+
+  // Used to automatically fit all locations into view.
+
+  const mapObjects = [];
+
+
+  /* --------------------------------------------------------
+     9. ADD LOCATIONS TO MAP
+     -------------------------------------------------------- */
+
+  locations.forEach((location) => {
+
+    if (
+      !Array.isArray(location.coordinates) ||
+      location.coordinates.length !== 2
+    ) {
+      console.warn(
+        "Wedding map: Invalid coordinates for",
+        location.name
+      );
+
+      return;
+    }
+
+    const coordinates = location.coordinates;
+
+
+    /* ------------------------------------------------------
+       HOTEL SEARCH AREA
+       ------------------------------------------------------ */
 
     if (location.type === "area") {
 
-      // SHADED HOTEL AREA
+      const circle = L.circle(coordinates, {
+        radius: location.radius || 800,
 
-      const circle = L.circle(location.coordinates, {
-        radius: location.radius,
-        color: location.color,
+        color: location.color || "#87927A",
+
         weight: 2,
+
         dashArray: "7 6",
-        fillColor: location.color,
-        fillOpacity: 0.18
+
+        fillColor: location.color || "#87927A",
+
+        fillOpacity: 0.18,
+
+        interactive: true
       }).addTo(map);
 
       circle.bindPopup(createPopup(location));
 
       mapObjects.push(circle);
 
-      // HOTEL LABEL
 
-      L.marker(location.coordinates, {
-        icon: L.divIcon({
-          className: "wedding-hotel-label",
-          html: `
-            <div class="hotel-circle-label">
-              ${location.symbol} ${location.shortName}
-            </div>
-          `,
-          iconSize: [160, 30],
-          iconAnchor: [80, 15]
-        }),
-        interactive: false
+      // Add a label in the center of the circle.
+
+      const hotelLabel = L.divIcon({
+        className: "wedding-hotel-label",
+
+        html: `
+          <div class="hotel-circle-label">
+            ${escapeHTML(location.symbol || "🏨")}
+            ${escapeHTML(location.shortName || location.name)}
+          </div>
+        `,
+
+        iconSize: [160, 30],
+        iconAnchor: [80, 15]
+      });
+
+      L.marker(coordinates, {
+        icon: hotelLabel,
+        interactive: false,
+        keyboard: false
       }).addTo(map);
 
-    } else {
-
-      // REGULAR LOCATION PIN
-
-      const marker = L.marker(location.coordinates, {
-        icon: createPin(location)
-      }).addTo(map);
-
-      marker.bindPopup(createPopup(location));
-
-      mapObjects.push(marker);
+      return;
     }
+
+
+    /* ------------------------------------------------------
+       AIRPORT / VENUE / OTHER POINT LOCATIONS
+       ------------------------------------------------------ */
+
+    const marker = L.marker(coordinates, {
+      icon: createPin(location),
+      title: location.name
+    }).addTo(map);
+
+    marker.bindPopup(createPopup(location));
+
+    mapObjects.push(marker);
 
   });
 
-  // FIT ALL LOCATIONS
+
+  /* --------------------------------------------------------
+     10. FIT ALL LOCATIONS INTO VIEW
+     -------------------------------------------------------- */
 
   function fitAllLocations() {
-    const bounds = L.featureGroup(mapObjects).getBounds();
 
-    if (bounds.isValid()) {
-      map.fitBounds(bounds, {
-        padding: [45, 45],
-        maxZoom: 11,
-        animate: false
-      });
+    if (mapObjects.length === 0) {
+      return;
     }
+
+    const group = L.featureGroup(mapObjects);
+    const bounds = group.getBounds();
+
+    if (!bounds.isValid()) {
+      return;
+    }
+
+    map.fitBounds(bounds, {
+      padding: [45, 45],
+      maxZoom: 11,
+      animate: false
+    });
+
   }
 
   fitAllLocations();
 
-  // RESET MAP BUTTON
+
+  /* --------------------------------------------------------
+     11. RESET MAP BUTTON
+     -------------------------------------------------------- */
 
   if (resetButton) {
-    resetButton.addEventListener("click", fitAllLocations);
+
+    resetButton.addEventListener("click", () => {
+
+      map.closePopup();
+
+      fitAllLocations();
+
+    });
+
   }
 
-  // HANDLE RESIZING
+
+  /* --------------------------------------------------------
+     12. HANDLE MAP RESIZING
+     -------------------------------------------------------- */
+
+  // Helps Leaflet calculate the correct dimensions after
+  // the page finishes loading.
 
   window.addEventListener("load", () => {
+
     map.invalidateSize();
+
     fitAllLocations();
+
   });
 
-  console.log("Wedding map loaded:", mapObjects.length, "locations");
+  // Also handle changes in the map container's dimensions.
+
+  if ("ResizeObserver" in window) {
+
+    const resizeObserver = new ResizeObserver(() => {
+      map.invalidateSize();
+    });
+
+    resizeObserver.observe(mapContainer);
+
+  }
+
+
+  /* --------------------------------------------------------
+     13. FINISHED
+     -------------------------------------------------------- */
+
+  showStatus("");
+
+  console.log(
+    `Wedding map initialized with ${mapObjects.length} locations.`
+  );
 
 });
