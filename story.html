@@ -16,10 +16,10 @@
   <!-- Shared styles -->
   <link rel="stylesheet" href="css/global.css">
 
-  <!-- Page styles -->
+  <!-- Page-specific styles -->
   <link rel="stylesheet" href="css/story.css">
 
-  <!-- Shared header/footer loader -->
+  <!-- Shared header/footer -->
   <script src="js/global.js" defer></script>
 </head>
 
@@ -147,6 +147,7 @@
               alt="An early memory from our relationship"
               loading="lazy"
             >
+
             <figcaption>
               THE EARLY DAYS
             </figcaption>
@@ -227,29 +228,66 @@
 
         </div>
 
-        <div class="chapter-photos chapter-photo-collage">
+        <!-- Layered travel photo collage -->
 
-          <figure class="story-photo story-photo-primary">
-            <img
-              src="assets/story-japan.jpg"
-              alt="Our first big trip together in Japan"
-              loading="lazy"
-            >
-            <figcaption>
-              JAPAN · OUR FIRST BIG ADVENTURE
-            </figcaption>
-          </figure>
+        <div class="chapter-photos travel-collage">
 
-          <figure class="story-photo story-photo-secondary">
+          <!-- Back layer -->
+
+          <figure class="collage-photo collage-korea">
             <img
               src="assets/story-korea.jpg"
-              alt="Exploring South Korea together"
+              alt="Our travels in South Korea"
               loading="lazy"
             >
           </figure>
 
-          <span class="photo-annotation annotation-travel">
-            we were in the area!
+          <figure class="collage-photo collage-thailand">
+            <img
+              src="assets/story-thailand.jpg"
+              alt="Exploring Thailand together"
+              loading="lazy"
+            >
+          </figure>
+
+          <figure class="collage-photo collage-europe">
+            <img
+              src="assets/story-europe.jpg"
+              alt="A memory from our European travels"
+              loading="lazy"
+            >
+          </figure>
+
+          <!-- Main Japan photograph -->
+
+          <figure class="collage-photo collage-japan">
+            <img
+              src="assets/story-japan.jpg"
+              alt="Our first big adventure together in Japan"
+              loading="lazy"
+            >
+          </figure>
+
+          <!-- Front layer -->
+
+          <figure class="collage-photo collage-hawaii">
+            <img
+              src="assets/story-hawaii.jpg"
+              alt="A favorite memory from Hawaii"
+              loading="lazy"
+            >
+          </figure>
+
+          <figure class="collage-photo collage-vietnam">
+            <img
+              src="assets/story-vietnam.jpg"
+              alt="Our travels in Vietnam"
+              loading="lazy"
+            >
+          </figure>
+
+          <span class="collage-note" aria-hidden="true">
+            and so the adventures began...
           </span>
 
         </div>
@@ -282,17 +320,20 @@
 
       </div>
 
-      <!-- Large feature photo -->
+      <!-- Large proposal photograph -->
 
       <figure class="proposal-feature-photo">
+
         <img
           src="assets/story-proposal.jpg"
           alt="A memorable evening on Koh Phi Phi"
           loading="lazy"
         >
+
         <figcaption>
           KOH PHI PHI, THAILAND
         </figcaption>
+
       </figure>
 
       <div class="proposal-story">
@@ -366,138 +407,137 @@
 
 
     <!-- =====================================
-         CHAPTER FOUR — WEDDING
+         CHAPTER FOUR — WEDDING & LOVED ONES
     ====================================== -->
 
     <section class="story-chapter chapter-four">
 
       <div class="chapter-four-inner">
 
-        <p class="chapter-number">
-          CHAPTER 04
-        </p>
+        <!-- LEFT POLAROID COLLECTION -->
 
-        <h2 class="chapter-title">
-          Our Favorite People,
-          All in One Place
-        </h2>
+        <div class="memory-photos memory-photos-left">
 
-        <p class="chapter-subtitle">
-          The next chapter begins with you.
-        </p>
+          <figure class="memory-polaroid memory-left-1">
+            <img
+              src="assets/group-01.jpg"
+              alt="A favorite memory with our friends"
+              loading="lazy"
+            >
+          </figure>
 
-        <div class="chapter-four-copy">
+          <figure class="memory-polaroid memory-left-2">
+            <img
+              src="assets/group-02.jpg"
+              alt="An adventure with our friends"
+              loading="lazy"
+            >
+          </figure>
 
-          <p>
-            We've been lucky enough to share so many adventures,
-            explore incredible places, and make memories we'll
-            carry with us forever.
-          </p>
-
-          <p>
-            But when we think about our wedding, what excites
-            us most isn't the decorations, the music,
-            or even the destination.
-          </p>
-
-          <p>
-            It's the opportunity to bring together the people
-            we love most.
-          </p>
-
-          <p>
-            Life has taken our friends and families in so many
-            different directions, and it's rare that we get to
-            have everyone we hold dear in one place.
-          </p>
-
-          <p>
-            On November 19, 2027, we get to do exactly that.
-          </p>
-
-          <p>
-            We can't imagine a better way to begin our next
-            chapter than celebrating with all of you.
-          </p>
+          <figure class="memory-polaroid memory-left-3">
+            <img
+              src="assets/group-03.jpg"
+              alt="Celebrating with loved ones"
+              loading="lazy"
+            >
+          </figure>
 
         </div>
 
-        <p class="story-ending">
-          Here's to the adventures still to come.
-        </p>
 
-        <div class="story-ending-ornament" aria-hidden="true">
-          ✦
-        </div>
+        <!-- CENTER STORY CONTENT -->
 
-        <div class="people-gallery">
+        <div class="chapter-four-content">
 
-          <p class="people-gallery-eyebrow">
-           THE PEOPLE WHO MAKE IT ALL WORTHWHILE
+          <p class="chapter-number">
+            CHAPTER 04
           </p>
 
-          <h3 class="people-gallery-title">
-            Our Favorite People
-          </h3>
+          <h2 class="chapter-title">
+            Our Favorite People,<br>
+            All in One Place
+          </h2>
 
-          <div class="people-gallery-frame">
+          <p class="chapter-subtitle">
+            The next chapter begins with you.
+          </p>
 
-          <button
-           class="gallery-arrow gallery-prev"
-           type="button"
-           aria-label="Scroll photos left"
-          >
-          &#8592;
-          </button>
+          <div class="chapter-four-copy">
 
-    <div
-      class="people-gallery-track"
-      id="people-gallery-track"
-      aria-label="Photographs of our friends and family"
-      tabindex="0"
-    >
+            <p>
+              We've been lucky enough to share so many adventures,
+              explore incredible places, and make memories we'll
+              carry with us forever.
+            </p>
 
-      <figure class="people-gallery-photo">
-        <img src="assets/group-01.jpg" alt="A favorite memory with our friends" loading="lazy">
-      </figure>
+            <p>
+              But when we think about our wedding, what excites
+              us most isn't the decorations, the music,
+              or even the destination.
+            </p>
 
-      <figure class="people-gallery-photo">
-        <img src="assets/group-02.jpg" alt="Celebrating with family" loading="lazy">
-      </figure>
+            <p>
+              It's the opportunity to bring together the people
+              we love most.
+            </p>
 
-      <figure class="people-gallery-photo">
-        <img src="assets/group-03.jpg" alt="An adventure with our friends" loading="lazy">
-      </figure>
+            <p>
+              Life has taken our friends and families in so many
+              different directions, and it's rare that we get to
+              have everyone we hold dear in one place.
+            </p>
 
-      <figure class="people-gallery-photo">
-        <img src="assets/group-04.jpg" alt="A special moment with loved ones" loading="lazy">
-      </figure>
+            <p>
+              On November 19, 2027, we get to do exactly that.
+            </p>
 
-      <figure class="people-gallery-photo">
-        <img src="assets/group-05.jpg" alt="Making memories together" loading="lazy">
-      </figure>
+            <p>
+              We can't imagine a better way to begin our next
+              chapter than celebrating with all of you.
+            </p>
 
-      <figure class="people-gallery-photo">
-        <img src="assets/group-06.jpg" alt="Another favorite group photograph" loading="lazy">
-      </figure>
+          </div>
 
-    </div>
+          <p class="story-ending">
+            Here's to the adventures still to come.
+          </p>
 
-    <button
-      class="gallery-arrow gallery-next"
-      type="button"
-      aria-label="Scroll photos right"
-    >
-      &#8594;
-    </button>
+          <div class="story-ending-ornament" aria-hidden="true">
+            ✦
+          </div>
 
-  </div>
+        </div>
 
-  <p class="people-gallery-caption">
-    A LITTLE COLLECTION OF OUR FAVORITE MEMORIES
-  </p>
 
-</div>
+        <!-- RIGHT POLAROID COLLECTION -->
+
+        <div class="memory-photos memory-photos-right">
+
+          <figure class="memory-polaroid memory-right-1">
+            <img
+              src="assets/group-04.jpg"
+              alt="A special family memory"
+              loading="lazy"
+            >
+          </figure>
+
+          <figure class="memory-polaroid memory-right-2">
+            <img
+              src="assets/group-05.jpg"
+              alt="Making memories together"
+              loading="lazy"
+            >
+          </figure>
+
+          <figure class="memory-polaroid memory-right-3">
+            <img
+              src="assets/group-06.jpg"
+              alt="A favorite moment with friends"
+              loading="lazy"
+            >
+          </figure>
+
+        </div>
 
       </div>
 
