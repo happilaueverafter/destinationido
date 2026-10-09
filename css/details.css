@@ -1,0 +1,919 @@
+
+/* Wedding Details page */
+
+@font-face {
+  font-family: "Brittany Signature";
+  src: url("../assets/BRITTANYSIGNATURE.TTF") format("truetype");
+  font-display: swap;
+}
+
+.details-page {
+  --paper: #f4efe6;
+  --cream: #fbf8f2;
+  --sand: #e9dfcf;
+  --sage: #87927a;
+  --sage-dark: #63725e;
+  --rust: #944b32;
+  --rose: #b97d7d;
+  --ink: #51483e;
+  --line: #d9c9b5;
+
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.7;
+}
+
+.details-page *,
+.details-page *::before,
+.details-page *::after {
+  box-sizing: border-box;
+}
+
+.details-page h1,
+.details-page h2,
+.details-page h3,
+.details-page p {
+  margin-top: 0;
+}
+
+.details-page h1,
+.details-page h2,
+.details-page h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.details-page a {
+  color: inherit;
+}
+
+.details-page button {
+  font: inherit;
+}
+
+/* NAVIGATION */
+
+.details-site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px clamp(22px, 5vw, 78px);
+  background: var(--cream);
+  border-bottom: 1px solid rgba(148, 75, 50, .12);
+}
+
+.details-brand {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  text-decoration: none;
+  color: var(--rust) !important;
+}
+
+.details-brand span {
+  font-style: italic;
+  font-size: 17px;
+  padding: 0 5px;
+}
+
+.details-nav {
+  display: flex;
+  gap: clamp(14px, 3vw, 36px);
+}
+
+.details-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: 11px;
+  color: var(--ink);
+}
+
+.details-nav a[aria-current] {
+  color: var(--rust);
+  border-bottom: 1px solid var(--rust);
+}
+
+/* HERO */
+
+.details-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 570px;
+  display: grid;
+  place-items: center;
+  padding: 105px 24px 95px;
+  background:
+    radial-gradient(
+      ellipse at 13% 25%,
+      rgba(216,195,165,.20),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 85% 78%,
+      rgba(135,146,122,.13),
+      transparent 40%
+    ),
+    var(--paper);
+  text-align: center;
+  overflow: hidden;
+}
+
+.details-hero::before,
+.details-hero::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(148,75,50,.15);
+  border-radius: 50%;
+  width: 340px;
+  height: 340px;
+  z-index: -1;
+}
+
+.details-hero::before {
+  left: -220px;
+  top: -200px;
+}
+
+.details-hero::after {
+  right: -210px;
+  bottom: -200px;
+}
+
+.hero-inner {
+  max-width: 780px;
+}
+
+.eyebrow,
+.section-kicker,
+.map-overline {
+  color: var(--rust);
+  text-transform: uppercase;
+  letter-spacing: .21em;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.eyebrow-dot {
+  margin: 0 10px;
+  color: var(--sage);
+}
+
+.details-hero h1 {
+  color: var(--rust);
+  font-size: clamp(42px, 6.5vw, 76px);
+  letter-spacing: -.035em;
+  margin: 22px 0 8px;
+}
+
+.details-hero h1 em,
+.details-section h2 em {
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  color: var(--sage-dark);
+  font-family: "Brittany Signature", "Playfair Display", serif;
+  font-size: clamp(29px, 4vw, 43px);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.hero-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--rust);
+  margin: 15px auto 22px;
+}
+
+.hero-rule::before,
+.hero-rule::after {
+  content: "";
+  width: 80px;
+  height: 1px;
+  background: var(--line);
+}
+
+.hero-copy {
+  max-width: 580px;
+  margin: 0 auto 24px;
+  font-size: 15px;
+}
+
+.hero-location {
+  color: var(--rust);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.hero-location span {
+  padding: 0 8px;
+}
+
+.scroll-cue {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--sage-dark) !important;
+  border-bottom: 1px solid var(--sage);
+  font-size: 12px;
+  letter-spacing: .04em;
+  margin-top: 20px;
+  padding-bottom: 4px;
+}
+
+.hero-stamp {
+  position: absolute;
+  right: clamp(15px, 7vw, 120px);
+  top: 60px;
+  width: 106px;
+  height: 106px;
+  display: grid;
+  place-items: center;
+  border: 2px dashed rgba(148,75,50,.45);
+  border-radius: 50%;
+  color: rgba(148,75,50,.65);
+  transform: rotate(16deg);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .13em;
+  font-weight: 700;
+}
+
+/* SHARED SECTIONS */
+
+.details-section {
+  padding: clamp(70px, 8vw, 112px) 24px;
+}
+
+.section-heading {
+  max-width: 690px;
+  text-align: center;
+  margin: 0 auto 46px;
+}
+
+.details-section h2 {
+  color: var(--rust);
+  font-size: clamp(35px, 4.4vw, 55px);
+  margin: 13px 0 17px;
+}
+
+.section-heading > p:last-child {
+  font-size: 15px;
+}
+
+/* WEEKEND ITINERARY */
+
+.weekend-section {
+  background: var(--cream);
+}
+
+.itinerary-grid {
+  max-width: 1130px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.day-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 7px 0 rgba(216,195,165,.18);
+}
+
+.date-ticket {
+  background: var(--sage);
+  color: white;
+  padding: 18px 15px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+  gap: 5px;
+}
+
+.date-ticket span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .19em;
+}
+
+.date-ticket strong {
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  font-weight: 400;
+}
+
+.featured-card .date-ticket {
+  background: var(--rust);
+}
+
+.day-content {
+  padding: 28px 25px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-label {
+  color: var(--sage-dark);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.day-content h3 {
+  color: var(--rust);
+  font-size: 25px;
+  margin-bottom: 13px;
+}
+
+.day-content > p:not(.card-label) {
+  font-size: 14px;
+  flex: 1;
+}
+
+.status-tag {
+  align-self: flex-start;
+  margin-top: 15px;
+  color: var(--sage-dark);
+  font-size: 11px;
+  letter-spacing: .08em;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  width: 100%;
+}
+
+.section-footnote {
+  max-width: 800px;
+  text-align: center;
+  margin: 27px auto 0;
+  font-size: 12px;
+  color: var(--sage-dark);
+  font-style: italic;
+}
+
+/* ACCOMMODATIONS */
+
+.stay-section {
+  background: var(--paper);
+}
+
+.stay-layout {
+  max-width: 1060px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: clamp(40px, 8vw, 110px);
+}
+
+.stay-illustration {
+  min-height: 350px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.luggage-tag {
+  width: 255px;
+  min-height: 305px;
+  border: 2px solid var(--rust);
+  border-radius: 24px 24px 35px 35px;
+  transform: rotate(-8deg);
+  background: #eee3d3;
+  box-shadow: 12px 15px 0 rgba(148,75,50,.1);
+  padding: 48px 23px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: var(--rust);
+  position: relative;
+}
+
+.luggage-tag::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--rust);
+  border-radius: 50%;
+  top: 14px;
+  left: calc(50% - 9px);
+  background: var(--paper);
+}
+
+.luggage-tag span {
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 700;
+}
+
+.luggage-tag strong {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.stay-sparkle {
+  position: absolute;
+  font-size: 42px;
+  color: var(--sage);
+}
+
+.sparkle-one {
+  top: 10px;
+  left: 8%;
+}
+
+.sparkle-two {
+  bottom: 20px;
+  right: 8%;
+  color: var(--rose);
+}
+
+.stay-copy {
+  max-width: 550px;
+}
+
+.stay-copy > p:not(.section-kicker) {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.inline-note {
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 19px;
+  color: var(--sage-dark);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.inline-note span {
+  color: var(--rust);
+  margin-right: 8px;
+}
+
+/* TRAVEL INFORMATION */
+
+.travel-section {
+  background: var(--cream);
+}
+
+.travel-facts {
+  max-width: 1100px;
+  margin: 0 auto 38px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.travel-fact {
+  text-align: center;
+  padding: 5px 12px;
+}
+
+.fact-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--rust);
+  font-size: 28px;
+}
+
+.travel-fact h3 {
+  font-size: 21px;
+  color: var(--rust);
+  margin-bottom: 10px;
+}
+
+.travel-fact p {
+  font-size: 13px;
+}
+
+/* MAP */
+
+.map-shell {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: 7px 9px 0 rgba(216,195,165,.18);
+}
+
+.map-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 3px 5px 12px;
+}
+
+.map-overline {
+  font-size: 10px;
+}
+
+.map-topline h3 {
+  font-size: 28px;
+  color: var(--rust);
+  margin: 2px 0 0;
+}
+
+.map-decor {
+  color: var(--sage);
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 23px;
+  font-size: 12px;
+  padding: 0 5px 17px;
+}
+
+.map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.airport-dot {
+  background: #b9694f;
+}
+
+.hotel-dot {
+  background: #87927a;
+}
+
+.venue-dot {
+  background: #b97d7d;
+}
+
+#wedding-map {
+  width: 100%;
+  height: 460px;
+  background: #e9e7dc;
+  z-index: 0;
+}
+
+.map-status {
+  font-size: 12px;
+  margin: 9px 0 0;
+  color: var(--sage-dark);
+}
+
+.map-status:empty {
+  display: none;
+}
+
+.map-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 5px 0;
+}
+
+.map-footer p {
+  max-width: 690px;
+  margin: 0;
+  font-size: 12px;
+}
+
+.map-reset {
+  border: 1px solid var(--rust);
+  color: var(--rust);
+  background: transparent;
+  padding: 9px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.map-reset:hover,
+.map-reset:focus-visible {
+  background: var(--rust);
+  color: white;
+}
+
+/* CUSTOM MAP MARKERS */
+
+.wedding-map-pin {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border: 2px solid white;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 3px 8px #0003;
+  color: white;
+  font-size: 21px;
+}
+
+.wedding-map-pin > span {
+  transform: rotate(45deg);
+  display: block;
+  line-height: 1;
+}
+
+.wedding-map-pin.airport {
+  background: #b9694f;
+}
+
+.wedding-map-pin.venue {
+  background: #b97d7d;
+}
+
+.hotel-circle-label {
+  background: rgba(251,248,242,.95);
+  border: 1px solid #87927a;
+  padding: 5px 10px;
+  color: #63725e;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px;
+  box-shadow: 0 2px 7px #0002;
+  white-space: nowrap;
+}
+
+.details-page .leaflet-popup-content-wrapper {
+  border-radius: 4px;
+  background: #fbf8f2;
+  color: #51483e;
+  font-family: "DM Sans", sans-serif;
+}
+
+.details-page .leaflet-popup-content {
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.details-page .leaflet-popup-content strong,
+.details-page .leaflet-popup-content a {
+  color: #944b32;
+}
+
+/* LOCAL TRANSPORTATION */
+
+.transport-note {
+  max-width: 1000px;
+  margin: 43px auto 0;
+  display: flex;
+  gap: 20px;
+  padding: 26px 30px;
+  border-left: 3px solid var(--sage);
+  background: var(--paper);
+}
+
+.transport-symbol {
+  color: var(--sage);
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.transport-note h3 {
+  font-size: 22px;
+  color: var(--rust);
+  margin-bottom: 10px;
+}
+
+.transport-note p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.transport-note .transport-small {
+  font-size: 12px;
+  color: var(--sage-dark);
+  margin-bottom: 0;
+}
+
+/* CLOSING */
+
+.details-outro {
+  background: var(--paper);
+  text-align: center;
+  padding: 65px 24px 72px;
+}
+
+.details-outro > span {
+  color: var(--sage);
+}
+
+.details-outro h2 {
+  font-family: "Brittany Signature", "Playfair Display", serif;
+  font-size: clamp(30px, 4vw, 43px);
+  color: var(--rust);
+  margin: 13px 0;
+}
+
+.details-outro p {
+  font-size: 14px;
+}
+
+.details-outro a {
+  font-size: 12px;
+  color: var(--rust);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rust);
+}
+
+.details-footer {
+  background: var(--cream);
+  padding: 23px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.details-footer p {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--rust);
+  margin: 0;
+}
+
+.details-footer span {
+  padding: 0 9px;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .itinerary-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .day-card {
+    flex-direction: row;
+  }
+
+  .date-ticket {
+    width: 135px;
+    flex: none;
+    justify-content: center;
+  }
+
+  .stay-layout {
+    gap: 30px;
+  }
+
+  .travel-facts {
+    gap: 12px;
+  }
+
+  .hero-stamp {
+    right: 18px;
+    top: 18px;
+    width: 75px;
+    height: 75px;
+    font-size: 8px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 620px) {
+  .details-site-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .details-nav {
+    gap: 22px;
+  }
+
+  .details-hero {
+    min-height: unset;
+    padding: 100px 22px 72px;
+  }
+
+  .details-hero h1 {
+    font-size: 43px;
+  }
+
+  .hero-stamp {
+    top: 15px;
+    right: 12px;
+    opacity: .5;
+  }
+
+  .hero-copy {
+    font-size: 14px;
+  }
+
+  .details-section {
+    padding: 65px 20px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .day-card {
+    flex-direction: column;
+  }
+
+  .date-ticket {
+    width: auto;
+    flex-direction: row;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .date-ticket strong {
+    font-size: 38px;
+  }
+
+  .day-content {
+    padding: 22px;
+  }
+
+  .stay-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stay-illustration {
+    min-height: 290px;
+  }
+
+  .luggage-tag {
+    transform: rotate(-5deg) scale(.85);
+  }
+
+  .travel-facts {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .travel-fact {
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .map-shell {
+    padding: 12px;
+  }
+
+  .map-topline h3 {
+    font-size: 23px;
+  }
+
+  .map-decor {
+    display: none;
+  }
+
+  #wedding-map {
+    height: 360px;
+  }
+
+  .map-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .transport-note {
+    padding: 20px;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .details-page *,
+  .details-page *::before,
+  .details-page *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
