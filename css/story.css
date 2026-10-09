@@ -68,17 +68,81 @@
   width: 100%;
   height: auto;
 
-  animation: story-handwriting-reveal 5s ease-in-out both;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    #000 97%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    #000 0%,
+    #000 97%,
+    transparent 100%
+  );
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  animation: story-handwriting-reveal 5s linear both;
 }
 
 @keyframes story-handwriting-reveal {
-  from {
-    clip-path: inset(0 100% 0 0);
+
+  0% {
+    -webkit-mask-size: 0% 100%;
+    mask-size: 0% 100%;
   }
 
-  to {
-    clip-path: inset(0 0 0 0);
+  /* First flourish of the O */
+  14% {
+    -webkit-mask-size: 12% 100%;
+    mask-size: 12% 100%;
   }
+
+  /* Faster movement through Our */
+  28% {
+    -webkit-mask-size: 35% 100%;
+    mask-size: 35% 100%;
+  }
+
+  /* Brief pause between words */
+  33% {
+    -webkit-mask-size: 36% 100%;
+    mask-size: 36% 100%;
+  }
+
+  /* Upper flourish of the S */
+  48% {
+    -webkit-mask-size: 53% 100%;
+    mask-size: 53% 100%;
+  }
+
+  /* Quick connecting strokes */
+  63% {
+    -webkit-mask-size: 73% 100%;
+    mask-size: 73% 100%;
+  }
+
+  /* Slight hesitation */
+  68% {
+    -webkit-mask-size: 74% 100%;
+    mask-size: 74% 100%;
+  }
+
+  /* Final letters */
+  88% {
+    -webkit-mask-size: 94% 100%;
+    mask-size: 94% 100%;
+  }
+
+  /* Finish the final flourish */
+  100% {
+    -webkit-mask-size: 104% 100%;
+    mask-size: 104% 100%;
+  }
+
 }
 
 .story-subtitle {
