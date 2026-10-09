@@ -63,57 +63,24 @@
   line-height: 1;
 }
 
-/* Original Brittany Signature SVG */
-
 .story-title-svg {
   display: block;
   width: 100%;
   height: auto;
 
-  /* Soft edge that moves across the lettering */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    #000 0%,
-    #000 85%,
-    transparent 100%
-  );
-
-  mask-image: linear-gradient(
-    to right,
-    #000 0%,
-    #000 85%,
-    transparent 100%
-  );
-
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  /* Begin with the lettering hidden */
-  -webkit-mask-position: 0 0;
-  mask-position: 0 0;
-
-  -webkit-mask-size: 0% 100%;
-  mask-size: 0% 100%;
-
   animation: story-handwriting-reveal 7s ease-in-out both;
 }
 
-/* Reveal from left to right */
-
 @keyframes story-handwriting-reveal {
-  0% {
-    -webkit-mask-size: 0% 100%;
-    mask-size: 0% 100%;
+  from {
+    clip-path: inset(0 100% 0 0);
   }
 
-  100% {
-    -webkit-mask-size: 120% 100%;
-    mask-size: 120% 100%;
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }
+
 .story-subtitle {
   font-size: clamp(1.25rem, 2.5vw, 1.65rem);
   font-style: italic;
@@ -1074,10 +1041,6 @@
   .story-title-handwritten {
     width: min(100%, 350px);
   }
-
-  .story-title-fallback {
-    font-size: clamp(2.8rem, 10vw, 4rem);
-  }
 }
 
 /* ==========================================
@@ -1119,13 +1082,9 @@
   .memory-polaroid {
     transition: none;
   }
-  #story-handwriting {
-    display: none !important;
-  }
 
-  .story-title-fallback {
-    display: block !important;
+  .story-title-svg {
+    animation: none;
+    clip-path: none;
   }
-}
-
 }
