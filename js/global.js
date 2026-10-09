@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const response = await fetch(
-      `${basePath}components/header.html`
+      `${basePath}/header.html`
     );
 
     if (!response.ok) {
