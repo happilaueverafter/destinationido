@@ -1,1 +1,755 @@
 
+/* ==========================================================
+   WEDDING PARTY — ATTIRE
+   css/party/attire.css
+
+   Designed for js/party/attire.js
+
+   Fonts:
+   - Playfair Display: editorial headings
+   - Brittany Signature: decorative script (optional)
+   - Inherits website body font
+
+   Palette:
+   Matcha       #798E77
+   Burnt Orange #A2411D
+   Champagne    #EEE2D6
+   Ivory        #F2EFE8
+   Burgundy     #541125
+   ========================================================== */
+
+
+/* ==========================================================
+   1. VARIABLES
+   ========================================================== */
+
+.party-attire {
+  --attire-ivory: #F2EFE8;
+  --attire-paper: #FFFCF8;
+  --attire-champagne: #EEE2D6;
+  --attire-matcha: #798E77;
+  --attire-eucalyptus: #53796C;
+  --attire-terracotta: #A2411D;
+  --attire-burgundy: #541125;
+
+  --attire-ink: #393B36;
+  --attire-muted: #77786F;
+  --attire-border: #E4DDD3;
+
+  --attire-serif: "Playfair Display", Georgia, serif;
+  --attire-script: "Brittany Signature", cursive;
+
+  --attire-radius: 14px;
+  --attire-max-width: 1050px;
+
+  color: var(--attire-ink);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.75;
+
+  width: 100%;
+  max-width: var(--attire-max-width);
+  margin: 0 auto;
+  padding: 24px 0 70px;
+
+  box-sizing: border-box;
+}
+
+.party-attire *,
+.party-attire *::before,
+.party-attire *::after {
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   2. GLOBAL TYPOGRAPHY
+   ========================================================== */
+
+.party-attire h2,
+.party-attire h3,
+.party-attire h4 {
+  font-family: var(--attire-serif);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.party-attire h2 {
+  font-size: clamp(30px, 4vw, 46px);
+}
+
+.party-attire h3 {
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.party-attire h4 {
+  font-size: 21px;
+}
+
+.party-attire p {
+  margin: 0;
+}
+
+.party-attire a {
+  color: var(--attire-terracotta);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.party-attire a:hover {
+  color: var(--attire-burgundy);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.party-attire a:focus-visible {
+  outline: 2px solid var(--attire-terracotta);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+.party-attire strong {
+  font-weight: 600;
+}
+
+
+/* ==========================================================
+   3. TOP COLOR STORY / SIDE PALETTE
+   ========================================================== */
+
+.attire-header {
+  text-align: center;
+
+  background: var(--attire-ivory);
+  border: 1px solid var(--attire-border);
+  border-radius: var(--attire-radius);
+
+  padding: clamp(30px, 5vw, 58px) 24px;
+  margin-bottom: 26px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle inset frame */
+
+.attire-header::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(121, 142, 119, 0.22);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.attire-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.27em;
+  color: var(--attire-terracotta);
+
+  margin-bottom: 12px !important;
+}
+
+.attire-header h2 {
+  color: var(--attire-ink);
+  margin-bottom: 26px;
+}
+
+
+/* ==========================================================
+   4. COLOR SWATCHES
+   ========================================================== */
+
+.attire-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px 24px;
+}
+
+.attire-swatch {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 72px;
+  max-width: 110px;
+
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+  text-align: center;
+  color: var(--attire-muted);
+}
+
+.attire-swatch-dot {
+  display: block;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+
+  border: 3px solid var(--attire-paper);
+  box-shadow:
+    0 0 0 1px rgba(57, 59, 54, 0.12),
+    0 3px 10px rgba(57, 59, 54, 0.06);
+
+  flex-shrink: 0;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.attire-swatch:hover .attire-swatch-dot {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(57, 59, 54, 0.16),
+    0 6px 14px rgba(57, 59, 54, 0.10);
+}
+
+
+/* ==========================================================
+   5. INTRODUCTION
+   ========================================================== */
+
+.attire-intro {
+  max-width: 720px;
+  margin: 0 auto 54px !important;
+  padding: 0 20px;
+
+  text-align: center;
+  color: var(--attire-muted);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+
+/* ==========================================================
+   6. PERSONAL OUTFIT SECTION
+   ========================================================== */
+
+.attire-outfit {
+  padding: 0 0 46px;
+}
+
+.attire-outfit > h3 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--attire-ink);
+}
+
+.attire-outfit > .attire-swatches {
+  margin-bottom: 40px;
+}
+
+
+/* ==========================================================
+   7. ATTIRE ITEM GRID
+   ========================================================== */
+
+.attire-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.attire-item {
+  background: var(--attire-paper);
+  border: 1px solid var(--attire-border);
+  border-radius: 12px;
+
+  padding: 25px 26px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  min-width: 0;
+
+  box-shadow: 0 3px 15px rgba(57, 59, 54, 0.025);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.attire-item:hover {
+  border-color: rgba(121, 142, 119, 0.48);
+  box-shadow: 0 6px 20px rgba(57, 59, 54, 0.045);
+}
+
+.attire-item-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--attire-border);
+}
+
+.attire-item-heading h4 {
+  color: var(--attire-ink);
+}
+
+.attire-color-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 5px 10px;
+  border: 1px solid var(--attire-border);
+  border-radius: 100px;
+
+  background: var(--attire-ivory);
+
+  color: var(--attire-muted);
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.attire-inline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(57, 59, 54, 0.12);
+  flex-shrink: 0;
+}
+
+
+/* ==========================================================
+   8. ITEM DESCRIPTIONS
+   ========================================================== */
+
+.attire-item > p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--attire-ink);
+}
+
+.attire-color-description {
+  color: var(--attire-muted) !important;
+  font-style: italic;
+}
+
+.attire-item-note {
+  padding: 11px 13px;
+  background: rgba(121, 142, 119, 0.08);
+  border-left: 2px solid var(--attire-matcha);
+  border-radius: 0 5px 5px 0;
+}
+
+.attire-item-note strong {
+  color: var(--attire-eucalyptus);
+}
+
+.attire-provider,
+.attire-order-window {
+  color: var(--attire-muted) !important;
+  font-size: 12px !important;
+}
+
+.attire-provider strong,
+.attire-order-window strong {
+  color: var(--attire-ink);
+}
+
+.attire-requirement {
+  display: inline-flex;
+  align-self: flex-start;
+
+  margin-top: auto !important;
+  padding: 5px 11px;
+
+  background: var(--attire-ivory);
+  border-radius: 100px;
+
+  color: var(--attire-eucalyptus) !important;
+
+  font-size: 10px !important;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Ordering links inside item cards */
+
+.attire-item a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(162, 65, 29, 0.3);
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.attire-item a:hover {
+  text-decoration: none;
+  border-bottom-color: currentColor;
+}
+
+
+/* ==========================================================
+   9. SHARED INFORMATION SECTIONS
+   ========================================================== */
+
+.attire-order-notice,
+.attire-azazie,
+.attire-florals,
+.attire-hair-makeup {
+  margin-top: 22px;
+  padding: clamp(24px, 4vw, 38px);
+
+  border-radius: var(--attire-radius);
+  border: 1px solid var(--attire-border);
+}
+
+.attire-order-notice h3,
+.attire-azazie h3,
+.attire-florals h3,
+.attire-hair-makeup h3 {
+  margin-bottom: 16px;
+}
+
+.attire-order-notice p,
+.attire-azazie p,
+.attire-florals p,
+.attire-hair-makeup p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.attire-azazie p + p,
+.attire-florals p + p,
+.attire-hair-makeup p + p {
+  margin-top: 13px;
+}
+
+
+/* ==========================================================
+   10. ORDER WINDOW NOTICE
+   ========================================================== */
+
+.attire-order-notice {
+  background: #F8F0E9;
+  border-color: rgba(162, 65, 29, 0.22);
+  border-left: 4px solid var(--attire-terracotta);
+
+  position: relative;
+}
+
+.attire-order-notice h3 {
+  color: var(--attire-terracotta);
+  font-size: clamp(21px, 2.5vw, 27px);
+}
+
+.attire-order-notice p {
+  color: #5E5049;
+}
+
+
+/* ==========================================================
+   11. AZAZIE INFORMATION
+   ========================================================== */
+
+.attire-azazie {
+  background: var(--attire-paper);
+}
+
+.attire-azazie h3 {
+  color: var(--attire-ink);
+}
+
+.attire-azazie p {
+  color: var(--attire-muted);
+}
+
+.attire-azazie a {
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+
+/* ==========================================================
+   12. PERSONAL FLORALS
+   ========================================================== */
+
+.attire-florals {
+  background: var(--attire-ivory);
+  text-align: center;
+}
+
+.attire-florals h3 {
+  color: var(--attire-ink);
+}
+
+.attire-florals .attire-swatches {
+  margin: 22px 0 24px;
+}
+
+.attire-florals p {
+  max-width: 670px;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--attire-muted);
+}
+
+.attire-florals p:last-child {
+  font-size: 12px;
+  font-style: italic;
+}
+
+
+/* ==========================================================
+   13. HAIR & MAKEUP
+   ========================================================== */
+
+.attire-hair-makeup {
+  background: rgba(238, 226, 214, 0.42);
+  text-align: center;
+}
+
+.attire-hair-makeup h3 {
+  color: var(--attire-ink);
+}
+
+.attire-hair-makeup p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--attire-muted);
+}
+
+
+/* ==========================================================
+   14. OPTIONAL STYLE BOARD SUPPORT
+   ========================================================== */
+
+/*
+   These classes are ready if we later add a
+   full outfit flat-lay image to the attire page.
+*/
+
+.attire-style-board {
+  margin: 0 auto 36px;
+  max-width: 820px;
+  text-align: center;
+}
+
+.attire-style-board img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  border-radius: 10px;
+  border: 1px solid var(--attire-border);
+
+  background: var(--attire-paper);
+}
+
+.attire-style-board figcaption {
+  margin-top: 12px;
+  color: var(--attire-muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+
+/* ==========================================================
+   15. OPTIONAL SECTION DIVIDERS
+   ========================================================== */
+
+.attire-section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  margin: 38px 0;
+  color: var(--attire-matcha);
+}
+
+.attire-section-divider::before,
+.attire-section-divider::after {
+  content: "";
+  display: block;
+  flex: 1;
+  max-width: 170px;
+  height: 1px;
+  background: var(--attire-border);
+}
+
+
+/* ==========================================================
+   16. TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .party-attire {
+    padding: 18px 0 55px;
+  }
+
+  .attire-items {
+    gap: 14px;
+  }
+
+  .attire-item {
+    padding: 21px;
+  }
+
+  .attire-swatches {
+    gap: 16px 18px;
+  }
+}
+
+
+/* ==========================================================
+   17. MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+  .party-attire {
+    padding: 12px 0 45px;
+    font-size: 14px;
+  }
+
+  .attire-header {
+    padding: 36px 16px;
+    margin-bottom: 22px;
+  }
+
+  .attire-header::before {
+    inset: 7px;
+  }
+
+  .attire-header h2 {
+    margin-bottom: 24px;
+  }
+
+  .attire-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .attire-swatches {
+    gap: 15px 12px;
+  }
+
+  .attire-swatch {
+    min-width: 64px;
+    max-width: 82px;
+    font-size: 10px;
+  }
+
+  .attire-swatch-dot {
+    width: 38px;
+    height: 38px;
+  }
+
+  .attire-intro {
+    margin-bottom: 38px !important;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .attire-outfit {
+    padding-bottom: 26px;
+  }
+
+  .attire-outfit > .attire-swatches {
+    margin-bottom: 30px;
+  }
+
+  .attire-items {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .attire-item {
+    padding: 21px 19px;
+    gap: 11px;
+  }
+
+  .attire-item-heading h4 {
+    font-size: 20px;
+  }
+
+  .attire-order-notice,
+  .attire-azazie,
+  .attire-florals,
+  .attire-hair-makeup {
+    margin-top: 14px;
+    padding: 24px 20px;
+  }
+
+  .attire-order-notice h3,
+  .attire-azazie h3,
+  .attire-florals h3,
+  .attire-hair-makeup h3 {
+    font-size: 23px;
+  }
+
+  .attire-order-notice p,
+  .attire-azazie p,
+  .attire-florals p,
+  .attire-hair-makeup p {
+    font-size: 13px;
+  }
+}
+
+
+/* ==========================================================
+   18. SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 380px) {
+  .attire-swatch {
+    min-width: 56px;
+    max-width: 70px;
+  }
+
+  .attire-swatch-dot {
+    width: 34px;
+    height: 34px;
+  }
+
+  .attire-item {
+    padding: 18px 16px;
+  }
+
+  .attire-color-label {
+    font-size: 10px;
+  }
+}
+
+
+/* ==========================================================
+   19. ACCESSIBILITY
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .party-attire *,
+  .party-attire *::before,
+  .party-attire *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
